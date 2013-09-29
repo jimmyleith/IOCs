@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="32a6b675-6c98-4d2d-b8c8-3d879517878f" last-modified="2012-09-27T23:37:15" xmlns="http://schemas.mandiant.com/2010/ioc">
+  <short_description>Ponmocup DLL imports</short_description>
+  <description>This IOC detects Kernel32.dll imports commonly used by Ponmocup malware (based on analysis of 5 samples found on VT). Out of 44 imports that all 5 samples had in common I selected a smaller list of what I think (hope!) is a rare combination. The detection should work on memory or files alike. The MD5 list is just for reference, since it's unlikely that these exact samples are found elsewhere.</description>
+  <authored_by>TomU @c_APT_ure</authored_by>
+  <authored_date>2012-09-27T22:30:55</authored_date>
+  <links>
+    <link rel="report">https://www.virustotal.com/file/da82533bccee1c9a44d12d1c43f8d9f28e6e92ef91b7034bfffd89c14732328d/analysis/</link>
+    <link rel="report">https://www.virustotal.com/file/da3ed6da86f3b3fcfc9326565502a5a8c2bf044d28b688fb9fa03a42d0e69e4e/analysis/</link>
+    <link rel="report">https://www.virustotal.com/file/c4798a227a795641ee3e9312ad50d0303378a654b771b6687ff750b066d81f7a/analysis/</link>
+    <link rel="report">https://www.virustotal.com/file/d73773487e1d6c6c615a65f32844125cbb77c192b397683acac224a458a105dc/analysis/</link>
+    <link rel="report">https://www.virustotal.com/file/ccc5d07f6a0359d65d3efc488bb4beb8b283ca92f20b2c8633f746ebf80e0e2b/analysis/</link>
+  </links>
+  <definition>
+    <Indicator operator="OR">
+      <IndicatorItem id="5f719a5d-9398-402b-9eac-1e64e368ba4c" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">bb479a7e69c5e1c503aa6dd506c732f3</Content>
+      </IndicatorItem>
+      <IndicatorItem id="283d99d2-a854-458f-985a-4957812e27b5" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">8f66942f1e6c418c018ba847a994c13d</Content>
+      </IndicatorItem>
+      <IndicatorItem id="d2a8c5b3-9554-4683-846a-67fe032b3e47" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">a4019c2a98b1117e0311b30e5b6c030a</Content>
+      </IndicatorItem>
+      <IndicatorItem id="bb9547f9-89f0-48d3-94a3-45b041dba932" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">af9940f74984e1b73b9984a4f628f7ec</Content>
+      </IndicatorItem>
+      <IndicatorItem id="bbdbb972-ec65-4d63-9855-dc1a239ffb7a" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">dcbf251d0215c279278b733f579ed388</Content>
+      </IndicatorItem>
+      <Indicator operator="AND" id="a3fbff7f-85fc-44fb-9e49-f0e71e153fa5">
+        <IndicatorItem id="6266c365-cabe-44f3-92b1-7da22f9419f0" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+          <Content type="string">WideCharToMultiByte</Content>
+        </IndicatorItem>
+        <IndicatorItem id="66677b5b-57de-4a0b-b5f5-2e41a4734df7" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+          <Content type="string">MultiByteToWideChar</Content>
+        </IndicatorItem>
+        <IndicatorItem id="1aac48f3-da7f-42bd-ab6c-d7f578e1af32" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+          <Content type="string">UnhandledExceptionFilter</Content>
+        </IndicatorItem>
+        <IndicatorItem id="135e9589-c0f8-4cbc-9b80-4b51086a107e" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+          <Content type="string">SetHandleCount</Content>
+        </IndicatorItem>
+        <IndicatorItem id="1d81b7a6-7633-4cd3-8e13-f95ee5684eb5" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+          <Content type="string">RtlUnwind</Content>
+        </IndicatorItem>
+        <IndicatorItem id="8bdca3c4-e9fc-4999-914d-e799dd3d4003" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+          <Content type="string">QueryPerformanceCounter</Content>
+        </IndicatorItem>
+        <IndicatorItem id="5a217813-c830-4486-88e8-279acf8a8515" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+          <Content type="string">LCMapStringW</Content>
+        </IndicatorItem>
+        <IndicatorItem id="587ff32e-83d0-4958-9ec1-8a358f670223" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+          <Content type="string">GetVersionExA</Content>
+        </IndicatorItem>
+        <IndicatorItem id="396094c8-7640-4131-a5d2-04640b67f6ab" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+          <Content type="string">GetTickCount</Content>
+        </IndicatorItem>
+        <IndicatorItem id="492146ce-07d0-48d5-afb7-8f4855c3742f" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+          <Content type="string">GetSystemTimeAsFileTime</Content>
+        </IndicatorItem>
+        <IndicatorItem id="cf70d3b7-25ed-4ba8-8521-18eeeefe28e3" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+          <Content type="string">GetStringTypeW</Content>
+        </IndicatorItem>
+        <IndicatorItem id="592fcd47-dcf2-4a2c-b0fa-dc9ae6a2ed49" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+          <Content type="string">GetStdHandle</Content>
+        </IndicatorItem>
+        <IndicatorItem id="9ddeb8db-e9c5-4011-96ee-9247939bbdc3" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+          <Content type="string">GetStartupInfoA</Content>
+        </IndicatorItem>
+        <IndicatorItem id="2736a1a6-e5b7-4343-ab6a-e87de6f4888a" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+          <Content type="string">GetOEMCP</Content>
+        </IndicatorItem>
+        <IndicatorItem id="6d754df5-d1cd-4e38-80f7-9d6daa0ba6a5" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+          <Content type="string">GetLocaleInfoA</Content>
+        </IndicatorItem>
+        <IndicatorItem id="15e22189-9806-4439-af16-c336aa05f379" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+          <Content type="string">GetEnvironmentStringsW</Content>
+        </IndicatorItem>
+        <IndicatorItem id="332f7bbf-f857-43fb-836f-20ccb457b0b7" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+          <Content type="string">GetCurrentThreadId</Content>
+        </IndicatorItem>
+        <IndicatorItem id="d7546e02-e2e9-44ee-a461-18d253f2e194" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+          <Content type="string">GetCPInfo</Content>
+        </IndicatorItem>
+        <IndicatorItem id="680d5f7c-0644-4fc3-a272-363c2e6cac63" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+          <Content type="string">GetCommandLineA</Content>
+        </IndicatorItem>
+        <IndicatorItem id="fff45933-cb65-400f-9019-c71b991a79a9" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+          <Content type="string">GetACP</Content>
+        </IndicatorItem>
+        <IndicatorItem id="1261a985-72f0-41dd-8985-d068acb68287" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+          <Content type="string">FreeEnvironmentStringsW</Content>
+        </IndicatorItem>
+      </Indicator>
+      <Indicator operator="AND" id="913fc9ee-3130-48ad-9a5b-a7032ea83f36">
+        <IndicatorItem id="d8b10c1a-7342-4808-af26-773ba5a651c3" condition="contains">
+          <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+          <Content type="string">KERNEL32.DLL</Content>
+        </IndicatorItem>
+        <IndicatorItem id="6ab4e292-89f8-468e-8b8c-afe9417a68e9" condition="contains">
+          <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+          <Content type="string">WideCharToMultiByte</Content>
+        </IndicatorItem>
+        <IndicatorItem id="1170e075-56af-4a74-b7be-ff0620878ce9" condition="contains">
+          <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+          <Content type="string">MultiByteToWideChar</Content>
+        </IndicatorItem>
+        <IndicatorItem id="1fbfc6a8-9511-406e-ac45-affa98dbccc7" condition="contains">
+          <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+          <Content type="string">UnhandledExceptionFilter</Content>
+        </IndicatorItem>
+        <IndicatorItem id="e1b0427e-57ae-4984-ba91-66286f8cee34" condition="contains">
+          <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+          <Content type="string">SetHandleCount</Content>
+        </IndicatorItem>
+        <IndicatorItem id="c231dfdb-95c5-432f-8be2-290e25ba021d" condition="contains">
+          <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+          <Content type="string">RtlUnwind</Content>
+        </IndicatorItem>
+        <IndicatorItem id="c01a7d92-16fb-4d6f-be8a-6091c24d483b" condition="contains">
+          <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+          <Content type="string">QueryPerformanceCounter</Content>
+        </IndicatorItem>
+        <IndicatorItem id="b27b2372-94d1-4b61-9059-3664dddcc0b0" condition="contains">
+          <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+          <Content type="string">LCMapStringW</Content>
+        </IndicatorItem>
+        <IndicatorItem id="8092a620-83d3-4ccb-83c7-72f5e063e8da" condition="contains">
+          <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+          <Content type="string">GetVersionExA</Content>
+        </IndicatorItem>
+        <IndicatorItem id="c163798d-9956-4d2f-8ce7-67eddc0c4907" condition="contains">
+          <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+          <Content type="string">GetTickCount</Content>
+        </IndicatorItem>
+        <IndicatorItem id="176f3f88-2d30-451b-aa78-4b7b391b5101" condition="contains">
+          <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+          <Content type="string">GetSystemTimeAsFileTime</Content>
+        </IndicatorItem>
+        <IndicatorItem id="2f7143ea-98ac-4320-9a9b-0f85fdcfd9ce" condition="contains">
+          <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+          <Content type="string">GetStringTypeW</Content>
+        </IndicatorItem>
+        <IndicatorItem id="c192108b-4814-421a-9e75-5eba7c458294" condition="contains">
+          <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+          <Content type="string">GetStdHandle</Content>
+        </IndicatorItem>
+        <IndicatorItem id="0eff75c6-207b-4a5d-9bf2-7c659da60c15" condition="contains">
+          <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+          <Content type="string">GetStartupInfoA</Content>
+        </IndicatorItem>
+        <IndicatorItem id="15568346-ba88-497b-b5fe-407b5278b074" condition="contains">
+          <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+          <Content type="string">GetOEMCP</Content>
+        </IndicatorItem>
+        <IndicatorItem id="14d704c8-835c-4427-82e4-15048a500056" condition="contains">
+          <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+          <Content type="string">GetLocaleInfoA</Content>
+        </IndicatorItem>
+        <IndicatorItem id="c389af11-9f00-4d68-a81f-5a26e2b108c2" condition="contains">
+          <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+          <Content type="string">GetEnvironmentStringsW</Content>
+        </IndicatorItem>
+        <IndicatorItem id="a1d2aade-f43e-477c-bd10-c9855925f077" condition="contains">
+          <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+          <Content type="string">GetCurrentThreadId</Content>
+        </IndicatorItem>
+        <IndicatorItem id="391c2bad-c422-4c49-b3d2-9f5972c621a6" condition="contains">
+          <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+          <Content type="string">GetCPInfo</Content>
+        </IndicatorItem>
+        <IndicatorItem id="bc0a1e76-aaa7-4daf-a5ea-8e4903a34d71" condition="contains">
+          <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+          <Content type="string">GetCommandLineA</Content>
+        </IndicatorItem>
+        <IndicatorItem id="65ed739f-4c18-478e-afcb-24161c05b0b8" condition="contains">
+          <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+          <Content type="string">GetACP</Content>
+        </IndicatorItem>
+        <IndicatorItem id="65cbce0e-7598-49d8-b080-4439a43b1600" condition="contains">
+          <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+          <Content type="string">FreeEnvironmentStringsW</Content>
+        </IndicatorItem>
+      </Indicator>
+    </Indicator>
+  </definition>
+</ioc>
