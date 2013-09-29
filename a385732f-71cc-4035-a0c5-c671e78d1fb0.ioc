@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="a385732f-71cc-4035-a0c5-c671e78d1fb0" last-modified="2012-06-04T16:52:21" xmlns="http://schemas.mandiant.com/2010/ioc">
+  <short_description>FLAME / sKyWIper</short_description>
+  <description>Basic host based indicators found in document http://www.crysys.hu/skywiper/skywiper.pdf and https://www.securelist.com/en/blog?weblogid=208193538</description>
+  <authored_by>Zourick</authored_by>
+  <authored_date>2012-06-04T16:34:48</authored_date>
+  <links />
+  <definition>
+    <Indicator operator="OR">
+      <IndicatorItem id="e2ed7f2f-886b-4e89-9099-1546bc07b4ce" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">bb5441af1e1741fca600e9c433cb1550</Content>
+      </IndicatorItem>
+      <IndicatorItem id="0de29c2e-cc02-428e-9151-da992cd6d7ea" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">d53b39fb50841ff163f6e9cfd8b52c2e</Content>
+      </IndicatorItem>
+      <IndicatorItem id="9e07c034-68f7-45c2-a6c0-67ab9b48fa3e" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">bdc9e04388bda8527b398a8c34667e18</Content>
+      </IndicatorItem>
+      <IndicatorItem id="1930e011-8556-4541-83e7-5f47cfb36073" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">c9e00c9d94d1a790d5923b050b0bd741</Content>
+      </IndicatorItem>
+      <IndicatorItem id="9b5fbc79-18e4-4dfa-bb6a-65c6d52d8b77" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">296e04abb00ea5f18ba021c34e486746</Content>
+      </IndicatorItem>
+      <IndicatorItem id="327e032a-b42e-4618-808b-b9cfba72e0f0" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">5ad73d2e4e33bb84155ee4b35fbefc2b</Content>
+      </IndicatorItem>
+      <IndicatorItem id="9ba3a887-f51c-4a26-a610-aeeb28539747" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">dcf8dab7e0fc7a3eaf6368e05b3505c5</Content>
+      </IndicatorItem>
+      <IndicatorItem id="b565bea6-a6ac-4f52-aa9b-8521c286b600" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">06a84ad28bbc9365eb9e08c697555154</Content>
+      </IndicatorItem>
+      <IndicatorItem id="5bc144cb-8f26-4bac-97b6-7b9beb2c9bf5" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">ec992e35e794947a17804451f2a8857e</Content>
+      </IndicatorItem>
+      <IndicatorItem id="f92003b5-3de2-47cc-9882-287ba58c7262" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">296e04abb00ea5f18ba021c34e486746</Content>
+      </IndicatorItem>
+      <IndicatorItem id="26d7efd7-5f52-48f5-81d9-cfbe3b84c511" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">b604c68cd46f8839979da49bb2818c36</Content>
+      </IndicatorItem>
+      <IndicatorItem id="c1b55385-213f-442b-abe7-f8586fab5e58" condition="contains">
+        <Context document="FileItem" search="FileItem/FileName" type="mir" />
+        <Content type="string">~DEB93D.tmp</Content>
+      </IndicatorItem>
+      <IndicatorItem id="702e71b3-0c8d-4842-a73c-378a1f316fdb" condition="contains">
+        <Context document="FileItem" search="FileItem/FullPath" type="mir" />
+        <Content type="string">windows\system32\mssecmgr.ocx</Content>
+      </IndicatorItem>
+      <Indicator operator="AND" id="64b2bc86-d63f-4971-a188-547fbec0e8c0">
+        <IndicatorItem id="5d64e273-e357-4309-9a80-0e3e0e458518" condition="contains">
+          <Context document="RegistryItem" search="RegistryItem/KeyPath" type="mir" />
+          <Content type="string">SYSTEM\CurrentControlSet\Control\Lsa\Autenthication\</Content>
+        </IndicatorItem>
+        <Indicator operator="OR" id="55859cb5-995b-42c3-88dc-b497312a754d">
+          <IndicatorItem id="782c6de6-7222-4577-8c7c-bae495285b09" condition="contains">
+            <Context document="RegistryItem" search="RegistryItem/Value" type="mir" />
+            <Content type="string">mssecmgr.ocx</Content>
+          </IndicatorItem>
+          <IndicatorItem id="1be6f73f-9255-44e5-b5b9-c5dfa57c830b" condition="contains">
+            <Context document="RegistryItem" search="RegistryItem/Value" type="mir" />
+            <Content type="string">authpack.ocx</Content>
+          </IndicatorItem>
+        </Indicator>
+      </Indicator>
+    </Indicator>
+  </definition>
+</ioc>
