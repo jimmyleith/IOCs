@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="4f57b99a-7802-4f4e-9ee4-f380bb993a5c" last-modified="2012-06-28T20:14:27" xmlns="http://schemas.mandiant.com/2010/ioc">
+  <short_description>Gh0st RAT</short_description>
+  <description>This IOC details system changes that occur on a machine that has been infected with the Gh0st RAT variant that was delivered as a result of the compromise to Amnesty International's web site.  This IOC covers both the initial dropper executable and the Gh0st variant that is installed.  For Windows XP only.</description>
+  <authored_by>raustin</authored_by>
+  <authored_date>2012-05-15T15:28:35</authored_date>
+  <links />
+  <definition>
+    <Indicator operator="OR" id="e18e0fdb-0fd8-4cbb-b9e3-9bf25a9236ea">
+      <IndicatorItem id="4ee543b0-f4f3-4d60-b891-f9262e86c051" condition="contains">
+        <Context document="Network" search="Network/DNS" type="network" />
+        <Content type="string">shell.xhhow4.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="f8b95597-2bb8-47e2-8b95-03d443fcd199" condition="contains">
+        <Context document="UrlHistoryItem" search="UrlHistoryItem/URL" type="mir" />
+        <Content type="string">shell.xhhow4.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="612c6b01-62be-4bd4-a336-84ff74b9d200" condition="contains">
+        <Context document="UrlHistoryItem" search="UrlHistoryItem/URL" type="mir" />
+        <Content type="string">www.48groupclub.org</Content>
+      </IndicatorItem>
+      <IndicatorItem id="92bc895a-0cd6-4dff-869a-dcb89353b920" condition="contains">
+        <Context document="Snort" search="Snort/Snort" type="network" />
+        <Content type="string">alert tcp $HOME_NET any -&gt; $EXTERNAL_NET 1100 (msg:"MALWARE: Gh0st RAT outbound traffic detected"; flow:to_server,established; content:"Gh0st"; depth:5; reference:url,community.websense.com/blogs/securitylabs/archive/2012/05/11/amnesty-international-uk-compromised.aspx; classtype:trojan-activity; sid:1000000; rev:1;)</Content>
+      </IndicatorItem>
+      <IndicatorItem id="2996a0a1-c354-4257-bee6-fe37448fd8f8" condition="contains">
+        <Context document="Snort" search="Snort/Snort" type="network" />
+        <Content type="string">alert tcp $EXTERNAL_NET 1100 -&gt; $HOME_NET any (msg:"MALWARE: Gh0st RAT inbound traffic detected"; flow:to_server,established; content:"Gh0st"; depth:5; reference:url,community.websense.com/blogs/securitylabs/archive/2012/05/11/amnesty-international-uk-compromised.aspx; classtype:trojan-activity; sid:1000001; rev:1;)
+</Content>
+      </IndicatorItem>
+      <Indicator operator="OR" id="1ed1f8cd-69c1-4bec-91df-aaa41cd9bfec">
+        <IndicatorItem id="874240ce-1f58-4fe6-b062-484a5957044d" condition="is">
+          <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+          <Content type="md5">3EC4DE9EF2E158473208842F4631236A</Content>
+        </IndicatorItem>
+        <Indicator operator="AND" id="ac55a1a5-bf47-4ff4-b6bd-a0fb4cd31011">
+          <IndicatorItem id="efddbe52-7b1a-4558-bc10-73646003f67a" condition="is">
+            <Context document="FileItem" search="FileItem/FileName" type="mir" />
+            <Content type="string">sethc.exe</Content>
+          </IndicatorItem>
+          <IndicatorItem id="23bd537b-8031-402d-a030-748a8aa70127" condition="is">
+            <Context document="FileItem" search="FileItem/SizeInBytes" type="mir" />
+            <Content type="int">206168</Content>
+          </IndicatorItem>
+          <IndicatorItem id="7aa0027d-7ec0-465b-856c-9a3f5f31f7ab" condition="is">
+            <Context document="FileItem" search="FileItem/PEInfo/DetectedAnomalies/string" type="mir" />
+            <Content type="string">contains_eof_data</Content>
+          </IndicatorItem>
+          <IndicatorItem id="84a9d183-c573-4b54-ba50-de95f1f9c4c0" condition="is">
+            <Context document="FileItem" search="FileItem/PEInfo/PETimeStamp" type="mir" />
+            <Content type="date">2012-02-14T12:10:59Z</Content>
+          </IndicatorItem>
+          <IndicatorItem id="5bfd58a9-2209-4bbf-bb5b-8c09ddc9d738" condition="contains">
+            <Context document="FileItem" search="FileItem/PEInfo/DetectedEntryPointSignature/Name" type="mir" />
+            <Content type="string">Microsoft Visual C++ 6.0</Content>
+          </IndicatorItem>
+          <IndicatorItem id="a7027185-cd2c-4e2e-b91d-0ae5c6bd80bb" condition="is">
+            <Context document="FileItem" search="FileItem/PEInfo/Type" type="mir" />
+            <Content type="string">Executable</Content>
+          </IndicatorItem>
+          <IndicatorItem id="31881a2b-2792-4ace-acf7-37ef8582bc59" condition="contains">
+            <Context document="FileItem" search="FileItem/PEInfo/Subsystem" type="mir" />
+            <Content type="string">GUI</Content>
+          </IndicatorItem>
+          <IndicatorItem id="dbbb3669-2c5d-4ba5-9311-88ef960ecc68" condition="is">
+            <Context document="FileItem" search="FileItem/PEInfo/DigitalSignature/SignatureExists" type="mir" />
+            <Content type="string">false</Content>
+          </IndicatorItem>
+          <Indicator operator="OR" id="d63bac43-6353-4314-99a8-61020a51145c">
+            <Indicator operator="AND" id="db44331a-9c12-4cda-a61a-aec70503d2c2">
+              <IndicatorItem id="13974c2c-a68f-45ee-a501-8188cf0cf50f" condition="contains">
+                <Context document="FileItem" search="FileItem/PEInfo/ResourceInfoList/ResourceInfoItem/Type" type="mir" />
+                <Content type="string">DIALOG</Content>
+              </IndicatorItem>
+              <IndicatorItem id="e292fc96-c82f-46c3-a45a-3ac64826845c" condition="contains">
+                <Context document="FileItem" search="FileItem/PEInfo/ResourceInfoList/ResourceInfoItem/Language" type="mir" />
+                <Content type="string">Chinese (PRC)</Content>
+              </IndicatorItem>
+              <IndicatorItem id="e49177ae-6cd1-4598-b3c5-adcba5fe7719" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/ResourceInfoList/ResourceInfoItem/Name" type="mir" />
+                <Content type="string">102</Content>
+              </IndicatorItem>
+            </Indicator>
+            <Indicator operator="OR" id="ecfde5e0-d567-4c51-a9f8-dfaf0fdfa633">
+              <IndicatorItem id="bf048793-afc2-4c93-b3f7-65a7ddfda68b" condition="contains">
+                <Context document="FileItem" search="FileItem/StringList/string" type="mir" />
+                <Content type="string">DNAMMOC\NEPO\EXE.EROLPXEI\NOITACILPPa</Content>
+              </IndicatorItem>
+              <IndicatorItem id="958fb790-7129-42ea-8e22-8ca5c3da5ccb" condition="contains">
+                <Context document="FileItem" search="FileItem/StringList/string" type="mir" />
+                <Content type="string">IDO Port</Content>
+              </IndicatorItem>
+              <IndicatorItem id="9d54d356-3885-4dae-addf-8d3a48f8b7bb" condition="contains">
+                <Context document="FileItem" search="FileItem/StringList/string" type="mir" />
+                <Content type="string">SogouPinyinUp.exe</Content>
+              </IndicatorItem>
+              <IndicatorItem id="7a03dea7-0a96-4598-b93a-d73bfba16f46" condition="contains">
+                <Context document="FileItem" search="FileItem/StringList/string" type="mir" />
+                <Content type="string">0NOISREv\SWODNIw\TFOSORCIm\erawtfos</Content>
+              </IndicatorItem>
+              <IndicatorItem id="c3ab9cc4-1069-4a14-81e7-5f445bf9e1bf" condition="contains">
+                <Context document="FileItem" search="FileItem/StringList/string" type="mir" />
+                <Content type="string">Gh0st</Content>
+              </IndicatorItem>
+            </Indicator>
+          </Indicator>
+        </Indicator>
+      </Indicator>
+      <Indicator operator="OR" id="75ec8e35-0580-46ce-bbf3-e8edc1645120">
+        <IndicatorItem id="6000a7d4-327c-4145-ab39-0d30a26cecb4" condition="is">
+          <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+          <Content type="md5">A670FF4997247322200FD925CC78C94F</Content>
+        </IndicatorItem>
+        <IndicatorItem id="5acff334-127e-437b-a82c-122098552092" condition="contains">
+          <Context document="ProcessItem" search="ProcessItem/HandleList/Handle/Name" type="mir" />
+          <Content type="string">DOWNLOAD_SHELL_MUTEX_NAME</Content>
+        </IndicatorItem>
+        <Indicator operator="AND" id="9b69cddc-8c93-4794-b3c8-fa4fd3d6f5d9">
+          <IndicatorItem id="167d9788-f8fa-4b33-b8dc-7716679a1ce2" condition="is">
+            <Context document="FileItem" search="FileItem/SizeInBytes" type="mir" />
+            <Content type="int">15296</Content>
+          </IndicatorItem>
+          <IndicatorItem id="d597f230-75f1-4297-9696-b75114e7ff1d" condition="is">
+            <Context document="FileItem" search="FileItem/PEInfo/DigitalSignature/SignatureExists" type="mir" />
+            <Content type="string">true</Content>
+          </IndicatorItem>
+          <IndicatorItem id="1509cf2e-6d7f-4bed-873a-30f19d774d53" condition="is">
+            <Context document="FileItem" search="FileItem/PEInfo/PETimeStamp" type="mir" />
+            <Content type="date">2011-11-01T12:01:28Z</Content>
+          </IndicatorItem>
+          <IndicatorItem id="b8d254e5-21f1-45f7-baab-8a54680a80d2" condition="is">
+            <Context document="FileItem" search="FileItem/PEInfo/DetectedAnomalies/string" type="mir" />
+            <Content type="string">contains_eof_data</Content>
+          </IndicatorItem>
+          <IndicatorItem id="fb1c24a7-11a5-4df5-b2c7-9c4e2efa5143" condition="is">
+            <Context document="FileItem" search="FileItem/PEInfo/Type" type="mir" />
+            <Content type="string">Executable</Content>
+          </IndicatorItem>
+          <IndicatorItem id="f5ba2f46-3210-4476-8537-4a9a337ea670" condition="contains">
+            <Context document="FileItem" search="FileItem/PEInfo/Subsystem" type="mir" />
+            <Content type="string">GUI</Content>
+          </IndicatorItem>
+          <IndicatorItem id="aefddd86-656a-4428-a3b5-f53996b45d7b" condition="contains">
+            <Context document="FileItem" search="FileItem/PEInfo/DetectedEntryPointSignature/Name" type="mir" />
+            <Content type="string">Microsoft Visual C++ 6.0</Content>
+          </IndicatorItem>
+          <IndicatorItem id="536a9acf-3d0a-4dc4-8471-44743b90b8a7" condition="contains">
+            <Context document="FileItem" search="FileItem/PEInfo/DigitalSignature/CertificateSubject" type="mir" />
+            <Content type="string">Tencent Technology(Shenzhen) Company Limited</Content>
+          </IndicatorItem>
+          <IndicatorItem id="549f939c-9970-4744-bbed-2e757a924979" condition="contains">
+            <Context document="FileItem" search="FileItem/PEInfo/DigitalSignature/CertificateIssuer" type="mir" />
+            <Content type="string">VeriSign Class 3 Code Signing 2009-2 CA</Content>
+          </IndicatorItem>
+          <Indicator operator="OR" id="622d0b0f-ef4e-4b12-8188-c8dbbdf7a74b">
+            <IndicatorItem id="514b8d82-80bd-4d1b-9a37-c0b1124015e4" condition="is">
+              <Context document="FileItem" search="FileItem/FileName" type="mir" />
+              <Content type="string">SogouPinyinUp.exe</Content>
+            </IndicatorItem>
+            <IndicatorItem id="c7307dfc-e8de-45b0-9865-2e936a104008" condition="is">
+              <Context document="FileItem" search="FileItem/FileName" type="mir" />
+              <Content type="string">gamesever.exe</Content>
+            </IndicatorItem>
+            <IndicatorItem id="3f73bb9b-6a5a-45d8-b9e0-a0abb0a140e0" condition="contains">
+              <Context document="FileItem" search="FileItem/FileName" type="mir" />
+              <Content type="string">qqgamedl.exe</Content>
+            </IndicatorItem>
+            <IndicatorItem id="5bc0285a-30f1-4441-91bd-71cec5329852" condition="is">
+              <Context document="FileItem" search="FileItem/FileExtension" type="mir" />
+              <Content type="string">exe</Content>
+            </IndicatorItem>
+          </Indicator>
+        </Indicator>
+        <Indicator operator="AND" id="10ceafcd-4783-41f8-a3fc-f61a73df7439">
+          <IndicatorItem id="f79f40e3-9540-47fd-9a11-f48b074332e1" condition="contains">
+            <Context document="RegistryItem" search="RegistryItem/Path" type="mir" />
+            <Content type="string">SOFTWARE\Microsoft\Windows\CurrentVersion\Run</Content>
+          </IndicatorItem>
+          <IndicatorItem id="d8ac2d52-a40e-41d1-8ec8-ba9b2ccb0ec5" condition="contains">
+            <Context document="RegistryItem" search="RegistryItem/Text" type="mir" />
+            <Content type="string">IDO Port</Content>
+          </IndicatorItem>
+          <Indicator operator="OR" id="db99e231-f537-4c4d-bbb5-64f5a1156296">
+            <IndicatorItem id="dbb4a012-8ee6-4164-88bc-06978afc5302" condition="contains">
+              <Context document="RegistryItem" search="RegistryItem/Value" type="mir" />
+              <Content type="string">Program Files\SogouPinyinUp.exe</Content>
+            </IndicatorItem>
+            <IndicatorItem id="66e5b720-4c30-492a-8382-2236d85c4041" condition="contains">
+              <Context document="RegistryItem" search="RegistryItem/Value" type="mir" />
+              <Content type="string">qqgamedl.exe</Content>
+            </IndicatorItem>
+            <IndicatorItem id="f9af9e4d-c124-4d8f-a4b1-2dc274c282f5" condition="contains">
+              <Context document="RegistryItem" search="RegistryItem/Value" type="mir" />
+              <Content type="string">gamesever.exe</Content>
+            </IndicatorItem>
+            <IndicatorItem id="68ff5ace-7fdc-49c9-8663-338762d0951c" condition="contains">
+              <Context document="RegistryItem" search="RegistryItem/Value" type="mir" />
+              <Content type="string">43003A005C00500072006F006700720061006D002000460069006C00650073005C0053006F0067006F007500500069006E00790069006E00550070002E006500780065000000</Content>
+            </IndicatorItem>
+          </Indicator>
+        </Indicator>
+      </Indicator>
+      <Indicator operator="OR" id="ad6b2989-88b6-4de7-863f-d844a28cfeb2">
+        <IndicatorItem id="a7f22782-60f8-4ef0-a5c9-3066458e7860" condition="is">
+          <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+          <Content type="md5">D116173E35BFDE4647CBF1AD8CD5A7E6</Content>
+        </IndicatorItem>
+        <Indicator operator="AND" id="1e419d8f-09ad-42fa-a412-264f6d89fce5">
+          <IndicatorItem id="3d3cfec4-fb0f-489d-8d3d-f61b362ae5b2" condition="is">
+            <Context document="FileItem" search="FileItem/SizeInBytes" type="mir" />
+            <Content type="int">163878</Content>
+          </IndicatorItem>
+          <IndicatorItem id="a62b7e1c-dc2e-4f67-ac09-20a83834618f" condition="is">
+            <Context document="FileItem" search="FileItem/PEInfo/DetectedAnomalies/string" type="mir" />
+            <Content type="string">contains_eof_data</Content>
+          </IndicatorItem>
+          <IndicatorItem id="08b997da-3ac5-474c-928a-1a9ea34b9dcd" condition="is">
+            <Context document="FileItem" search="FileItem/PEInfo/DetectedAnomalies/string" type="mir" />
+            <Content type="string">checksum_is_zero</Content>
+          </IndicatorItem>
+          <IndicatorItem id="65c93a4c-54c2-43b7-8f0c-3957f324a4d8" condition="is">
+            <Context document="FileItem" search="FileItem/PEInfo/PETimeStamp" type="mir" />
+            <Content type="date">2012-02-11T11:12:29Z</Content>
+          </IndicatorItem>
+          <IndicatorItem id="42e03cdb-6f5b-49ac-a0f5-37b055b92ba8" condition="is">
+            <Context document="FileItem" search="FileItem/PEInfo/Type" type="mir" />
+            <Content type="string">Dll</Content>
+          </IndicatorItem>
+          <IndicatorItem id="fcd2e6e1-6e48-481f-971f-10f3e3812baa" condition="contains">
+            <Context document="FileItem" search="FileItem/PEInfo/Subsystem" type="mir" />
+            <Content type="string">GUI</Content>
+          </IndicatorItem>
+          <IndicatorItem id="e70ad37b-46da-451a-9059-10555966016a" condition="is">
+            <Context document="FileItem" search="FileItem/PEInfo/DigitalSignature/SignatureExists" type="mir" />
+            <Content type="string">false</Content>
+          </IndicatorItem>
+          <Indicator operator="OR" id="0e841e60-7ee6-4dd8-b38a-4a603f13d931">
+            <Indicator operator="OR" id="f46c446f-f1b5-46f2-8b68-bddefa9fd3a8">
+              <IndicatorItem id="d54f367d-9543-459e-ad0d-e987b42596a7" condition="contains">
+                <Context document="FileItem" search="FileItem/StringList/string" type="mir" />
+                <Content type="string">Gh0st</Content>
+              </IndicatorItem>
+              <IndicatorItem id="af5d53a5-d175-40f2-9b70-69705fea833a" condition="contains">
+                <Context document="FileItem" search="FileItem/StringList/string" type="mir" />
+                <Content type="string">CMD.EXE /C NET USER GUEST /ACTIVE:YES &amp;&amp; NET USER GUEST</Content>
+              </IndicatorItem>
+              <IndicatorItem id="07c82c54-ce04-4bea-b9c2-0ff01e09df1f" condition="contains">
+                <Context document="FileItem" search="FileItem/StringList/string" type="mir" />
+                <Content type="string">NET LOCALGROUP ADMINISTRATORS GUEST /add &amp;&amp; NET STOP sHAREDaCCESS</Content>
+              </IndicatorItem>
+              <IndicatorItem id="81861710-04ae-447d-928e-28d5b0b6a1c6" condition="contains">
+                <Context document="FileItem" search="FileItem/StringList/string" type="mir" />
+                <Content type="string">\secivreS\teSlortnoCtnerruC\METSYS</Content>
+              </IndicatorItem>
+              <IndicatorItem id="8c3ae784-9ff3-40d0-9fb9-7dcc92039565" condition="contains">
+                <Context document="FileItem" search="FileItem/StringList/string" type="mir" />
+                <Content type="string">DNAMMOC\NEPO\LLEHS\EXE.EROLPXEI\SNOITACILPPa</Content>
+              </IndicatorItem>
+              <IndicatorItem id="a584eef2-7b82-47ba-8e8e-cd56e1f721b5" condition="contains">
+                <Context document="FileItem" search="FileItem/StringList/string" type="mir" />
+                <Content type="string">0NOISREvTNERRUc\SWODNIw\TFOSORCIm\erawtfos</Content>
+              </IndicatorItem>
+              <IndicatorItem id="94f22ca8-80a3-418c-9409-a85e60b5d2b1" condition="contains">
+                <Context document="FileItem" search="FileItem/StringList/string" type="mir" />
+                <Content type="string">0NOGOLNIw\NOISREvTNERRUc\tn SWODNIw\TFOSORCIm\erawtfos</Content>
+              </IndicatorItem>
+              <IndicatorItem id="6ebc1971-16d3-457d-a168-1f88745bb981" condition="contains">
+                <Context document="FileItem" search="FileItem/StringList/string" type="mir" />
+                <Content type="string">SogouPinyinUp.exe</Content>
+              </IndicatorItem>
+              <IndicatorItem id="71782918-c994-4241-8940-5579e414e292" condition="contains">
+                <Context document="FileItem" search="FileItem/StringList/string" type="mir" />
+                <Content type="string">IDO Port</Content>
+              </IndicatorItem>
+            </Indicator>
+            <Indicator operator="AND" id="b6c4f37c-9a42-44e9-a71c-8b1576cc9fcc">
+              <IndicatorItem id="f7bcdd0a-8048-4368-a4f4-250fc5c67eff" condition="contains">
+                <Context document="FileItem" search="FileItem/PEInfo/Exports/ExportsTimeStamp" type="mir" />
+                <Content type="string">2012-02-11T11:12:29Z</Content>
+              </IndicatorItem>
+              <IndicatorItem id="6057344f-4f22-430d-86b0-655fcdd63d25" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/Exports/ExportedFunctions/string" type="mir" />
+                <Content type="string">main</Content>
+              </IndicatorItem>
+              <IndicatorItem id="6b6c4929-8a90-4ad9-b111-e5141fdef263" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/Exports/ExportedFunctions/string" type="mir" />
+                <Content type="string">ReleaseLogObjects</Content>
+              </IndicatorItem>
+              <IndicatorItem id="0d25e7c1-ba21-4a04-b8fb-a6eb3da3d1d4" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/Exports/ExportedFunctions/string" type="mir" />
+                <Content type="string">GetLog</Content>
+              </IndicatorItem>
+            </Indicator>
+          </Indicator>
+          <Indicator operator="OR" id="bef4a938-b065-446d-be2f-6756e662601b">
+            <IndicatorItem id="c988e1bd-6279-4276-8e98-764e9c71fd8c" condition="is">
+              <Context document="FileItem" search="FileItem/FileName" type="mir" />
+              <Content type="string">Utility.dll</Content>
+            </IndicatorItem>
+            <IndicatorItem id="580854da-49c7-444c-b20a-13b89f84a15e" condition="is">
+              <Context document="FileItem" search="FileItem/FileExtension" type="mir" />
+              <Content type="string">dll</Content>
+            </IndicatorItem>
+          </Indicator>
+        </Indicator>
+      </Indicator>
+      <Indicator operator="AND" id="e15ced88-baef-4ba6-833c-a2a3d62244cf">
+        <IndicatorItem id="5d07de6d-774f-44e8-bb5d-a1a72a67ea39" condition="is">
+          <Context document="PortItem" search="PortItem/remoteIP" type="mir" />
+          <Content type="IP">199.192.158.108</Content>
+        </IndicatorItem>
+        <IndicatorItem id="8b723b28-75eb-46af-ace5-5eb814c129ab" condition="is">
+          <Context document="PortItem" search="PortItem/remotePort" type="mir" />
+          <Content type="string">1100</Content>
+        </IndicatorItem>
+        <IndicatorItem id="6a98f2f1-edac-46d8-aaa0-a6436271ab4e" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/DigitalSignature/SignatureExists" type="mir" />
+          <Content type="string">false</Content>
+        </IndicatorItem>
+      </Indicator>
+    </Indicator>
+  </definition>
+</ioc>
