@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="bcb504f2-8f2c-478d-9b25-042e8b952dc6" last-modified="2012-04-12T22:25:21" xmlns="http://schemas.mandiant.com/2010/ioc">
+  <short_description>Ponmocup malware infection V2</short_description>
+  <description>- Detects an infected system from the ponmocup malware (with what I think is the most common basic indicator)
+
+- References:
+
+- http://c-apt-ure.blogspot.com/2012/02/not-apt-but-nasty-malware-ponmocup.html
+
+- http://c-apt-ure.blogspot.com/2012/03/ponmocup-lots-changed-but-not-all.html
+
+- http://www9.dyndns-server.com:8080/pub/botnet-links.html
+
+- http://www.threatexpert.com/report.aspx?md5=1098b041b743fa06e276eca074042b3d
+
+- http://www.sophos.com/en-us/threat-center/threat-analyses/viruses-and-spyware/Mal~Ponmocup-A/detailed-analysis.aspx 
+</description>
+  <authored_by>TomU @c_APT_ure</authored_by>
+  <authored_date>2012-04-09T21:37:11</authored_date>
+  <links />
+  <definition>
+    <Indicator operator="OR" id="695734d0-5b9c-48f1-ad77-b426aecb1ab3">
+      <Indicator operator="AND" id="ac49721c-a54c-47d4-b148-fd76c31e01e8">
+        <IndicatorItem id="e896e86c-8c76-4e9f-8577-3ed768e9d7f6" condition="contains">
+          <Context document="RegistryItem" search="RegistryItem/Path" type="mir" />
+          <Content type="string">SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings</Content>
+        </IndicatorItem>
+        <IndicatorItem id="f04b9bf1-e5dc-4edc-876d-47f47a628fd5" condition="is">
+          <Context document="RegistryItem" search="RegistryItem/Type" type="mir" />
+          <Content type="string">REG_BINARY</Content>
+        </IndicatorItem>
+        <Indicator operator="OR" id="c1ee476c-af71-4ab5-8d29-f2a861b6c0c5">
+          <IndicatorItem id="46b97747-ad68-4487-aede-523edaf7baff" condition="is">
+            <Context document="RegistryItem" search="RegistryItem/ValueName" type="mir" />
+            <Content type="string">6</Content>
+          </IndicatorItem>
+          <IndicatorItem id="c7999b2d-6db5-4777-b81b-ee9e3968f8b1" condition="is">
+            <Context document="RegistryItem" search="RegistryItem/ValueName" type="mir" />
+            <Content type="string">9</Content>
+          </IndicatorItem>
+        </Indicator>
+      </Indicator>
+    </Indicator>
+  </definition>
+</ioc>
