@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="10ccb93f-970b-4f0a-8e0c-5772cdd90a20" last-modified="2012-03-22T20:09:55" xmlns="http://schemas.mandiant.com/2010/ioc">
+  <short_description>ZEUS ANALYTICDNS.COM (BACKDOOR)</short_description>
+  <description>This malware is a variant of the Zeus Bot. Change the exe size range to make it fuzzy and detect exe files in the directory it gets dropped to (e.g. 100000 TO 200000). That will allow it to catch all versions and varients that still copy to that location.</description>
+  <authored_by>LucasErratus</authored_by>
+  <authored_date>2012-03-06T01:22:52</authored_date>
+  <links />
+  <definition>
+    <Indicator operator="OR" id="d541be8b-8f2b-4f59-888c-3d9710669754">
+      <IndicatorItem id="4b678ada-91a8-4a2d-b594-eb11b0ded6bd" condition="contains">
+        <Context document="DnsEntryItem" search="DnsEntryItem/Host" type="mir" />
+        <Content type="string">myapp-ups.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="edd91c0d-84d0-463b-a499-e2e292bd4cba" condition="contains">
+        <Context document="DnsEntryItem" search="DnsEntryItem/Host" type="mir" />
+        <Content type="string">analyticdns.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="ddaeb7cf-c0e0-427d-bfb9-204a3c903b5d" condition="is">
+        <Context document="FileItem" search="FileItem/PEInfo/VersionInfoList/VersionInfoItem/OriginalFilename" type="mir" />
+        <Content type="string">Y2gtqjxmvounynm.exe</Content>
+      </IndicatorItem>
+      <IndicatorItem id="b8fc9d8e-ee94-4ab8-9bea-46c513bf4c10" condition="is">
+        <Context document="FileItem" search="FileItem/PEInfo/DigitalSignature/CertificateSubject" type="mir" />
+        <Content type="string">Tfrbpcs</Content>
+      </IndicatorItem>
+      <IndicatorItem id="52ffff37-946b-46d8-9702-73fda207090f" condition="is">
+        <Context document="FileItem" search="FileItem/PEInfo/VersionInfoList/VersionInfoItem/CompanyName" type="mir" />
+        <Content type="string">Walter Hintenaus</Content>
+      </IndicatorItem>
+      <IndicatorItem id="6b4465fd-7f1a-4bb3-b49f-31854ffcd471" condition="is">
+        <Context document="FileItem" search="FileItem/PEInfo/VersionInfoList/VersionInfoItem/InternalName" type="mir" />
+        <Content type="string">Lodge Tuna Angel</Content>
+      </IndicatorItem>
+      <IndicatorItem id="8abe1f09-e14f-480b-847e-02fe7e6078e5" condition="is">
+        <Context document="FileItem" search="FileItem/PEInfo/VersionInfoList/VersionInfoItem/ProductName" type="mir" />
+        <Content type="string">Loyal</Content>
+      </IndicatorItem>
+      <IndicatorItem id="150fe4f5-e60a-4636-b2b5-3e974674f3bb" condition="is">
+        <Context document="FileItem" search="FileItem/PEInfo/VersionInfoList/VersionInfoItem/FileDescription" type="mir" />
+        <Content type="string">Seth Achoo Xiv</Content>
+      </IndicatorItem>
+      <IndicatorItem id="f868fff1-bbd7-44d6-892e-945c7c5c5ed7" condition="contains">
+        <Context document="ProcessItem" search="ProcessItem/HandleList/Handle/Name" type="mir" />
+        <Content type="string">-DED2-FBD9A76483EE}</Content>
+      </IndicatorItem>
+      <IndicatorItem id="72b8682c-9c45-43c0-8b65-9558e966a7f9" condition="contains">
+        <Context document="ProcessItem" search="ProcessItem/HandleList/Handle/Name" type="mir" />
+        <Content type="string">-6CED-298D15DD51B5}</Content>
+      </IndicatorItem>
+      <IndicatorItem id="bd06b2f6-2bbd-4c19-92bd-e5c76c663829" condition="contains">
+        <Context document="ProcessItem" search="ProcessItem/HandleList/Handle/Name" type="mir" />
+        <Content type="string">-2E3B-B788507ACFBF}</Content>
+      </IndicatorItem>
+      <IndicatorItem id="cabb2f5c-e7b6-40a3-8d90-b75ad3ad4c57" condition="contains">
+        <Context document="ProcessItem" search="ProcessItem/HandleList/Handle/Name" type="mir" />
+        <Content type="string">-377E-962C6878EE14}</Content>
+      </IndicatorItem>
+      <Indicator operator="AND" id="02cdb2f1-6c83-436e-80a9-5003b9abb050">
+        <Indicator operator="OR" id="d0a3aeda-f3cb-4304-af61-682961d2ec94">
+          <Indicator operator="AND" id="4449f2a9-6bd9-43d4-a5fa-3b1487c0f245">
+            <IndicatorItem id="2f9215bc-83e7-4fc5-bf65-861d62361af9" condition="is">
+              <Context document="FileItem" search="FileItem/FileExtension" type="mir" />
+              <Content type="string">exe</Content>
+            </IndicatorItem>
+            <Indicator operator="OR" id="03c47b72-667f-4005-bf30-9237f8530e83">
+              <IndicatorItem id="ec7334dc-6303-4fb2-bed2-2f41d6def0fc" condition="is">
+                <Context document="FileItem" search="FileItem/SizeInBytes" type="mir" />
+                <Content type="int">[154192 TO 154192]</Content>
+              </IndicatorItem>
+              <IndicatorItem id="23c771fa-da5b-4f44-ba65-16760b670c6a" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/PETimeStamp" type="mir" />
+                <Content type="date">2011-07-24T05:58:28Z</Content>
+              </IndicatorItem>
+            </Indicator>
+          </Indicator>
+          <Indicator operator="AND" id="5886e612-0dd5-4d6e-b0d4-40d9fed71964">
+            <IndicatorItem id="42dbc944-5ab0-417d-a483-d55c3a457dd3" condition="is">
+              <Context document="FileItem" search="FileItem/FileExtension" type="mir" />
+              <Content type="string">tmp</Content>
+            </IndicatorItem>
+            <IndicatorItem id="58a1619a-fb1a-4305-99e1-4b27456c4b12" condition="is">
+              <Context document="FileItem" search="FileItem/SizeInBytes" type="mir" />
+              <Content type="int">0</Content>
+            </IndicatorItem>
+          </Indicator>
+        </Indicator>
+        <Indicator operator="OR" id="8d2ae2c9-37be-440f-b601-c5c2873cb8c4">
+          <Indicator operator="AND" id="e366025b-2a13-4fff-8b1e-ce749f4b85e1">
+            <IndicatorItem id="ec8a2873-f848-481f-b5d7-b6b0c9a832fc" condition="contains">
+              <Context document="FileItem" search="FileItem/FullPath" type="mir" />
+              <Content type="string">\Users\</Content>
+            </IndicatorItem>
+            <IndicatorItem id="b91ca3f6-ea05-4ead-951d-2c27d330d87e" condition="contains">
+              <Context document="FileItem" search="FileItem/FullPath" type="mir" />
+              <Content type="string">\AppData\Roaming\</Content>
+            </IndicatorItem>
+          </Indicator>
+          <Indicator operator="AND" id="5dfd03e2-de52-4014-9bbb-d859556308ac">
+            <IndicatorItem id="b99797b4-5c60-42f8-90b8-35625e2851a2" condition="contains">
+              <Context document="FileItem" search="FileItem/FullPath" type="mir" />
+              <Content type="string">\Application Data\</Content>
+            </IndicatorItem>
+            <IndicatorItem id="4e8827a1-1076-40d0-aaef-46630f93bf17" condition="contains">
+              <Context document="FileItem" search="FileItem/FullPath" type="mir" />
+              <Content type="string">Documents</Content>
+            </IndicatorItem>
+            <IndicatorItem id="30537257-82d6-4d79-b50c-67670500edc4" condition="contains">
+              <Context document="FileItem" search="FileItem/FullPath" type="mir" />
+              <Content type="string">Settings</Content>
+            </IndicatorItem>
+          </Indicator>
+        </Indicator>
+      </Indicator>
+    </Indicator>
+  </definition>
+</ioc>
