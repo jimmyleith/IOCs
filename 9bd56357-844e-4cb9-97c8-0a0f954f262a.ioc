@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="9bd56357-844e-4cb9-97c8-0a0f954f262a" last-modified="2013-08-08T18:02:12" xmlns="http://schemas.mandiant.com/2010/ioc">
+  <short_description>Reveton</short_description>
+  <description>http://bharath-m-narayan.blogspot.com/2013/08/live-security-professional.html</description>
+  <authored_by>Megan Carney</authored_by>
+  <authored_date>2013-08-08T17:55:36</authored_date>
+  <links />
+  <definition>
+    <Indicator operator="OR" id="0ed08e74-ec02-495b-baf8-3ab5fc61be05">
+      <IndicatorItem id="d93e769b-dc89-413f-93bf-ecd538d13290" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">2eeeaa69b70944cac8a30545b3f49b77</Content>
+      </IndicatorItem>
+      <IndicatorItem id="61c6dfdc-6b59-473e-9643-a712e8c44e92" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">e3675273325b7f7df3b13fe93cd30fac</Content>
+      </IndicatorItem>
+      <IndicatorItem id="76672f94-0014-425e-a58a-53f5a372b37b" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">8a6e45d16c82c4c79cbd7730207183ca</Content>
+      </IndicatorItem>
+      <IndicatorItem id="b0ac27a7-14a5-46b7-91df-b2ffe97f55ac" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">e5a2409ad36943053135ba9bd3e08ba6</Content>
+      </IndicatorItem>
+      <IndicatorItem id="0dd5b32d-4002-45a8-abba-abebd6c2316f" condition="contains">
+        <Context document="UrlHistoryItem" search="UrlHistoryItem/URL" type="mir" />
+        <Content type="string">beg.rocklandgrad.com/forum/wm/keys/board.php?connect=17</Content>
+      </IndicatorItem>
+      <IndicatorItem id="4e4e5842-2bc5-46c7-a5fc-230f899c139a" condition="contains">
+        <Context document="UrlHistoryItem" search="UrlHistoryItem/URL" type="mir" />
+        <Content type="string">beg.rocklandgrad.com/forum/wm/keys/WFolw</Content>
+      </IndicatorItem>
+      <IndicatorItem id="2d388b3f-5928-4583-99b9-3eabc8d167b5" condition="contains">
+        <Context document="UrlHistoryItem" search="UrlHistoryItem/URL" type="mir" />
+        <Content type="string">beg.rocklandgrad.com/forum/wm/keys/7T8INre2</Content>
+      </IndicatorItem>
+      <IndicatorItem id="08dd1e7c-e3de-4cc2-ba58-85a1f690fdb5" condition="contains">
+        <Context document="UrlHistoryItem" search="UrlHistoryItem/URL" type="mir" />
+        <Content type="string">down.jjconway.com/backend.php?nomic=638&amp;main=7&amp;watch=112&amp;energy=1121&amp;beta=400&amp;bugs=134&amp;linux=168&amp;rates=371&amp;apply=677&amp;outdoors=1569755419</Content>
+      </IndicatorItem>
+    </Indicator>
+  </definition>
+</ioc>
