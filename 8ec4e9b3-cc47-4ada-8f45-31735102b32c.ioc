@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="8ec4e9b3-cc47-4ada-8f45-31735102b32c" last-modified="2012-06-25T06:21:03" xmlns="http://schemas.mandiant.com/2010/ioc">
+  <short_description>Trojan-Bredolab</short_description>
+  <description>IOC to detect a Bredolab malware variant. Process handle name is _system_xxxxxxx_ (where xxx are random hex digits)
+</description>
+  <authored_by>Cedric PERNET</authored_by>
+  <authored_date>2012-06-12T11:38:43</authored_date>
+  <links>
+    <link rel="category">Trojan</link>
+  </links>
+  <definition>
+    <Indicator operator="OR" id="0391f56c-a971-4a38-87c6-4031fae17add">
+      <IndicatorItem id="105c36ee-4b6e-41d3-bee5-69dca2f12baf" condition="contains">
+        <Context document="Network" search="Network/URI" type="network" />
+        <Content type="string">/load.php?id=0</Content>
+      </IndicatorItem>
+      <IndicatorItem id="a945148b-44a0-40ef-82f3-a04dbd9b0def" condition="contains">
+        <Context document="ProcessItem" search="ProcessItem/HandleList/Handle/Name" type="mir" />
+        <Content type="string">_SYSTEM_</Content>
+      </IndicatorItem>
+      <IndicatorItem id="607998a7-31bd-4f1d-93e7-ed595a31054a" condition="contains">
+        <Context document="FileItem" search="FileItem/FileName" type="mir" />
+        <Content type="string">wiaserv</Content>
+      </IndicatorItem>
+      <Indicator operator="OR" id="8c5bf719-1c86-4a42-99be-af139e7d537d">
+        <IndicatorItem id="9c4db7c8-0ec2-4c0b-a789-2a9c7abe4f43" condition="contains">
+          <Context document="Network" search="Network/URI" type="network" />
+          <Content type="string">controller.php?</Content>
+        </IndicatorItem>
+        <IndicatorItem id="d7d70123-53da-4c7a-b678-c5338fd95a86" condition="contains">
+          <Context document="Network" search="Network/URI" type="network" />
+          <Content type="string">action=bot&amp;</Content>
+        </IndicatorItem>
+        <IndicatorItem id="91dffb2f-121d-4193-930f-f9da581360bc" condition="contains">
+          <Context document="Network" search="Network/URI" type="network" />
+          <Content type="string">action=report&amp;guid=</Content>
+        </IndicatorItem>
+        <Indicator operator="AND" id="82f7b385-5829-4f93-9983-02050df6b269">
+          <IndicatorItem id="a0116961-f4a1-481f-933d-da0938d8925b" condition="contains">
+            <Context document="Network" search="Network/String" type="network" />
+            <Content type="string">Magic-Number:</Content>
+          </IndicatorItem>
+          <IndicatorItem id="e5e3a508-e088-499c-b8f7-3b55b2c3e4a7" condition="contains">
+            <Context document="Network" search="Network/String" type="network" />
+            <Content type="string">Entity-Info:</Content>
+          </IndicatorItem>
+        </Indicator>
+      </Indicator>
+      <Indicator operator="OR" id="64684deb-d478-4ea4-acbb-031b43a9511d">
+        <IndicatorItem id="c5520aac-bc18-4bf4-8817-45751d4d0a0d" condition="contains">
+          <Context document="FileItem" search="FileItem/FullPath" type="mir" />
+          <Content type="string">\wbem\</Content>
+        </IndicatorItem>
+        <IndicatorItem id="69355025-20a2-4bb3-b2fa-3f7b91583ff1" condition="contains">
+          <Context document="FileItem" search="FileItem/FullPath" type="mir" />
+          <Content type="string">\WinsMgr.exe\</Content>
+        </IndicatorItem>
+        <IndicatorItem id="5d5bd217-974e-4a57-bb51-b5577c3ff789" condition="contains">
+          <Context document="FileItem" search="FileItem/FullPath" type="mir" />
+          <Content type="string">\BootMgr.exe\</Content>
+        </IndicatorItem>
+      </Indicator>
+    </Indicator>
+  </definition>
+</ioc>
