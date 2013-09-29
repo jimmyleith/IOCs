@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="25a50f37-eac1-41a9-ac8d-4668df520dd1" last-modified="2012-05-01T21:38:28" xmlns="http://schemas.mandiant.com/2010/ioc">
+  <short_description>PWS-Zbot.gen.xj_EXE+ZIP+PWD_Mail</short_description>
+  <description>malware EXE in PWD-protected ZIP delivered via Mail:
+- http://www.threatexpert.com/report.aspx?md5=0b326488f7b5fc3c18641efbb6807b69
+- http://www.sophos.com/de-de/threat-center/threat-analyses/viruses-and-spyware/Troj~Agent-VXI/detailed-analysis.aspx
+- http://r.virscan.org/eb8d79b5fa6a88a21971cd8bc138e28f
+- http://www.malware-control.com/statics-pages/0b326488f7b5fc3c18641efbb6807b69.php
+- http://home.mcafee.com/VirusInfo/VirusProfile.aspx?key=1088833
+- http://home.mcafee.com/VirusInfo/VirusProfile.aspx?key=1087531
+- http://home.mcafee.com/virusinfo/virusprofile.aspx?key=1088785
+- http://vil.nai.com/vil/content/v_1092246.htm
+- http://www.threatexpert.com/report.aspx?md5=a37d6f31ab21517e1cfb1f31c215d02c
+- https://www.virustotal.com/file/944de1ac6491bf1bab2064b7179123fc5461ff6d2e520afb9fcfbc270055a752/analysis/
+- https://www.virustotal.com/file/d3af02e87863bf29074dd4a3dc2af2570e88069414faed9497fd865bff291d6a/analysis/
+</description>
+  <authored_by>TomU @c_APT_ure</authored_by>
+  <authored_date>2012-05-01T12:41:57</authored_date>
+  <links />
+  <definition>
+    <Indicator operator="OR">
+      <IndicatorItem id="87b69f88-9b20-4e01-bce4-ff505c4fd63b" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">0b326488f7b5fc3c18641efbb6807b69</Content>
+      </IndicatorItem>
+      <IndicatorItem id="30c0c2ea-71c1-491c-807d-247d1ad31902" condition="is">
+        <Context document="FileItem" search="FileItem/Sha1sum" type="mir" />
+        <Content type="string">b8d14593843d1c1bfb7af4d018070e5bb5746fb3</Content>
+      </IndicatorItem>
+      <IndicatorItem id="bab79ac8-e472-4a9b-91c9-6a8c4923a0a2" condition="contains">
+        <Context document="FileItem" search="FileItem/FileName" type="mir" />
+        <Content type="string">Details-From-Booking-Com_Reservation</Content>
+      </IndicatorItem>
+      <IndicatorItem id="1d98f957-1c4c-4002-9339-5d14a4ed073a" condition="is">
+        <Context document="Network" search="Network/DNS" type="network" />
+        <Content type="string">armyclub.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="a9eaa63b-d0b1-4f87-9d7f-a9a34826188f" condition="is">
+        <Context document="Network" search="Network/DNS" type="network" />
+        <Content type="string">safeoil.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="9d83eb82-d024-4f3c-b927-e9047c8b9110" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">d667e6d28b341d5f61e4ed78e8f80232</Content>
+      </IndicatorItem>
+      <IndicatorItem id="eb75b8cf-2238-420a-806f-479c35732ec9" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">50f0fd1302b597bf4a94643a8bf1e08e</Content>
+      </IndicatorItem>
+      <IndicatorItem id="ef0d9e2c-7d6e-40e4-9894-fbb0d9794443" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">A37D6F31AB21517E1CFB1F31C215D02C</Content>
+      </IndicatorItem>
+      <IndicatorItem id="429baed1-c948-4444-a3fe-9dcdcfa6fc40" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">82C1863434C15DB2A63525754751B9C0</Content>
+      </IndicatorItem>
+      <IndicatorItem id="46de8969-ea9c-4222-9513-988febb45ed2" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">cbe4cb47c73bfd9b8463f6dfae626872</Content>
+      </IndicatorItem>
+      <IndicatorItem id="f3b8c881-c1f3-4c7c-ab0d-decc97cc62ad" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">1b22c2f6988b89c21b7a5d8b7631f9ca</Content>
+      </IndicatorItem>
+      <IndicatorItem id="e7a84be5-d974-4a04-b054-023375d4e27a" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">f533b6c18dfdd82bf04efc8754071a02</Content>
+      </IndicatorItem>
+      <IndicatorItem id="39a27db2-1882-4fe7-839c-424b08c31204" condition="contains">
+        <Context document="Network" search="Network/DNS" type="network" />
+        <Content type="string">.0zz0.com</Content>
+      </IndicatorItem>
+      <Indicator operator="AND" id="8ec52faa-e6e9-4252-ab0e-06e644d9309a">
+        <IndicatorItem id="93faaa35-0979-471b-8f3b-ca412aaa38c7" condition="is">
+          <Context document="RegistryItem" search="RegistryItem/KeyPath" type="mir" />
+          <Content type="string">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\userinit.exe</Content>
+        </IndicatorItem>
+        <IndicatorItem id="204c32fb-b6e1-4beb-b7de-d05ee2e4a7ec" condition="is">
+          <Context document="RegistryItem" search="RegistryItem/ValueName" type="mir" />
+          <Content type="string">Debugger</Content>
+        </IndicatorItem>
+      </Indicator>
+      <Indicator operator="AND" id="2cbb42ea-5079-4615-aad6-e09124a0d1ef">
+        <IndicatorItem id="79e5a568-376d-40e7-a9b2-84927dec809d" condition="is">
+          <Context document="RegistryItem" search="RegistryItem/KeyPath" type="mir" />
+          <Content type="string">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\5.0\83F20BB1</Content>
+        </IndicatorItem>
+      </Indicator>
+    </Indicator>
+  </definition>
+</ioc>
