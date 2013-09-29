@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="326c3286-1a3c-403f-8e78-61f3ce1f3ab1" last-modified="2011-12-22T02:14:17" xmlns="http://schemas.mandiant.com/2010/ioc">
+  <short_description>Morto</short_description>
+  <description>Finds common Morto infections and alerts on either the dropper, loader, or payload. Tested with success, no FPs. DNS &amp; Process entries have not been verified.</description>
+  <authored_by>Keith Gilbert</authored_by>
+  <authored_date>2011-12-13T02:05:49</authored_date>
+  <links>
+    <link rel="report">http://www.microsoft.com/security/portal/Threat/Encyclopedia/Entry.aspx?name=Worm%3AWin32%2FMorto.A</link>
+    <link rel="category">Worm</link>
+  </links>
+  <definition>
+    <Indicator operator="OR" id="1c397a9f-6b06-4576-a249-a68c44e93a06">
+      <IndicatorItem id="fed63639-fb48-4eea-a5a3-b23cfa5fb5c8" condition="contains">
+        <Context document="DnsEntryItem" search="DnsEntryItem/RecordName" type="mir" />
+        <Content type="string">qfsl.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="00848094-f293-4d29-9b73-60f29888c3a9" condition="contains">
+        <Context document="DnsEntryItem" search="DnsEntryItem/RecordName" type="mir" />
+        <Content type="string">ms.jifr</Content>
+      </IndicatorItem>
+      <IndicatorItem id="be191250-fe4a-4414-ab39-8f0df84a968c" condition="contains">
+        <Context document="FileItem" search="FileItem/FullPath" type="mir" />
+        <Content type="string">Windows\Offline Web Pages\1.40_TestDdos</Content>
+      </IndicatorItem>
+      <IndicatorItem id="7a50b5e2-a30f-496d-a439-860a0387268e" condition="contains">
+        <Context document="FileItem" search="FileItem/FullPath" type="mir" />
+        <Content type="string">Windows\Offline Web Pages\cache.txt</Content>
+      </IndicatorItem>
+      <IndicatorItem id="295c2bd1-4966-4998-9c90-35733bbe6e3d" condition="contains">
+        <Context document="FileItem" search="FileItem/FullPath" type="mir" />
+        <Content type="string">Windows\clb.dll</Content>
+      </IndicatorItem>
+      <IndicatorItem id="ca58fc4b-c0f4-4cd7-8029-528abdf6dc5b" condition="contains">
+        <Context document="FileItem" search="FileItem/FullPath" type="mir" />
+        <Content type="string">Windows\clb.dll.bak</Content>
+      </IndicatorItem>
+      <Indicator operator="AND" id="6b5bfab6-9a6f-4d2a-8274-3f9035a77d73">
+        <IndicatorItem id="21c62d8b-b271-4d33-a984-ddada1ccc145" condition="contains">
+          <Context document="RegistryItem" search="RegistryItem/Path" type="mir" />
+          <Content type="string">SYSTEM\WPA</Content>
+        </IndicatorItem>
+        <Indicator operator="OR" id="62aecc9f-7ee9-458d-a65e-6b1c8ef724ce">
+          <IndicatorItem id="d74898ed-f960-4c4f-89c9-8814583c0879" condition="is">
+            <Context document="RegistryItem" search="RegistryItem/ValueName" type="mir" />
+            <Content type="string">ie</Content>
+          </IndicatorItem>
+          <IndicatorItem id="9cc853aa-51c2-486b-a1c1-b9b7cad2496f" condition="is">
+            <Context document="RegistryItem" search="RegistryItem/ValueName" type="mir" />
+            <Content type="string">md</Content>
+          </IndicatorItem>
+          <IndicatorItem id="49fb7fcf-e7e5-4dd1-9a0d-595d47217efd" condition="is">
+            <Context document="RegistryItem" search="RegistryItem/ValueName" type="mir" />
+            <Content type="string">sr</Content>
+          </IndicatorItem>
+          <IndicatorItem id="841d09a5-5f97-4a2a-827b-0bce63ce8461" condition="is">
+            <Context document="RegistryItem" search="RegistryItem/Value" type="mir" />
+            <Content type="string">Sens</Content>
+          </IndicatorItem>
+          <IndicatorItem id="2870cbe4-004e-491e-8a81-c4dd97c0837a" condition="is">
+            <Context document="RegistryItem" search="RegistryItem/Value" type="mir" />
+            <Content type="string">6to4</Content>
+          </IndicatorItem>
+          <IndicatorItem id="aa98e3b5-35d1-4506-a001-e5ae4950c802" condition="is">
+            <Context document="RegistryItem" search="RegistryItem/ValueName" type="mir" />
+            <Content type="string">sn</Content>
+          </IndicatorItem>
+        </Indicator>
+      </Indicator>
+      <Indicator operator="AND" id="de322980-2fb3-4202-bac3-7e5b75ee3716">
+        <IndicatorItem id="9c072e06-db1f-4ce3-b8b8-a17e4c1bf1ea" condition="contains">
+          <Context document="RegistryItem" search="RegistryItem/Path" type="mir" />
+          <Content type="string">SYSTEM\ControlSet001\Control\Windows</Content>
+        </IndicatorItem>
+        <IndicatorItem id="8467d06c-db2c-4cb9-a315-f92c7b41a4dc" condition="is">
+          <Context document="RegistryItem" search="RegistryItem/ValueName" type="mir" />
+          <Content type="string">NoPopUpsOnBoot</Content>
+        </IndicatorItem>
+        <IndicatorItem id="b0458475-4498-4020-b8f4-bbb956e2f806" condition="is">
+          <Context document="RegistryItem" search="RegistryItem/Text" type="mir" />
+          <Content type="string">00000001</Content>
+        </IndicatorItem>
+      </Indicator>
+      <Indicator operator="AND" id="d82cc485-07f3-4dc6-babd-b80df39f80a0">
+        <IndicatorItem id="b6ef5027-6ed1-4122-a3d5-e0313267be97" condition="contains">
+          <Context document="RegistryItem" search="RegistryItem/Path" type="mir" />
+          <Content type="string">Software\Microsoft\WindowsNT\CurrentVersion\AppCompatFlags\Layers</Content>
+        </IndicatorItem>
+        <IndicatorItem id="d4ddf162-ec1b-4b45-8d14-0307151d332d" condition="contains">
+          <Context document="RegistryItem" search="RegistryItem/Value" type="mir" />
+          <Content type="string">rundll32.exe=RUNASADMIN</Content>
+        </IndicatorItem>
+      </Indicator>
+      <Indicator operator="AND" id="b145bcb9-2a7c-427c-95a9-18a167f0e472">
+        <IndicatorItem id="a125724f-47d8-42a9-a3b2-d3d8b0423645" condition="is">
+          <Context document="ProcessItem" search="ProcessItem/name" type="mir" />
+          <Content type="string">svchost.exe</Content>
+        </IndicatorItem>
+        <IndicatorItem id="3ecf0f63-bc27-446d-8080-61ccb2c0f322" condition="contains">
+          <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+          <Content type="string">letmein</Content>
+        </IndicatorItem>
+        <IndicatorItem id="53dfdeeb-8a65-4128-9400-029e181db35d" condition="contains">
+          <Context document="ProcessItem" search="ProcessItem/HandleList/Handle/Name" type="mir" />
+          <Content type="string">System32\Sens32.dll</Content>
+        </IndicatorItem>
+      </Indicator>
+    </Indicator>
+  </definition>
+</ioc>
