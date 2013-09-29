@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="5c03d9e7-c67c-45e8-aa2f-326bc5ddc76a" last-modified="2012-01-19T10:55:13" xmlns="http://schemas.mandiant.com/2010/ioc">
+  <short_description>Ramnit</short_description>
+  <description>IOC for Ramnit, Advanced Malware that has rookit capabilities, and has been seen to drop addtional malware on the infected host including spam engine.</description>
+  <authored_by>Christopher Bentley</authored_by>
+  <authored_date>2012-01-17T14:14:36</authored_date>
+  <links>
+    <link rel="report">	http://contagiodump.blogspot.com/2012/01/blackhole-ramnit-samples-and-analysis.html#more</link>
+    <link rel="report">	http://www.threatexpert.com/report.aspx?md5=e4633c77362e55dde5fdcda63f826c1b</link>
+    <link rel="category">Trojan</link>
+    <link rel="category">Backdoor</link>
+    <link rel="comment">Samples for analysis provided by Andre M. DiMino - @sempersecurus</link>
+  </links>
+  <definition>
+    <Indicator operator="OR" id="12755aba-8884-4c1e-b180-ad7c8168d0d9">
+      <IndicatorItem id="9e6d34f6-36c7-400a-bf17-fa58210427c0" condition="is">
+        <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+        <Content type="string">\\.\631D2408D44C4f47AC647AB96987D4D5</Content>
+      </IndicatorItem>
+      <IndicatorItem id="038ab963-c3dc-491d-beab-31311fa5405c" condition="is">
+        <Context document="ProcessItem" search="ProcessItem/HandleList/Handle/Name" type="mir" />
+        <Content type="string">!IETld!Mutex</Content>
+      </IndicatorItem>
+      <IndicatorItem id="73160f15-1cfc-4c47-ae6e-6ad35fb50726" condition="is">
+        <Context document="DriverItem" search="DriverItem/StringList/string" type="mir" />
+        <Content type="string">c:\project\demetra\loader~1\drivers\ssdt\driver~1\objfre_win7_x86\i386\SdtRestore.pdb</Content>
+      </IndicatorItem>
+      <IndicatorItem id="860b6443-f7aa-4c06-82dd-14be3d9e5ddb" condition="is">
+        <Context document="DriverItem" search="DriverItem/StringList/string" type="mir" />
+        <Content type="string">\Device\631D2408D44C4f47AC647AB96987D4D5</Content>
+      </IndicatorItem>
+      <IndicatorItem id="5250921a-6a87-4f97-83fc-9a1a663b2a62" condition="contains">
+        <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+        <Content type="string">&lt;%IDBOT%&gt;&lt;%REMOTE={*}%&gt;&lt;#{*} {*}#&gt;ECHOADDSUBSETDATECONTENT POST</Content>
+      </IndicatorItem>
+      <IndicatorItem id="faa6ac65-577d-47df-ad99-9fdf954ac804" condition="is">
+        <Context document="DriverItem" search="DriverItem/StringList/string" type="mir" />
+        <Content type="string">631D2408D44C4f47AC647AB96987D4D5</Content>
+      </IndicatorItem>
+      <Indicator operator="AND" id="18fdd317-0766-4483-95b4-8868be17595a">
+        <IndicatorItem id="4ed686a1-64c4-4c56-b823-3b6b72627d61" condition="is">
+          <Context document="HookItem" search="HookItem/HookDescription" type="mir" />
+          <Content type="string">SystemCall</Content>
+        </IndicatorItem>
+        <IndicatorItem id="41349d8d-be33-49b4-a4ef-3d82619037b1" condition="contains">
+          <Context document="HookItem" search="HookItem/HookingModule" type="mir" />
+          <Content type="string">\LOCALS~1\Temp\</Content>
+        </IndicatorItem>
+        <IndicatorItem id="de1bd730-e252-4232-af3a-07011475bab1" condition="is">
+          <Context document="HookItem" search="HookItem/HookedModule" type="mir" />
+          <Content type="string">ntoskrnl.exe</Content>
+        </IndicatorItem>
+      </Indicator>
+      <Indicator operator="AND" id="bbb62615-fee9-4eba-bb21-65285e327300">
+        <IndicatorItem id="8c60f4df-bacb-4c11-abb1-ee9dd01c5ce9" condition="contains">
+          <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+          <Content type="string">Micorsoft Windows Service</Content>
+        </IndicatorItem>
+        <IndicatorItem id="df70d61c-7896-45fc-9759-00113639d04b" condition="contains">
+          <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+          <Content type="string">TANGrabber</Content>
+        </IndicatorItem>
+        <IndicatorItem id="84876821-aa1f-4dba-b8fd-1857754e4aae" condition="is">
+          <Context document="ProcessItem" search="ProcessItem/name" type="mir" />
+          <Content type="string">services.exe</Content>
+        </IndicatorItem>
+      </Indicator>
+      <Indicator operator="AND" id="264baed0-76c9-4586-a209-d48f9a743434">
+        <IndicatorItem id="81aa13c9-4b01-4148-9d39-6f669c799921" condition="isnot">
+          <Context document="ProcessItem" search="ProcessItem/arguments" type="mir" />
+          <Content type="string">	C:\WINDOWS\System32\svchost.exe -k netsvcs</Content>
+        </IndicatorItem>
+        <IndicatorItem id="286a1868-70c1-49bd-b9ce-1b0fd8b5efa8" condition="isnot">
+          <Context document="ProcessItem" search="ProcessItem/arguments" type="mir" />
+          <Content type="string">C:\WINDOWS\system32\svchost -k rpcss</Content>
+        </IndicatorItem>
+        <IndicatorItem id="0da14f23-195a-4f90-b0a7-8a967e0b2b8b" condition="isnot">
+          <Context document="ProcessItem" search="ProcessItem/arguments" type="mir" />
+          <Content type="string">C:\WINDOWS\System32\svchost.exe -k LocalService</Content>
+        </IndicatorItem>
+        <IndicatorItem id="2f89c662-b5cf-4b11-9732-961a654e9cf2" condition="isnot">
+          <Context document="ProcessItem" search="ProcessItem/arguments" type="mir" />
+          <Content type="string">C:\WINDOWS\System32\svchost.exe -k NetworkService</Content>
+        </IndicatorItem>
+        <IndicatorItem id="583f62e6-9e9a-4099-9a82-c04043800155" condition="isnot">
+          <Context document="ProcessItem" search="ProcessItem/arguments" type="mir" />
+          <Content type="string">C:\WINDOWS\system32\svchost -k DcomLaunch</Content>
+        </IndicatorItem>
+        <IndicatorItem id="95ba1f58-86ae-4d59-b7a3-311de18563cc" condition="is">
+          <Context document="ProcessItem" search="ProcessItem/name" type="mir" />
+          <Content type="string">svchost.exe</Content>
+        </IndicatorItem>
+        <IndicatorItem id="161e8cea-75ed-4a23-b2d3-8809274d78da" condition="isnot">
+          <Context document="ProcessItem" search="ProcessItem/arguments" type="mir" />
+          <Content type="string">C:\WINDOWS\system32\svchost.exe -k imgsvc</Content>
+        </IndicatorItem>
+      </Indicator>
+      <Indicator operator="AND" id="b43b3f86-b075-41dd-87b6-b56a80b2ceca">
+        <IndicatorItem id="2f13b819-7f28-4834-9917-17e1c4149f7a" condition="is">
+          <Context document="ProcessItem" search="ProcessItem/name" type="mir" />
+          <Content type="string">svchost.exe</Content>
+        </IndicatorItem>
+        <Indicator operator="OR" id="0badc8de-0d02-467d-8319-4c50a2644da5">
+          <IndicatorItem id="ec34eec8-549f-4520-bd77-e3e74f612265" condition="contains">
+            <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+            <Content type="string">LOCALS~1\Temp\~TM4.tmp</Content>
+          </IndicatorItem>
+          <IndicatorItem id="aa199a9e-846c-43f7-866a-c31bf5c27b97" condition="is">
+            <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+            <Content type="string">Hide Browser v1.1</Content>
+          </IndicatorItem>
+          <IndicatorItem id="90f5d6f1-4662-41f7-93de-5bda76b19c31" condition="is">
+            <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+            <Content type="string">220 220 RMNetwork FTP</Content>
+          </IndicatorItem>
+          <IndicatorItem id="ce655f87-073b-4515-9884-57f340e663f8" condition="is">
+            <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+            <Content type="string">Ftp Grabber v1.0</Content>
+          </IndicatorItem>
+          <IndicatorItem id="fcfec047-0240-4d04-ae31-05c523173927" condition="is">
+            <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+            <Content type="string">Virus Module v1.0 (exe, dll only)</Content>
+          </IndicatorItem>
+          <IndicatorItem id="009ab0ad-d348-4166-a4c1-2fee95517b0f" condition="is">
+            <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+            <Content type="string">VNC Module v1.0 (Zeus Model)</Content>
+          </IndicatorItem>
+          <IndicatorItem id="d5a1558f-fcd8-46b3-8cce-677359a827e5" condition="is">
+            <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+            <Content type="string">Byob Ernie Gild Lotto 2002-2006</Content>
+          </IndicatorItem>
+          <IndicatorItem id="b2a42a0e-11b0-4599-922e-8a544562013e" condition="is">
+            <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+            <Content type="string">Reich.exe</Content>
+          </IndicatorItem>
+          <IndicatorItem id="f2780563-7a50-41dd-89d5-1e4acebd013c" condition="contains">
+            <Context document="ProcessItem" search="ProcessItem/HandleList/Handle/Name" type="mir" />
+            <Content type="string">CTF.Compart.MutexDefaultS-1-5-21</Content>
+          </IndicatorItem>
+          <IndicatorItem id="d993955c-e8c0-4a09-9223-32f298e4d9f5" condition="contains">
+            <Context document="ProcessItem" search="ProcessItem/HandleList/Handle/Name" type="mir" />
+            <Content type="string">CTF.Layouts.MutexDefaultS-1-5-21</Content>
+          </IndicatorItem>
+          <IndicatorItem id="a284b3f0-55d0-46fe-b4cc-b0e8d9dd376f" condition="contains">
+            <Context document="ProcessItem" search="ProcessItem/HandleList/Handle/Name" type="mir" />
+            <Content type="string">CTF.TMD.MutexDefaultS-1-5-21</Content>
+          </IndicatorItem>
+          <IndicatorItem id="0be34911-7477-4bd4-a392-8a4342826b97" condition="contains">
+            <Context document="ProcessItem" search="ProcessItem/HandleList/Handle/Name" type="mir" />
+            <Content type="string">CTF.TimListCache.FMPDefaultS-1-5-21</Content>
+          </IndicatorItem>
+          <IndicatorItem id="5ca188ef-6511-425f-8e14-e9ff3430f666" condition="contains">
+            <Context document="ProcessItem" search="ProcessItem/HandleList/Handle/Name" type="mir" />
+            <Content type="string">CTF.Asm.MutexDefaultS-1-5-21</Content>
+          </IndicatorItem>
+          <IndicatorItem id="bea1f1d5-5f25-4a77-ae9d-6ef40fcb1025" condition="contains">
+            <Context document="ProcessItem" search="ProcessItem/HandleList/Handle/Name" type="mir" />
+            <Content type="string">CTF.LBES.MutexDefaultS-1-5-21</Content>
+          </IndicatorItem>
+          <IndicatorItem id="867e0a23-e268-4c4c-a3f4-4154591c9814" condition="contains">
+            <Context document="ProcessItem" search="ProcessItem/HandleList/Handle/Name" type="mir" />
+            <Content type="string">\Start Menu\Programs\Startup\</Content>
+          </IndicatorItem>
+        </Indicator>
+      </Indicator>
+      <Indicator operator="AND" id="c17d672a-0f3e-41e0-8732-4746678faecf">
+        <IndicatorItem id="4fa19b3c-460b-47bf-a7cd-68759ddd7e28" condition="is">
+          <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+          <Content type="string">X:\old_backup\Delphi\Mailer4\cl\Sources\clMailMessage.pas</Content>
+        </IndicatorItem>
+        <IndicatorItem id="65568315-dec8-428d-80df-9f7ee9bb1afd" condition="is">
+          <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+          <Content type="string">X:\old_backup\Delphi\Mailer4\cl\Sources\clSocket.pas</Content>
+        </IndicatorItem>
+        <IndicatorItem id="85881d6b-b08d-46b4-984d-bc5b4bef51c1" condition="is">
+          <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+          <Content type="string">X:\old_backup\Delphi\Mailer4\cl\Sources\clCertificate.pas</Content>
+        </IndicatorItem>
+        <IndicatorItem id="e5370d5c-47f5-4583-8378-546c51186e89" condition="is">
+          <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+          <Content type="string">X:\old_backup\Delphi\Mailer4\cl\Sources\clSspiTls.pas</Content>
+        </IndicatorItem>
+        <IndicatorItem id="330083f5-d606-42ed-9bed-302015fefac9" condition="is">
+          <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+          <Content type="string">X:\old_backup\Delphi\Mailer4\cl\Sources\clTlsSocket.pas</Content>
+        </IndicatorItem>
+        <IndicatorItem id="7ddc9947-82d0-4732-bfe4-8019cb8ce810" condition="is">
+          <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+          <Content type="string">X:\old_backup\Delphi\Mailer4\cl\Sources\clSocks.pas</Content>
+        </IndicatorItem>
+        <IndicatorItem id="ac3550a4-5b4f-42ce-a62b-06598933c7a0" condition="is">
+          <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+          <Content type="string">X:\old_backup\Delphi\Mailer4\cl\Sources\clTcpClient.pas</Content>
+        </IndicatorItem>
+        <IndicatorItem id="adaee865-6171-4f15-91d8-c160a73934af" condition="is">
+          <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+          <Content type="string">TModule_POPPeeper</Content>
+        </IndicatorItem>
+        <IndicatorItem id="ba1fe1e2-fd26-410e-a0ae-f549b35546a3" condition="is">
+          <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+          <Content type="string">TModule_Eudora</Content>
+        </IndicatorItem>
+        <IndicatorItem id="13f3ea77-faa8-4445-821c-1f156a3e7849" condition="is">
+          <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+          <Content type="string">TModule_Gmail</Content>
+        </IndicatorItem>
+        <IndicatorItem id="64885799-1ed2-4ce0-8308-33288fc77726" condition="is">
+          <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+          <Content type="string">TModule_IncrediMail</Content>
+        </IndicatorItem>
+        <IndicatorItem id="fce5b33d-31c2-44b3-a507-f55eca1b3b8f" condition="is">
+          <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+          <Content type="string">TModule_GroupMailFree</Content>
+        </IndicatorItem>
+        <IndicatorItem id="8a52d1a8-07b9-4145-a5c0-df6ddf400486" condition="is">
+          <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+          <Content type="string">TModule_VypressAuvis</Content>
+        </IndicatorItem>
+        <IndicatorItem id="38b56b49-bd19-4644-9027-a57ed48fdadd" condition="is">
+          <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+          <Content type="string">TModule_The_Bat</Content>
+        </IndicatorItem>
+        <IndicatorItem id="68edf021-e8e0-4c1b-bb51-d4d3a14ae72c" condition="is">
+          <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+          <Content type="string">TModule_Outlook0</Content>
+        </IndicatorItem>
+        <IndicatorItem id="912aade3-5100-44f9-b656-539596a6bae6" condition="is">
+          <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+          <Content type="string">TOutlookIdentItem</Content>
+        </IndicatorItem>
+      </Indicator>
+    </Indicator>
+  </definition>
+</ioc>
