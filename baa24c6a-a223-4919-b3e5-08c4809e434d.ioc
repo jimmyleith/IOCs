@@ -1,0 +1,1004 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="baa24c6a-a223-4919-b3e5-08c4809e434d" last-modified="2012-07-03T22:21:01" xmlns="http://schemas.mandiant.com/2010/ioc">
+  <short_description>Sykipot/WyksolTrojan</short_description>
+  <description>A variant of the Sykipot/Wyksol Trojan used in recent attacks.  This malware was distributed as a drive-by download exploiting CVE-2012-1889.  The initial payload (834D1D492E873DFD0C47A91B221E0258) is XOR encoded with a key of 0x95, skipping any bytes that are 0x00 or 0x95.  This unencoded payload has been used in multiple targeted campaigns to provide backdoor access to infected systems.  
+
+Reference: http://labs.alienvault.com/labs/index.php/2012/sykipot-is-back/</description>
+  <authored_by>raustin</authored_by>
+  <authored_date>2012-06-28T21:21:50</authored_date>
+  <links />
+  <definition>
+    <Indicator operator="OR" id="bc7b5d35-6adb-4d92-b472-2e66b3615c4d">
+      <IndicatorItem id="1741d5ae-0f07-497b-8192-43a8a77735e0" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">0B30A9C2A99DDF81DF864FE19CF3DFAD</Content>
+      </IndicatorItem>
+      <Indicator operator="OR" id="3229125b-44e3-42b0-b872-30df24baefc5">
+        <IndicatorItem id="fdea2ace-03c1-47b6-911d-9828afb461fc" condition="contains">
+          <Context document="UrlHistoryItem" search="UrlHistoryItem/URL" type="mir" />
+          <Content type="string">e-landusa.net</Content>
+        </IndicatorItem>
+        <IndicatorItem id="2636be32-3dfc-4946-b3c0-763b39504e79" condition="contains">
+          <Context document="UrlHistoryItem" search="UrlHistoryItem/URL" type="mir" />
+          <Content type="string">help.e-landusa.net/get.asp?nm=index.dat&amp;hnm=</Content>
+        </IndicatorItem>
+        <IndicatorItem id="accf02e7-4b45-4534-9389-7cb73acef6b9" condition="contains">
+          <Context document="Network" search="Network/DNS" type="network" />
+          <Content type="string">help.e-landusa.net</Content>
+        </IndicatorItem>
+        <IndicatorItem id="2b443ee7-5f08-48fd-9e20-d7c933cf9689" condition="contains">
+          <Context document="Network" search="Network/DNS" type="network" />
+          <Content type="string">e-landusa.net</Content>
+        </IndicatorItem>
+        <IndicatorItem id="48730d46-3463-439c-9d4d-40f4a4a46601" condition="contains">
+          <Context document="UrlHistoryItem" search="UrlHistoryItem/URL" type="mir" />
+          <Content type="string">help.e-landusa.net/put.asp?nm=p.log</Content>
+        </IndicatorItem>
+      </Indicator>
+      <Indicator operator="OR" id="121d2bf0-e7d6-4a52-be66-5799e5d7e8e2">
+        <Indicator operator="AND" id="0ed794cd-59ba-48a5-b811-a9be69bfa77e">
+          <IndicatorItem id="5f442a16-6f84-47c4-a41b-8c8ec90d4d4b" condition="contains">
+            <Context document="FileItem" search="FileItem/PEInfo/DetectedAnomalies/string" type="mir" />
+            <Content type="string">checksum_is_zero</Content>
+          </IndicatorItem>
+          <IndicatorItem id="1888cd68-a745-418f-92ed-05bf47eb85fa" condition="contains">
+            <Context document="FileItem" search="FileItem/PEInfo/Subsystem" type="mir" />
+            <Content type="string">GUI</Content>
+          </IndicatorItem>
+          <IndicatorItem id="45e8b1c6-eeed-4d38-951a-c5492de3b8b8" condition="contains">
+            <Context document="FileItem" search="FileItem/PEInfo/Type" type="mir" />
+            <Content type="string">Executable</Content>
+          </IndicatorItem>
+          <IndicatorItem id="55c9e4da-d522-4d55-b810-60516c105bc8" condition="contains">
+            <Context document="FileItem" search="FileItem/PEInfo/PETimeStamp" type="mir" />
+            <Content type="date">2012-06-20T06:58:24Z</Content>
+          </IndicatorItem>
+          <IndicatorItem id="3ab6a424-b261-4e90-818a-01011a9959d8" condition="contains">
+            <Context document="FileItem" search="FileItem/PEInfo/DetectedEntryPointSignature/Name" type="mir" />
+            <Content type="string">Microsoft Visual C++ 6.0</Content>
+          </IndicatorItem>
+          <IndicatorItem id="5887fe8f-63ca-47ff-bc04-b596e594072a" condition="is">
+            <Context document="FileItem" search="FileItem/PEInfo/DigitalSignature/SignatureExists" type="mir" />
+            <Content type="string">false</Content>
+          </IndicatorItem>
+          <IndicatorItem id="02f45bef-86ed-439c-aaa5-5edbffd2afdc" condition="is">
+            <Context document="FileItem" search="FileItem/SizeInBytes" type="mir" />
+            <Content type="int">25088</Content>
+          </IndicatorItem>
+          <Indicator operator="AND" id="0f443af7-7aef-4c94-8cfd-173cb4a97a3e">
+            <IndicatorItem id="8ca2360c-acc8-4a7b-af88-2cc9f3688816" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/Name" type="mir" />
+              <Content type="string">MSVCRT.dll</Content>
+            </IndicatorItem>
+            <IndicatorItem id="e6ad24dd-af17-480d-a1d3-c85a4da5d2bf" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/Name" type="mir" />
+              <Content type="string">USER32.dll</Content>
+            </IndicatorItem>
+            <Indicator operator="AND" id="10c4a8bc-8035-4928-87f7-57dbe2d6157b">
+              <IndicatorItem id="61b0488f-ed8b-4bc4-a2b6-8f1647d76fa2" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/Name" type="mir" />
+                <Content type="string">WININET.dll</Content>
+              </IndicatorItem>
+              <IndicatorItem id="1943bbe3-104c-4fcc-b02a-f4ba95459ad8" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+                <Content type="string">InternetWriteFile</Content>
+              </IndicatorItem>
+              <IndicatorItem id="dcd88cf5-d1da-4506-80df-8d096b5e6c5b" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+                <Content type="string">HttpEndRequestA</Content>
+              </IndicatorItem>
+              <IndicatorItem id="a850ace5-5c7d-42af-bb97-68dbdd7ac91f" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+                <Content type="string">InternetOpenA</Content>
+              </IndicatorItem>
+              <IndicatorItem id="0034b8a3-9c30-43ba-847a-05c3462c34ee" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+                <Content type="string">InternetCrackUrlA</Content>
+              </IndicatorItem>
+              <IndicatorItem id="1297b311-6430-442c-a6ea-7581f39ea9c4" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+                <Content type="string">InternetConnectA</Content>
+              </IndicatorItem>
+              <IndicatorItem id="24b7e8f8-0c57-472f-a84c-b007eade5507" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+                <Content type="string">HttpSendRequestExA</Content>
+              </IndicatorItem>
+              <IndicatorItem id="43d65f2a-6f8a-4270-9521-fedc500d565e" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+                <Content type="string">HttpSendRequestA</Content>
+              </IndicatorItem>
+              <IndicatorItem id="396c318f-9c88-4e18-bba7-b89b42321b39" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+                <Content type="string">InternetQueryOptionA</Content>
+              </IndicatorItem>
+              <IndicatorItem id="0c5b2cde-f235-40b5-a2ec-537038dfc6e1" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+                <Content type="string">InternetSetOptionA</Content>
+              </IndicatorItem>
+              <IndicatorItem id="03c13b30-8661-4603-bc25-e659aba83470" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+                <Content type="string">HttpQueryInfoA</Content>
+              </IndicatorItem>
+              <IndicatorItem id="3d4be249-68d2-4ebf-ab68-34a7985d0e72" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+                <Content type="string">InternetReadFile</Content>
+              </IndicatorItem>
+              <IndicatorItem id="a67bff74-0d79-40f4-b41a-f43bd834f2dd" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+                <Content type="string">InternetCloseHandle</Content>
+              </IndicatorItem>
+              <IndicatorItem id="fafa3106-fd6a-4f22-aa6c-de13eb39f7b6" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+                <Content type="string">HttpOpenRequestA</Content>
+              </IndicatorItem>
+              <IndicatorItem id="da481a04-8e7a-475d-9d5f-ca9f0733aec3" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+                <Content type="string">HttpAddRequestHeadersA</Content>
+              </IndicatorItem>
+            </Indicator>
+            <Indicator operator="AND" id="4420082c-643b-4dda-a902-27a265ff2989">
+              <IndicatorItem id="364793ad-cc83-45d4-b6b1-5746891805c1" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/Name" type="mir" />
+                <Content type="string">iphlpapi.dll</Content>
+              </IndicatorItem>
+              <IndicatorItem id="aed3a144-9a3d-475c-ab93-f94fc21dbac0" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+                <Content type="string">GetNetworkParams</Content>
+              </IndicatorItem>
+              <IndicatorItem id="42379f14-0a6a-4cf1-b6fa-7c5be3ba46d9" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+                <Content type="string">GetAdaptersInfo</Content>
+              </IndicatorItem>
+            </Indicator>
+            <Indicator operator="AND" id="513f58f0-5181-4fce-ad04-57d6d735bf93">
+              <IndicatorItem id="aa5c800a-17ea-443a-8238-1044a6089844" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+                <Content type="string">WS2_32.dll:000c</Content>
+              </IndicatorItem>
+              <IndicatorItem id="721e7834-68ab-4bf6-8bb5-e53407ab6c4e" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+                <Content type="string">WS2_32.dll:0074</Content>
+              </IndicatorItem>
+              <IndicatorItem id="8b8b0529-f6b8-474c-9639-edaf28fc8ad8" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+                <Content type="string">WS2_32.dll:0009</Content>
+              </IndicatorItem>
+              <IndicatorItem id="24da400a-47f7-4685-823b-36c1a72668ad" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+                <Content type="string">WS2_32.dll:0008</Content>
+              </IndicatorItem>
+              <IndicatorItem id="e61c3c70-f94c-4282-b94a-f3181d0c1593" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+                <Content type="string">WS2_32.dll:0034</Content>
+              </IndicatorItem>
+              <IndicatorItem id="28c37114-73b2-40e6-bd5d-7b538ecb50fa" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+                <Content type="string">WS2_32.dll:0073</Content>
+              </IndicatorItem>
+              <IndicatorItem id="8f4c1440-7453-410d-9d98-aa65ad083c85" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/Name" type="mir" />
+                <Content type="string">WS2_32.dll</Content>
+              </IndicatorItem>
+            </Indicator>
+            <Indicator operator="AND" id="fd8de53b-6182-4ea5-b08e-0ffc053949cc">
+              <IndicatorItem id="dd55b69b-30f7-415c-a590-06209a5d4953" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/Name" type="mir" />
+                <Content type="string">PSAPI.DLL</Content>
+              </IndicatorItem>
+              <IndicatorItem id="387db377-be8a-4843-b1e0-45ffb5bd23d1" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+                <Content type="string">EnumProcesses</Content>
+              </IndicatorItem>
+              <IndicatorItem id="238d2606-456f-4fb8-8335-67a944ac9d98" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+                <Content type="string">EnumProcessModules</Content>
+              </IndicatorItem>
+              <IndicatorItem id="66e5d292-15b5-4d2d-bcd7-21a5d65efc52" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+                <Content type="string">GetModuleFileNameExA</Content>
+              </IndicatorItem>
+            </Indicator>
+            <Indicator operator="AND" id="54177bee-86c0-4019-a1b1-07f1267e275f">
+              <IndicatorItem id="b776906f-4d31-4334-a0ac-9a23816557f0" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/Name" type="mir" />
+                <Content type="string">KERNEL32.dll</Content>
+              </IndicatorItem>
+              <IndicatorItem id="789c195f-14a9-4930-ab97-76a0a8a18855" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+                <Content type="string">WinExec</Content>
+              </IndicatorItem>
+              <IndicatorItem id="f9a57ec4-0b20-4853-b730-9524f2f150d6" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+                <Content type="string">CreateMutexA</Content>
+              </IndicatorItem>
+            </Indicator>
+            <Indicator operator="AND" id="c92ec020-6a00-465e-a234-78695c6f4f89">
+              <IndicatorItem id="e16f2500-4ff2-46fe-953b-424bb7eaeea8" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/Name" type="mir" />
+                <Content type="string">ADVAPI32.dll</Content>
+              </IndicatorItem>
+              <IndicatorItem id="218e6258-777f-4b3c-bb43-7f4e3ea2f068" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+                <Content type="string">ImpersonateSelf</Content>
+              </IndicatorItem>
+              <IndicatorItem id="ee4a7fbb-0c52-4756-9d88-24a765afbf8d" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+                <Content type="string">OpenThreadToken</Content>
+              </IndicatorItem>
+              <IndicatorItem id="35e81fd3-e2c1-4c34-98af-54834b69e0c0" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+                <Content type="string">OpenProcessToken</Content>
+              </IndicatorItem>
+              <IndicatorItem id="c00fb467-52d8-4ea5-a4fa-a8cf1d9e59d8" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+                <Content type="string">RevertToSelf</Content>
+              </IndicatorItem>
+              <IndicatorItem id="0da7eded-8e00-4d63-87ae-61fdf514126b" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+                <Content type="string">RegCreateKeyA</Content>
+              </IndicatorItem>
+              <IndicatorItem id="1a29bb68-9cc2-4fc8-8be0-4a9824b07247" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+                <Content type="string">RegDeleteValueA</Content>
+              </IndicatorItem>
+              <IndicatorItem id="726605cb-4048-4f07-82c6-1ac87e207fe1" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+                <Content type="string">RegCloseKey</Content>
+              </IndicatorItem>
+              <IndicatorItem id="72eee1c9-9a9a-4a39-accb-98fb5baba549" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+                <Content type="string">QueryServiceStatus</Content>
+              </IndicatorItem>
+              <IndicatorItem id="f818ce21-14cb-4bf5-89d9-bb93a518e59f" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+                <Content type="string">OpenServiceA</Content>
+              </IndicatorItem>
+              <IndicatorItem id="16f10f98-7a7c-41bd-9302-85788149b1f9" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+                <Content type="string">CloseServiceHandle</Content>
+              </IndicatorItem>
+              <IndicatorItem id="024904c0-2db6-44b8-adb8-1e58e0337b36" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+                <Content type="string">RegSetValueExA</Content>
+              </IndicatorItem>
+              <IndicatorItem id="a103a9a7-682f-4575-9df4-9277a966a0e6" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+                <Content type="string">AdjustTokenPrivileges</Content>
+              </IndicatorItem>
+              <IndicatorItem id="16c9ccfe-a82a-47fc-9da3-971ef061564d" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+                <Content type="string">LookupPrivilegeValueA</Content>
+              </IndicatorItem>
+              <IndicatorItem id="f9007870-33a5-45c5-a980-10479d3bd7d8" condition="is">
+                <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+                <Content type="string">StartServiceA</Content>
+              </IndicatorItem>
+            </Indicator>
+          </Indicator>
+        </Indicator>
+        <Indicator operator="AND" id="fc3947f8-225b-4e58-9d75-39d39ffc3b64">
+          <IndicatorItem id="a9af0eaf-7702-471b-bd58-9ece5cfe01de" condition="contains">
+            <Context document="RegistryItem" search="RegistryItem/Path" type="mir" />
+            <Content type="string">SOFTWARE\Microsoft\Windows\CurrentVersion\Run</Content>
+          </IndicatorItem>
+          <IndicatorItem id="078bb72c-8eaa-4cd5-bebc-bffcb4087d1e" condition="contains">
+            <Context document="RegistryItem" search="RegistryItem/Text" type="mir" />
+            <Content type="string">Powerh</Content>
+          </IndicatorItem>
+        </Indicator>
+        <Indicator operator="AND" id="83074749-2076-4bc6-a1c6-965aafb41162">
+          <IndicatorItem id="711d3090-b603-44f0-aeb3-2643a95c1e39" condition="contains">
+            <Context document="FileItem" search="FileItem/StringList/string" type="mir" />
+            <Content type="string">sleeph</Content>
+          </IndicatorItem>
+          <IndicatorItem id="659127df-9e57-4db8-a96a-d7852705387e" condition="contains">
+            <Context document="FileItem" search="FileItem/StringList/string" type="mir" />
+            <Content type="string">EXITH</Content>
+          </IndicatorItem>
+          <IndicatorItem id="df06c186-c273-4ec5-b283-f81e843c14d6" condition="contains">
+            <Context document="FileItem" search="FileItem/StringList/string" type="mir" />
+            <Content type="string">runh</Content>
+          </IndicatorItem>
+          <IndicatorItem id="147aea55-ab3b-476e-8a1d-7a783fd9d441" condition="contains">
+            <Context document="FileItem" search="FileItem/StringList/string" type="mir" />
+            <Content type="string">delh</Content>
+          </IndicatorItem>
+          <IndicatorItem id="0fcfbaa1-e5f7-497d-b68e-e802d7cd13a2" condition="contains">
+            <Context document="FileItem" search="FileItem/StringList/string" type="mir" />
+            <Content type="string">starth</Content>
+          </IndicatorItem>
+          <IndicatorItem id="5f006614-030a-4d6d-a3a6-a807bb819c8c" condition="contains">
+            <Context document="FileItem" search="FileItem/StringList/string" type="mir" />
+            <Content type="string">To start the service successfully!</Content>
+          </IndicatorItem>
+          <IndicatorItem id="7ae3fcd7-72d9-4bd6-8bb2-6aa6974e5af8" condition="contains">
+            <Context document="FileItem" search="FileItem/StringList/string" type="mir" />
+            <Content type="string">The to start the service to fail!</Content>
+          </IndicatorItem>
+          <IndicatorItem id="d0fcbb40-2c88-4697-989f-48b904135ba0" condition="contains">
+            <Context document="FileItem" search="FileItem/StringList/string" type="mir" />
+            <Content type="string">serviceslisth</Content>
+          </IndicatorItem>
+          <IndicatorItem id="a598ba74-d3bd-4a9e-ad28-4e78b1814562" condition="contains">
+            <Context document="FileItem" search="FileItem/StringList/string" type="mir" />
+            <Content type="string">tasklisth</Content>
+          </IndicatorItem>
+          <IndicatorItem id="351d9096-c8a0-4404-8b62-247bc8cb57eb" condition="contains">
+            <Context document="FileItem" search="FileItem/StringList/string" type="mir" />
+            <Content type="string">processh</Content>
+          </IndicatorItem>
+          <IndicatorItem id="4576d695-121f-412f-8445-3fe84f6974cb" condition="contains">
+            <Context document="FileItem" search="FileItem/StringList/string" type="mir" />
+            <Content type="string">porth</Content>
+          </IndicatorItem>
+          <IndicatorItem id="d48104b4-7602-49bf-8dc5-22e7fe91c829" condition="contains">
+            <Context document="FileItem" search="FileItem/StringList/string" type="mir" />
+            <Content type="string">Stop the service success!</Content>
+          </IndicatorItem>
+          <IndicatorItem id="fb5457ab-bd66-4d70-8f25-151aa3cf5fe1" condition="contains">
+            <Context document="FileItem" search="FileItem/StringList/string" type="mir" />
+            <Content type="string">Stop the service fails!</Content>
+          </IndicatorItem>
+          <IndicatorItem id="dfc96ca7-2cf1-4cfa-a0f8-843261cac73b" condition="contains">
+            <Context document="FileItem" search="FileItem/StringList/string" type="mir" />
+            <Content type="string">hhhhhhhhhhhhhhPowerhhdddddddddddddhhhhhhhhhhhhhh</Content>
+          </IndicatorItem>
+        </Indicator>
+        <Indicator operator="AND" id="c9c58ee1-60b8-4d90-a2a9-aca1b703dfbf">
+          <Indicator operator="AND" id="e74bf4d3-162e-4c55-ad53-e0c54d679d65">
+            <IndicatorItem id="bc434226-f258-4d9c-87c2-b567684a5917" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/Name" type="mir" />
+              <Content type="string">iphlpapi.dll</Content>
+            </IndicatorItem>
+            <IndicatorItem id="35b205bb-9806-43ca-8261-4244f6c33d47" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">GetNetworkParams</Content>
+            </IndicatorItem>
+            <IndicatorItem id="18197ac5-8079-44fc-becb-2b718aeea2c6" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">GetAdaptersInfo</Content>
+            </IndicatorItem>
+          </Indicator>
+          <Indicator operator="AND" id="9ede0c1d-b489-4fa2-a7fa-55f3e0a40021">
+            <IndicatorItem id="260fc815-6a43-4b80-95ab-9697e6296b99" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/Name" type="mir" />
+              <Content type="string">MSVCRT.dll</Content>
+            </IndicatorItem>
+            <IndicatorItem id="9084186a-27dd-4dbf-ae98-a4a3af1e2deb" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">memset</Content>
+            </IndicatorItem>
+            <IndicatorItem id="4068fbde-2583-45bc-985e-f07cad34dc28" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">_strnicmp</Content>
+            </IndicatorItem>
+            <IndicatorItem id="f1ac6112-9f1a-4c68-a331-2ca48d0dbd28" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">_controlfp</Content>
+            </IndicatorItem>
+            <IndicatorItem id="85d13130-56bc-460b-8024-aaf25404639e" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">__set_app_type</Content>
+            </IndicatorItem>
+            <IndicatorItem id="82d70782-71d5-49dd-bb0e-c0c9d933db75" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">__p__fmode</Content>
+            </IndicatorItem>
+            <IndicatorItem id="feaaf9a2-fa27-4e17-9db8-6deceaf3d5d8" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">__p__commode</Content>
+            </IndicatorItem>
+            <IndicatorItem id="930848f4-eac7-4d7d-9411-23ad6a36cf67" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">_adjust_fdiv</Content>
+            </IndicatorItem>
+            <IndicatorItem id="36e58a24-45d4-49c4-957a-3e8027d0d82c" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">__setusermatherr</Content>
+            </IndicatorItem>
+            <IndicatorItem id="f0a23682-b072-4685-8b92-f39cd462da29" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">_initterm</Content>
+            </IndicatorItem>
+            <IndicatorItem id="eb844c6e-7fde-4649-8b63-ebaf015291e4" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">__getmainargs</Content>
+            </IndicatorItem>
+            <IndicatorItem id="5a48851e-818b-4e1a-8c36-35a4c27b0c85" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">__p___initenv</Content>
+            </IndicatorItem>
+            <IndicatorItem id="0a11b9bf-c0ab-411b-b1c8-6ab0b88e89e6" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">_XcptFilter</Content>
+            </IndicatorItem>
+            <IndicatorItem id="6a122908-be2c-41c3-a1df-de021be2950e" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">_exit</Content>
+            </IndicatorItem>
+            <IndicatorItem id="1c8b0dca-3536-4963-88b3-d0c6258178b7" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">gmtime</Content>
+            </IndicatorItem>
+            <IndicatorItem id="edb7582e-4955-4e1b-b48d-72295e3db96f" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">asctime</Content>
+            </IndicatorItem>
+            <IndicatorItem id="713dee2e-20ad-4125-bc9f-ce10107c0a89" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">strcmp</Content>
+            </IndicatorItem>
+            <IndicatorItem id="7d1e51f2-d281-443a-be34-c170880b912c" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">strstr</Content>
+            </IndicatorItem>
+            <IndicatorItem id="60e24b74-90fd-4997-a59d-4d46f400b245" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">fseek</Content>
+            </IndicatorItem>
+            <IndicatorItem id="25e05e76-6d21-4b8e-a110-28c28d8aa206" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">ftell</Content>
+            </IndicatorItem>
+            <IndicatorItem id="b9fd659a-353a-45cd-b048-24194eb57a85" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">rewind</Content>
+            </IndicatorItem>
+            <IndicatorItem id="f1a91ada-893c-44b2-9a18-9fe7903b06bd" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">fread</Content>
+            </IndicatorItem>
+            <IndicatorItem id="e91e0720-3647-4c54-bfb9-7c8384381162" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">strcpy</Content>
+            </IndicatorItem>
+            <IndicatorItem id="12eae351-550e-4d08-8da6-dade5cd0a04d" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">fopen</Content>
+            </IndicatorItem>
+            <IndicatorItem id="081f53dc-cda4-4bfb-bb17-8c04b614c954" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">fwrite</Content>
+            </IndicatorItem>
+            <IndicatorItem id="7a560f87-68d3-4a09-a4c4-2076bddc6fb1" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">fclose</Content>
+            </IndicatorItem>
+            <IndicatorItem id="e94ff32b-8c48-4675-90a6-25914e682076" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">malloc</Content>
+            </IndicatorItem>
+            <IndicatorItem id="0c211058-b8c9-4a5b-b600-60ed019466f5" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">strcat</Content>
+            </IndicatorItem>
+            <IndicatorItem id="7074a6ff-bd5d-45ae-a14d-9a93fc44a318" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">strchr</Content>
+            </IndicatorItem>
+            <IndicatorItem id="a9f03d3e-bf3b-4ffd-92b2-a2b2e3459e99" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">strlen</Content>
+            </IndicatorItem>
+            <IndicatorItem id="dc73c793-2fd4-4464-a713-ab0ce9c3431c" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">strncpy</Content>
+            </IndicatorItem>
+            <IndicatorItem id="7ae0a81d-06eb-4627-a36b-2b77e380ce19" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">_splitpath</Content>
+            </IndicatorItem>
+            <IndicatorItem id="fbc7e5ea-b467-48e8-8c7a-5e6e32834a90" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">atoi</Content>
+            </IndicatorItem>
+            <IndicatorItem id="0aff974a-65f7-466c-9bfe-11f0cc9688d8" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">free</Content>
+            </IndicatorItem>
+            <IndicatorItem id="07b5a4b3-3ff5-460b-a2b7-d94ddc97d403" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">exit</Content>
+            </IndicatorItem>
+            <IndicatorItem id="8df9779d-4518-428e-91a1-dce27f54fa88" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">sprintf</Content>
+            </IndicatorItem>
+            <IndicatorItem id="d861a45a-2f31-44c2-8606-815423ecadca" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">memcpy</Content>
+            </IndicatorItem>
+            <IndicatorItem id="a1ba175a-9309-468b-b871-d8bd24fef59c" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">_strlwr</Content>
+            </IndicatorItem>
+            <IndicatorItem id="ac517038-e35d-46ac-b674-93dc24182e55" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">printf</Content>
+            </IndicatorItem>
+            <IndicatorItem id="41460ed9-d8c4-423c-9bf9-02a2eaf218c1" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">_except_handler3</Content>
+            </IndicatorItem>
+          </Indicator>
+          <Indicator operator="AND" id="3ab13758-3d11-4a77-bb75-26614389b5a4">
+            <IndicatorItem id="39c9d29f-243f-48cb-bf7c-6f9d9aefb147" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/Name" type="mir" />
+              <Content type="string">PSAPI.DLL</Content>
+            </IndicatorItem>
+            <IndicatorItem id="7ae802dd-1f66-494c-ae69-0cb52bfa2efa" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">EnumProcesses</Content>
+            </IndicatorItem>
+            <IndicatorItem id="00032dc6-fa94-4d13-9823-6e9a55703f56" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">EnumProcessModules</Content>
+            </IndicatorItem>
+            <IndicatorItem id="812306bc-55c8-49b1-813f-9dad7735e6ca" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">GetModuleFileNameExA</Content>
+            </IndicatorItem>
+          </Indicator>
+          <Indicator operator="AND" id="9c5554ab-1ce0-44e5-886a-afd6dec659b6">
+            <IndicatorItem id="c964f7c8-0c93-4f9f-9627-2780c886312b" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/Name" type="mir" />
+              <Content type="string">WS2_32.dll</Content>
+            </IndicatorItem>
+            <IndicatorItem id="aeae9425-18f3-4093-af2b-d8681d5f2a47" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">WS2_32.dll:0073</Content>
+            </IndicatorItem>
+            <IndicatorItem id="56232323-9223-4960-9362-78c6dd5da360" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">WS2_32.dll:0034</Content>
+            </IndicatorItem>
+            <IndicatorItem id="394bce52-08b3-40dc-a976-0e66c46872a9" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">WS2_32.dll:0008</Content>
+            </IndicatorItem>
+            <IndicatorItem id="b15cd2b8-6ab1-4492-971d-b0b0c68fa5a7" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">WS2_32.dll:0009</Content>
+            </IndicatorItem>
+            <IndicatorItem id="9b989b76-928f-4a28-b208-98234ca40a62" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">WS2_32.dll:0074</Content>
+            </IndicatorItem>
+            <IndicatorItem id="6a14033f-87f6-46dc-8940-8d1ac620edb1" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">WS2_32.dll:000c</Content>
+            </IndicatorItem>
+          </Indicator>
+          <Indicator operator="AND" id="1956cf7c-2b8d-46cf-a885-bc35117fbe94">
+            <IndicatorItem id="865ee462-dfa5-4c29-b409-0be61e3c6863" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/Name" type="mir" />
+              <Content type="string">USER32.dll</Content>
+            </IndicatorItem>
+            <IndicatorItem id="69019fa2-dceb-4224-ad34-3d842ca990e5" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">LoadIconA</Content>
+            </IndicatorItem>
+            <IndicatorItem id="8512b56d-08bf-4746-b380-49b0d853ce00" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">LoadCursorA</Content>
+            </IndicatorItem>
+            <IndicatorItem id="2d9f1cc1-d5d5-4006-bb22-7177daa96561" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">RegisterClassExA</Content>
+            </IndicatorItem>
+            <IndicatorItem id="6ef06ee4-2e5a-43db-9723-29878d046c8f" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">CreateWindowExA</Content>
+            </IndicatorItem>
+            <IndicatorItem id="cb091280-f2de-4962-8b62-9f30e43d6e4b" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">GetMessageA</Content>
+            </IndicatorItem>
+            <IndicatorItem id="5f42d573-b8f0-4143-b6d9-f800d9f91f22" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">TranslateMessage</Content>
+            </IndicatorItem>
+            <IndicatorItem id="995df6c8-1eef-4dbc-9ab7-0355a3260c56" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">DispatchMessageA</Content>
+            </IndicatorItem>
+            <IndicatorItem id="800e8f4f-0492-49db-9310-08df7854865d" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">DefWindowProcA</Content>
+            </IndicatorItem>
+            <IndicatorItem id="e69f27c2-d956-4925-993a-80d34e7aca63" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">PostQuitMessage</Content>
+            </IndicatorItem>
+          </Indicator>
+          <Indicator operator="AND" id="62ed4875-e1c9-4ee0-aa99-ef81948ceed8">
+            <IndicatorItem id="f2b6f00a-e89b-4075-9aed-65f08da787f1" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/Name" type="mir" />
+              <Content type="string">KERNEL32.dll</Content>
+            </IndicatorItem>
+            <IndicatorItem id="277956f7-e2f0-446f-b65b-f14a6474130f" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">HeapAlloc</Content>
+            </IndicatorItem>
+            <IndicatorItem id="e48b7a50-c2bf-4027-8813-f0042ffb0169" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">GetTickCount</Content>
+            </IndicatorItem>
+            <IndicatorItem id="8e6aedc2-1142-4423-a3af-88fe3961a397" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">lstrlenA</Content>
+            </IndicatorItem>
+            <IndicatorItem id="505523d7-6376-4cb7-bd75-79d210210d2b" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">GetModuleFileNameA</Content>
+            </IndicatorItem>
+            <IndicatorItem id="473d6250-3dd4-458e-be4d-4936b309f3be" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">ResumeThread</Content>
+            </IndicatorItem>
+            <IndicatorItem id="263ec43f-5305-4a89-81c5-f76874aa4663" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">CreateProcessA</Content>
+            </IndicatorItem>
+            <IndicatorItem id="c3982330-80bc-4b20-91b0-2a29d80ff6d6" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">HeapFree</Content>
+            </IndicatorItem>
+            <IndicatorItem id="4ceea99d-b615-4d61-8027-a8cae8380b71" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">SetPriorityClass</Content>
+            </IndicatorItem>
+            <IndicatorItem id="090d8888-4bd6-4515-a319-532c01653594" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">lstrcatA</Content>
+            </IndicatorItem>
+            <IndicatorItem id="0c03edb3-0756-4534-a898-fbab9af63f9d" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">GetEnvironmentVariableA</Content>
+            </IndicatorItem>
+            <IndicatorItem id="c74098dc-1d1d-4527-901b-7333ad74c76b" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">GetShortPathNameA</Content>
+            </IndicatorItem>
+            <IndicatorItem id="049c0812-859f-4f80-8d26-eeae4a65a48b" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">OpenProcess</Content>
+            </IndicatorItem>
+            <IndicatorItem id="a0cc369b-445c-4bfc-989d-f6c8ca4fa66f" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">GlobalAlloc</Content>
+            </IndicatorItem>
+            <IndicatorItem id="fd284b2a-7ac8-4d5f-b779-543e2e148a99" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">FindFirstFileA</Content>
+            </IndicatorItem>
+            <IndicatorItem id="86c6ac34-2ae2-4c05-8205-d3117feec1d0" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">FileTimeToSystemTime</Content>
+            </IndicatorItem>
+            <IndicatorItem id="9245a2d2-ddef-4041-98bb-65da9a1e9326" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">FindNextFileA</Content>
+            </IndicatorItem>
+            <IndicatorItem id="380e205f-d99b-4691-9169-ecc4bf717fa7" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">GetVersionExA</Content>
+            </IndicatorItem>
+            <IndicatorItem id="13215700-8446-4131-8fd7-d175cc9b12e1" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">GetTempPathA</Content>
+            </IndicatorItem>
+            <IndicatorItem id="ae99ca5d-8f0b-497a-a9b8-837b16185a1d" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">CloseHandle</Content>
+            </IndicatorItem>
+            <IndicatorItem id="3932e706-19e2-485e-86f3-02234c67a48a" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">GetLongPathNameA</Content>
+            </IndicatorItem>
+            <IndicatorItem id="95d81ae2-f6a1-458c-a5c5-c685d13dfccb" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">CreateFileA</Content>
+            </IndicatorItem>
+            <IndicatorItem id="b28d3181-434a-48bf-9b2c-6a96a0375bc9" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">GetFileSize</Content>
+            </IndicatorItem>
+            <IndicatorItem id="4abefbe8-a39b-4565-8955-8dbf10bb7107" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">DeleteFileA</Content>
+            </IndicatorItem>
+            <IndicatorItem id="4fc2f3ed-7ce3-44a2-bda3-3de45de80f87" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">GetLocalTime</Content>
+            </IndicatorItem>
+            <IndicatorItem id="6f4938ba-616b-4ad1-b24b-519aa80c89b9" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">WinExec</Content>
+            </IndicatorItem>
+            <IndicatorItem id="81a74252-be8f-4bb7-bc0a-d5352a73e7fa" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">GetCurrentThread</Content>
+            </IndicatorItem>
+            <IndicatorItem id="b12c6b1b-54eb-4933-99d6-96817d1dbda8" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">GetCurrentProcess</Content>
+            </IndicatorItem>
+            <IndicatorItem id="fc4e7afd-e8ed-4875-97df-84d6534ece0f" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">LocalAlloc</Content>
+            </IndicatorItem>
+            <IndicatorItem id="226ca972-069c-4dcf-a0ba-0f2eca50259d" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">LocalFree</Content>
+            </IndicatorItem>
+            <IndicatorItem id="daca48fd-3b36-4d0d-8548-6addefe0d75a" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">GetComputerNameA</Content>
+            </IndicatorItem>
+            <IndicatorItem id="6a4ca8da-95c5-40f1-8c66-54ec910a65b0" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">CreateMutexA</Content>
+            </IndicatorItem>
+            <IndicatorItem id="d15878d7-8efe-41cc-bbec-f6ca7370d042" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">GetLastError</Content>
+            </IndicatorItem>
+            <IndicatorItem id="0ab38f8d-a0d5-4c05-9bf9-4cedee37a91c" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">CreateThread</Content>
+            </IndicatorItem>
+            <IndicatorItem id="99ee51ec-c82f-4c38-bc81-e9451f1cbf72" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">Sleep</Content>
+            </IndicatorItem>
+            <IndicatorItem id="aca8f247-2627-408c-a0b1-a0fa96bb493d" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">LoadLibraryA</Content>
+            </IndicatorItem>
+            <IndicatorItem id="c3fdfdaa-4ed0-4fdd-82ae-9ab5df902977" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">GetProcAddress</Content>
+            </IndicatorItem>
+            <IndicatorItem id="9bdc6056-1ae5-449f-8db0-101e138722a5" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">FreeLibrary</Content>
+            </IndicatorItem>
+            <IndicatorItem id="233d217e-dcf9-4442-b58d-a1c6ad01bb6e" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">GetProcessHeap</Content>
+            </IndicatorItem>
+            <IndicatorItem id="e0a01a75-4b07-4250-8567-3d3590c7b7a3" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">CreateToolhelp32Snapshot</Content>
+            </IndicatorItem>
+            <IndicatorItem id="74ffbb4e-8dea-4e1f-8535-ddda3514f4e1" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">lstrcpyA</Content>
+            </IndicatorItem>
+            <IndicatorItem id="f6d3c5b4-bb89-4a87-bf5a-3353af33f56d" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">Process32First</Content>
+            </IndicatorItem>
+            <IndicatorItem id="7bc3b758-05cc-4274-8a60-c0e15e0acc0c" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">Process32Next</Content>
+            </IndicatorItem>
+            <IndicatorItem id="91ed59cd-1202-466c-928d-67b363314ebe" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">Module32First</Content>
+            </IndicatorItem>
+            <IndicatorItem id="2f92636c-c028-4b57-afbd-5c4b66e3d555" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">SetThreadPriority</Content>
+            </IndicatorItem>
+          </Indicator>
+          <Indicator operator="AND" id="d921dbb6-ffbf-4220-9a7c-190c7dd8527e">
+            <IndicatorItem id="18cc7053-7c0b-4289-8b2d-88faa7e6c0eb" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/Name" type="mir" />
+              <Content type="string">ADVAPI32.dll</Content>
+            </IndicatorItem>
+            <IndicatorItem id="c1229125-79d1-4c21-a038-fdef8f6cfef0" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">EnumServicesStatusA</Content>
+            </IndicatorItem>
+            <IndicatorItem id="4b3e3c3e-a4ed-4946-9bad-1206b887c55f" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">ControlService</Content>
+            </IndicatorItem>
+            <IndicatorItem id="a62e3d69-b99d-4e3d-8db5-69c8a27ae66f" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">ImpersonateSelf</Content>
+            </IndicatorItem>
+            <IndicatorItem id="37080d37-0ab5-406f-8657-8fcde8ba8b5e" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">OpenThreadToken</Content>
+            </IndicatorItem>
+            <IndicatorItem id="a8bf5e8e-0f2a-4510-9d3b-d072ea89624b" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">OpenProcessToken</Content>
+            </IndicatorItem>
+            <IndicatorItem id="1df4e375-763b-48c5-b860-9b3050d96ed1" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">AllocateAndInitializeSid</Content>
+            </IndicatorItem>
+            <IndicatorItem id="2c41186d-22a9-43e1-a19d-86d131ed8d7f" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">InitializeSecurityDescriptor</Content>
+            </IndicatorItem>
+            <IndicatorItem id="147cfa08-ec8f-4872-af34-32125a5b24ff" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">GetLengthSid</Content>
+            </IndicatorItem>
+            <IndicatorItem id="1aff1a14-f40a-4b8f-8d31-88d796204e49" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">InitializeAcl</Content>
+            </IndicatorItem>
+            <IndicatorItem id="4c746946-617f-4cef-a41b-2b0198ff499b" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">AddAccessAllowedAce</Content>
+            </IndicatorItem>
+            <IndicatorItem id="afdc85a4-56a1-4a11-85aa-537ba4b4bc09" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">SetSecurityDescriptorDacl</Content>
+            </IndicatorItem>
+            <IndicatorItem id="0b81323e-5795-48e5-880a-9037af999b53" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">SetSecurityDescriptorGroup</Content>
+            </IndicatorItem>
+            <IndicatorItem id="fa7cf19a-ecc6-4da1-82e4-0d9beedb531a" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">SetSecurityDescriptorOwner</Content>
+            </IndicatorItem>
+            <IndicatorItem id="b455621a-e10b-44ba-a93b-0dcb769d5087" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">IsValidSecurityDescriptor</Content>
+            </IndicatorItem>
+            <IndicatorItem id="f6e68742-d29a-4d96-97d2-3c57f3182538" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">AccessCheck</Content>
+            </IndicatorItem>
+            <IndicatorItem id="ea23ae73-7a08-437c-8c89-cf2206bf47f6" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">RevertToSelf</Content>
+            </IndicatorItem>
+            <IndicatorItem id="a2ce2371-8c93-405e-8d8d-58facbf73a0b" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">FreeSid</Content>
+            </IndicatorItem>
+            <IndicatorItem id="ae9d03da-22d5-40a9-806c-958d7ddb9134" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">RegCreateKeyA</Content>
+            </IndicatorItem>
+            <IndicatorItem id="db62b0d9-9578-4db4-81f9-eaa3d77007af" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">RegDeleteValueA</Content>
+            </IndicatorItem>
+            <IndicatorItem id="d0700297-51e5-41ae-9f4e-b44619a7bcac" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">RegCloseKey</Content>
+            </IndicatorItem>
+            <IndicatorItem id="265da60f-14a0-49fa-80fd-f9249bd3caf6" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">QueryServiceStatus</Content>
+            </IndicatorItem>
+            <IndicatorItem id="ff4bfdde-6431-4b2c-aad8-91620ef94df2" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">OpenServiceA</Content>
+            </IndicatorItem>
+            <IndicatorItem id="93363547-4591-45ef-a857-cfd0be69b294" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">CloseServiceHandle</Content>
+            </IndicatorItem>
+            <IndicatorItem id="6ae26db7-8013-444c-9a7a-d6a457a2cfba" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">OpenSCManagerA</Content>
+            </IndicatorItem>
+            <IndicatorItem id="ad6dd6e5-799c-4e26-a190-c6dc43963f38" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">GetUserNameA</Content>
+            </IndicatorItem>
+            <IndicatorItem id="e135094c-3b55-4eff-86f0-195aa0ce5b0d" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">RegSetValueExA</Content>
+            </IndicatorItem>
+            <IndicatorItem id="6ae7466a-f722-4557-a453-da244399ea41" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">AdjustTokenPrivileges</Content>
+            </IndicatorItem>
+            <IndicatorItem id="c88b3be0-a883-43bf-a5c7-da785f8d2562" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">LookupPrivilegeValueA</Content>
+            </IndicatorItem>
+            <IndicatorItem id="69213939-4943-4bd6-ab90-289b95e1d2a5" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">StartServiceA</Content>
+            </IndicatorItem>
+          </Indicator>
+          <Indicator operator="AND" id="7eb4ccde-e5d6-408f-bc79-68f970d7e19d">
+            <IndicatorItem id="53669704-1008-4150-a691-4227a5ac9572" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/Name" type="mir" />
+              <Content type="string">WININET.dll</Content>
+            </IndicatorItem>
+            <IndicatorItem id="0fd97e2a-9872-4028-8f09-809e8033a8ff" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">InternetWriteFile</Content>
+            </IndicatorItem>
+            <IndicatorItem id="6f2865d2-6d41-40de-992c-c8d68cad0b2c" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">HttpEndRequestA</Content>
+            </IndicatorItem>
+            <IndicatorItem id="b8e39b6a-22d6-4e28-ac40-84bec7486416" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">InternetOpenA</Content>
+            </IndicatorItem>
+            <IndicatorItem id="c9c830d1-e4c8-4763-a053-0ee5ae52eb3a" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">InternetCrackUrlA</Content>
+            </IndicatorItem>
+            <IndicatorItem id="fd7aba42-0f47-4a57-8310-49f5fac9dbf7" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">InternetConnectA</Content>
+            </IndicatorItem>
+            <IndicatorItem id="08fda5ea-8ac5-4d52-bcd9-692726a895bc" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">HttpSendRequestExA</Content>
+            </IndicatorItem>
+            <IndicatorItem id="e3b6a496-b2e3-4dfb-9494-1bdc20030cac" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">HttpSendRequestA</Content>
+            </IndicatorItem>
+            <IndicatorItem id="95b6de0b-9345-41b6-b418-09662b17cd8c" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">InternetQueryOptionA</Content>
+            </IndicatorItem>
+            <IndicatorItem id="6ebec9fd-eed5-4bcb-a2a0-f5bf1e2369ab" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">InternetSetOptionA</Content>
+            </IndicatorItem>
+            <IndicatorItem id="4c1030b8-1a95-4239-9ef4-e393959e2d9e" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">HttpQueryInfoA</Content>
+            </IndicatorItem>
+            <IndicatorItem id="ca84edea-ae23-4c93-aaea-3447618fbb0f" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">InternetReadFile</Content>
+            </IndicatorItem>
+            <IndicatorItem id="2b99a66a-fc72-4766-a325-69e315edfcbb" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">InternetCloseHandle</Content>
+            </IndicatorItem>
+            <IndicatorItem id="fd9ce6e9-2a02-4785-a063-56ee74aa0a8a" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">HttpOpenRequestA</Content>
+            </IndicatorItem>
+            <IndicatorItem id="ade21004-1a05-44d6-8a76-f304332faf88" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/ImportedModules/Module/ImportedFunctions/string" type="mir" />
+              <Content type="string">HttpAddRequestHeadersA</Content>
+            </IndicatorItem>
+          </Indicator>
+        </Indicator>
+      </Indicator>
+      <Indicator operator="AND" id="5851334c-b8b1-490f-80f3-a32a9799601d">
+        <IndicatorItem id="6c2ddf26-f6c1-492c-b408-a0f3d531ca85" condition="is">
+          <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+          <Content type="md5">834D1D492E873DFD0C47A91B221E0258</Content>
+        </IndicatorItem>
+        <IndicatorItem id="4d8af9e0-8bab-48bf-ae6b-1fa9bf67858c" condition="is">
+          <Context document="FileItem" search="FileItem/SizeInBytes" type="mir" />
+          <Content type="int">25088</Content>
+        </IndicatorItem>
+      </Indicator>
+      <Indicator operator="OR" id="c035e579-503e-42e8-bac3-f797ae6f407c">
+        <IndicatorItem id="4c641deb-ea91-45bf-be48-f83cb93dda01" condition="contains">
+          <Context document="ProcessItem" search="ProcessItem/HandleList/Handle/Name" type="mir" />
+          <Content type="string">hhhhhhhhhhhhhhPowerhhdddddddddddddhhhhhhhhhhhhhh</Content>
+        </IndicatorItem>
+        <IndicatorItem id="117c5de9-ad1e-418e-80b4-3280f6e5b3e9" condition="is">
+          <Context document="ProcessItem" search="ProcessItem/SectionList/MemorySection/Md5sum" type="mir" />
+          <Content type="string">0B30A9C2A99DDF81DF864FE19CF3DFAD</Content>
+        </IndicatorItem>
+      </Indicator>
+    </Indicator>
+  </definition>
+</ioc>
