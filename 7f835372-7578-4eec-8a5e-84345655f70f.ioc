@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="7f835372-7578-4eec-8a5e-84345655f70f" last-modified="2012-06-12T06:52:56" xmlns="http://schemas.mandiant.com/2010/ioc">
+  <short_description>Backdoor-r57shell</short_description>
+  <description>IOC to detect r57shell. can be used as a backdoor or remote administration tool, or for data theft.</description>
+  <authored_by>Cedric PERNET</authored_by>
+  <authored_date>2012-05-16T09:29:23</authored_date>
+  <links>
+    <link rel="category">Backdoor</link>
+  </links>
+  <definition>
+    <Indicator operator="OR" id="bb1128ac-96ba-4f4a-bea3-fc804000d384">
+      <IndicatorItem id="c9e9c835-8bfe-418e-93e6-7742b0118b0a" condition="contains">
+        <Context document="FileItem" search="FileItem/StringList/string" type="mir" />
+        <Content type="string">r57shell</Content>
+      </IndicatorItem>
+      <IndicatorItem id="9723143d-46b5-4062-900a-4c92b9d2b735" condition="contains">
+        <Context document="FileItem" search="FileItem/StringList/string" type="mir" />
+        <Content type="string">$filename = @basename($_POST['loc_file']);</Content>
+      </IndicatorItem>
+      <Indicator operator="AND" id="9c709b3b-3867-4f2d-8a32-3ee89f2cf2c2">
+        <Indicator operator="OR" id="e28db126-4db9-4909-94d9-0f25ea107b4f">
+          <IndicatorItem id="b23f2773-848b-4134-b755-412f6921cca8" condition="contains">
+            <Context document="Network" search="Network/String" type="network" />
+            <Content type="string">r57shell</Content>
+          </IndicatorItem>
+          <IndicatorItem id="c956b3b9-3398-4f01-a578-fb1d522cd32c" condition="contains">
+            <Context document="Network" search="Network/String" type="network" />
+            <Content type="string">&amp;cmd=edit_file&amp;dir=</Content>
+          </IndicatorItem>
+          <IndicatorItem id="e9f9f75a-0e0f-4cb2-a120-0d29c2f0f0a8" condition="contains">
+            <Context document="Network" search="Network/String" type="network" />
+            <Content type="string">&amp;cmd=php_eval&amp;submit</Content>
+          </IndicatorItem>
+        </Indicator>
+      </Indicator>
+    </Indicator>
+  </definition>
+</ioc>
