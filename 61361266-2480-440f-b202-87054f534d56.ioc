@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="61361266-2480-440f-b202-87054f534d56" last-modified="2012-06-03T17:05:55" xmlns="http://schemas.mandiant.com/2010/ioc">
+  <short_description>Backdoor-c99shell</short_description>
+  <description>IOC to detect generic version of c99shell. Can be used by attackers for remote administration, data theft, etc.</description>
+  <authored_by>Cedric PERNET</authored_by>
+  <authored_date>2012-05-16T07:49:33</authored_date>
+  <links>
+    <link rel="category">Backdoor</link>
+  </links>
+  <definition>
+    <Indicator operator="OR" id="f683a84f-ba61-4147-9696-e5ad860843f3">
+      <IndicatorItem id="43af0848-5ffb-4b79-8967-58e4ce7b3081" condition="contains">
+        <Context document="FileItem" search="FileItem/StringList/string" type="mir" />
+        <Content type="string">c99shell</Content>
+      </IndicatorItem>
+      <IndicatorItem id="e2b9422b-4d50-4fa5-b40c-c04db0407514" condition="contains">
+        <Context document="FileItem" search="FileItem/StringList/string" type="mir" />
+        <Content type="string">// recieve query for create table structure</Content>
+      </IndicatorItem>
+      <IndicatorItem id="ed0dc6d5-daef-47d6-b903-eb17dcdf9663" condition="contains">
+        <Context document="FileItem" search="FileItem/StringList/string" type="mir" />
+        <Content type="string">$destin = explode("/",$destin);</Content>
+      </IndicatorItem>
+      <Indicator operator="AND" id="a4dc3d14-d2b6-4476-9eb5-ca3c1d9b684e">
+        <Indicator operator="OR" id="22a55f2e-63f6-42d1-bf5d-a689326c82c0">
+          <IndicatorItem id="ddd875d0-7a16-4812-9156-7937497dcce2" condition="contains">
+            <Context document="Network" search="Network/URI" type="network" />
+            <Content type="string">&amp;act=f&amp;f=</Content>
+          </IndicatorItem>
+          <IndicatorItem id="52b14704-6cb5-47db-aae7-b941e361948d" condition="contains">
+            <Context document="Network" search="Network/URI" type="network" />
+            <Content type="string">&amp;cmd_txt=1&amp;submit=execute</Content>
+          </IndicatorItem>
+          <IndicatorItem id="9d271e74-81cf-4274-9fa8-e765628d128f" condition="contains">
+            <Context document="Network" search="Network/URI" type="network" />
+            <Content type="string">&amp;act=ls&amp;d=</Content>
+          </IndicatorItem>
+        </Indicator>
+      </Indicator>
+    </Indicator>
+  </definition>
+</ioc>
