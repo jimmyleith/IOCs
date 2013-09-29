@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="5add2090-312b-4628-a4f8-c42d1ca7c2a9" last-modified="2011-11-30T09:08:16" xmlns="http://schemas.mandiant.com/2010/ioc">
+  <short_description>DUQU</short_description>
+  <description>Generic indicator for the DUQU virus. Based on Stuxtnet</description>
+  <authored_by>Christopher Bentley</authored_by>
+  <authored_date>2011-11-02T14:20:32</authored_date>
+  <links>
+    <link rel="report">http://www.symantec.com/connect/w32_duqu_precursor_next_stuxnet</link>
+  </links>
+  <definition>
+    <Indicator operator="OR" id="8ca951c6-02bd-414b-b850-f38020609778">
+      <IndicatorItem id="903f68c6-181b-43ff-b5e4-c28516359da6" condition="is">
+        <Context document="FileItem" search="FileItem/FileName" type="mir" />
+        <Content type="string">cmi4432.pnf</Content>
+      </IndicatorItem>
+      <IndicatorItem id="8e90533d-057b-44a3-ab07-59e630af60d3" condition="is">
+        <Context document="FileItem" search="FileItem/FileName" type="mir" />
+        <Content type="string">cmi4464.PNF</Content>
+      </IndicatorItem>
+      <IndicatorItem id="84412357-385b-4a3e-af76-81efcc7bf63c" condition="is">
+        <Context document="FileItem" search="FileItem/FileName" type="mir" />
+        <Content type="string">netp191.PNF</Content>
+      </IndicatorItem>
+      <IndicatorItem id="df2a59e1-f4a1-4707-a785-bc30b8d66c31" condition="is">
+        <Context document="FileItem" search="FileItem/FileName" type="mir" />
+        <Content type="string">jminet7.sys</Content>
+      </IndicatorItem>
+      <IndicatorItem id="b43e8b07-46c5-49cc-b5df-0d2ac9775abe" condition="is">
+        <Context document="FileItem" search="FileItem/FileName" type="mir" />
+        <Content type="string">cmi4432.sys</Content>
+      </IndicatorItem>
+      <IndicatorItem id="77054e9d-ad3e-4bf5-9fd6-2de389480abc" condition="is">
+        <Context document="FileItem" search="FileItem/FileName" type="mir" />
+        <Content type="string">nfred965.sys</Content>
+      </IndicatorItem>
+      <IndicatorItem id="e3eb1338-5225-48eb-9773-0226fe3e7af3" condition="is">
+        <Context document="FileItem" search="FileItem/FileName" type="mir" />
+        <Content type="string">nred961.sys</Content>
+      </IndicatorItem>
+      <IndicatorItem id="cfa3ec2e-fec7-4ec9-a4b8-e4d8a75d5fae" condition="is">
+        <Context document="FileItem" search="FileItem/PEInfo/ResourceInfoList/ResourceInfoItem/Name" type="mir" />
+        <Content type="string">302</Content>
+      </IndicatorItem>
+      <IndicatorItem id="f664e8cd-aab3-4c6f-94fa-90734186d943" condition="is">
+        <Context document="PortItem" search="PortItem/remoteIP" type="mir" />
+        <Content type="IP">68.132.129.18</Content>
+      </IndicatorItem>
+      <IndicatorItem id="e12e5ecd-94ce-4d4a-b778-47c96ed7293c" condition="is">
+        <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+        <Content type="string">kasperskychk.dyndns.org</Content>
+      </IndicatorItem>
+      <IndicatorItem id="8aaff0c2-8929-4bf2-99cf-7ea31a2c91b6" condition="is">
+        <Context document="PortItem" search="PortItem/remoteIP" type="mir" />
+        <Content type="IP">206.183.111.97</Content>
+      </IndicatorItem>
+      <IndicatorItem id="1b1a83c8-d8e0-489c-8aab-9bf286ce27c1" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">0a566b1616c8afeef214372b1a0580c7</Content>
+      </IndicatorItem>
+      <IndicatorItem id="95280cb7-3174-4a2e-8663-5c8d6709197c" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">0eecd17c6c215b358b7b872b74bfd800</Content>
+      </IndicatorItem>
+      <IndicatorItem id="e1ca243f-2753-4ef2-b445-3f33a97d1586" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">4541e850a228eb69fd0f0e924624b245</Content>
+      </IndicatorItem>
+      <IndicatorItem id="03c1fa66-653d-4106-a2af-b17d92ca1512" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">b4ac366e24204d821376653279cbad86</Content>
+      </IndicatorItem>
+      <IndicatorItem id="c2746724-b00d-4f0c-8e10-3cc113d330ca" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">e8d6b4dadb96ddb58775e6c85b10b6cc</Content>
+      </IndicatorItem>
+      <IndicatorItem id="73a4aca9-c728-44d2-84ad-dd5050eb9ba2" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">c9a31ea148232b201fe7cb7db5c75f5e</Content>
+      </IndicatorItem>
+      <IndicatorItem id="09d50f17-0688-46d5-a471-be916806d3af" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">f60968908f03372d586e71d87fe795cd</Content>
+      </IndicatorItem>
+      <IndicatorItem id="2867165a-0eb3-4ef4-ab30-78f90ff328c1" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">9749d38ae9b9ddd81b50aad679ee87ec</Content>
+      </IndicatorItem>
+      <IndicatorItem id="b82f7dfe-1dd4-45a2-a780-c2144d50ee52" condition="is">
+        <Context document="PortItem" search="PortItem/remoteIP" type="mir" />
+        <Content type="IP">77.241.93.160</Content>
+      </IndicatorItem>
+      <IndicatorItem id="5dffda97-1b1b-4b9d-8c71-c36f3112ba53" condition="is">
+        <Context document="ServiceItem" search="ServiceItem/name" type="mir" />
+        <Content type="string">JmiNET3</Content>
+      </IndicatorItem>
+      <IndicatorItem id="2fc76fd6-f47b-4b0b-b2fa-e4a7db149fc0" condition="is">
+        <Context document="ServiceItem" search="ServiceItem/name" type="mir" />
+        <Content type="string">cmi4432</Content>
+      </IndicatorItem>
+      <IndicatorItem id="777d4e5f-3c91-43b8-a53e-8d4f83b0a011" condition="contains">
+        <Context document="ProcessItem" search="ProcessItem/HandleList/Handle/Name" type="mir" />
+        <Content type="string">adp</Content>
+      </IndicatorItem>
+      <IndicatorItem id="09cad6b4-222f-485f-8d26-d4df65a7d4b7" condition="is">
+        <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+        <Content type="string">\DEVICE\Gpd1</Content>
+      </IndicatorItem>
+      <IndicatorItem id="5fea0b60-88a7-4065-97a1-68dbabb65f00" condition="contains">
+        <Context document="ProcessItem" search="ProcessItem/HandleList/Handle/Name" type="mir" />
+        <Content type="string">~DQ</Content>
+      </IndicatorItem>
+      <IndicatorItem id="58febf2d-03d7-4b7d-b85d-f291fbb31812" condition="contains">
+        <Context document="ServiceItem" search="ServiceItem/path" type="mir" />
+        <Content type="string">C:\Windows\System32\drivers</Content>
+      </IndicatorItem>
+      <Indicator operator="AND" id="bf76db3b-6ca7-4439-8867-1a7ef0b222cf">
+        <IndicatorItem id="172aa6cd-7db2-4166-995f-0a46cac1c752" condition="contains">
+          <Context document="RegistryItem" search="RegistryItem/Path" type="mir" />
+          <Content type="string">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\4\</Content>
+        </IndicatorItem>
+        <IndicatorItem id="6f076203-7f8c-4579-bd4f-2de5cfa8c1e0" condition="contains">
+          <Context document="RegistryItem" search="RegistryItem/Text" type="mir" />
+          <Content type="string">CF1D</Content>
+        </IndicatorItem>
+      </Indicator>
+      <Indicator operator="AND" id="b12b064c-55a3-43d1-a9e3-45647721ae0d">
+        <IndicatorItem id="d779c4f9-d16c-41c3-ab37-9b1a247ef4ff" condition="is">
+          <Context document="EventLogItem" search="EventLogItem/source" type="mir" />
+          <Content type="string">DCOM</Content>
+        </IndicatorItem>
+        <IndicatorItem id="7094bff8-da2e-4d8b-bf50-5f3a51f1b54c" condition="is">
+          <Context document="EventLogItem" search="EventLogItem/EID" type="mir" />
+          <Content type="int">3221235481</Content>
+        </IndicatorItem>
+        <IndicatorItem id="4918216d-710e-4371-9b66-17955db3dadc" condition="is">
+          <Context document="EventLogItem" search="EventLogItem/type" type="mir" />
+          <Content type="string">Error</Content>
+        </IndicatorItem>
+      </Indicator>
+      <Indicator operator="OR" id="161d4a05-078d-448c-8eeb-9030ffd01b2d">
+        <IndicatorItem id="06a87894-1175-4dbf-9821-469908187b6f" condition="is">
+          <Context document="HookItem" search="HookItem/HookedModule" type="mir" />
+          <Content type="string">ntdll.dll</Content>
+        </IndicatorItem>
+      </Indicator>
+    </Indicator>
+  </definition>
+</ioc>
