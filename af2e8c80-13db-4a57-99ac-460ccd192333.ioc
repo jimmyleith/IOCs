@@ -1,0 +1,644 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="af2e8c80-13db-4a57-99ac-460ccd192333" last-modified="2012-06-04T21:33:52" xmlns="http://schemas.mandiant.com/2010/ioc">
+  <short_description>Flamer,Skywiper</short_description>
+  <description>IOCs to detect the presence of the Flamer framework</description>
+  <authored_by>Jaime Blasco, Alienvault</authored_by>
+  <authored_date>2012-06-04T15:15:17</authored_date>
+  <links />
+  <definition>
+    <Indicator operator="OR" id="9aa42d5a-3bc6-446e-b19c-1b2a4b909b5a">
+      <Indicator operator="AND" id="2e1b945c-2587-412c-9b9d-51a28d23f652">
+        <IndicatorItem id="8be295c7-879c-4499-b1ee-ca03873decf8" condition="contains">
+          <Context document="RegistryItem" search="RegistryItem/Path" type="mir" />
+          <Content type="string">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Drivers32</Content>
+        </IndicatorItem>
+        <IndicatorItem id="4becb7bf-5f45-4c9b-8c7b-130a7e8cbe26" condition="contains">
+          <Context document="RegistryItem" search="RegistryItem/Text" type="mir" />
+          <Content type="string">wavesup3.drv</Content>
+        </IndicatorItem>
+        <Indicator operator="OR" id="1f4f8b85-b307-487a-897c-197492cb51f4">
+          <IndicatorItem id="3d9496b4-10fa-4b65-b72b-8f289c914c91" condition="is">
+            <Context document="RegistryItem" search="RegistryItem/ValueName" type="mir" />
+            <Content type="string">wave9</Content>
+          </IndicatorItem>
+          <IndicatorItem id="c729ed47-513d-436d-b164-919ff4cd2d3d" condition="is">
+            <Context document="RegistryItem" search="RegistryItem/ValueName" type="mir" />
+            <Content type="string">wave8</Content>
+          </IndicatorItem>
+        </Indicator>
+      </Indicator>
+      <Indicator operator="AND" id="14868529-c95f-4576-af9c-23f9d2923107">
+        <IndicatorItem id="5225f2f2-8293-42c5-92a7-fbb5afb1cda8" condition="contains">
+          <Context document="RegistryItem" search="RegistryItem/Path" type="mir" />
+          <Content type="string">\Control\Lsa\Authentication Packages</Content>
+        </IndicatorItem>
+        <IndicatorItem id="48c2cd98-5324-4780-a06c-0e6b7ecd780b" condition="contains">
+          <Context document="RegistryItem" search="RegistryItem/Text" type="mir" />
+          <Content type="string">mssecmgr.ocx</Content>
+        </IndicatorItem>
+      </Indicator>
+      <Indicator operator="OR" id="c702bea5-317a-4232-855a-090cd61c8e5e">
+        <IndicatorItem id="209070e1-50d7-489d-af11-e0f2b3df23d5" condition="contains">
+          <Context document="ProcessItem" search="ProcessItem/HandleList/Handle/Name" type="mir" />
+          <Content type="string">TH_POOL_SHD_PQOISNG</Content>
+        </IndicatorItem>
+        <IndicatorItem id="f64f68ac-5d94-49e2-b59d-d614db8dc122" condition="contains">
+          <Context document="ProcessItem" search="ProcessItem/HandleList/Handle/Name" type="mir" />
+          <Content type="string">microsoft shared_msaudio_wpgfilter.dat</Content>
+        </IndicatorItem>
+        <IndicatorItem id="2532bfcc-4f45-4ed7-b6bb-c3c97e883dde" condition="contains">
+          <Context document="ProcessItem" search="ProcessItem/HandleList/Handle/Name" type="mir" />
+          <Content type="string">microsoft shared_msaudio_audcache</Content>
+        </IndicatorItem>
+        <IndicatorItem id="3be23f29-dc73-4baa-8ad3-4b0cd1c2b6dd" condition="contains">
+          <Context document="ProcessItem" search="ProcessItem/HandleList/Handle/Name" type="mir" />
+          <Content type="string">microsoft shared_mssecuritymgr_mscrypt.dat</Content>
+        </IndicatorItem>
+        <IndicatorItem id="c2b094ad-e353-4433-90cb-4048c62f0ff2" condition="contains">
+          <Context document="ProcessItem" search="ProcessItem/HandleList/Handle/Name" type="mir" />
+          <Content type="string">microsoft shared_mssecuritymgr_ssitable</Content>
+        </IndicatorItem>
+        <IndicatorItem id="1cc1b935-0795-4d76-a1bf-18d0182b333d" condition="contains">
+          <Context document="ProcessItem" search="ProcessItem/HandleList/Handle/Name" type="mir" />
+          <Content type="string">windows_system32_boot32drv.sys</Content>
+        </IndicatorItem>
+        <IndicatorItem id="ab69894e-3961-4484-a7b7-1f003a8b0043" condition="contains">
+          <Context document="ProcessItem" search="ProcessItem/HandleList/Handle/Name" type="mir" />
+          <Content type="string">DVAAccessGuard</Content>
+        </IndicatorItem>
+        <IndicatorItem id="7d963698-faef-49d6-9f11-1f9dd2f14fc4" condition="contains">
+          <Context document="ProcessItem" search="ProcessItem/HandleList/Handle/Name" type="mir" />
+          <Content type="string">__fajb</Content>
+        </IndicatorItem>
+        <IndicatorItem id="c6b3623c-aba8-4606-abfd-53e476682e2d" condition="contains">
+          <Context document="ProcessItem" search="ProcessItem/HandleList/Handle/Name" type="mir" />
+          <Content type="string">UPDT_SYNC_MTX_TME_ON_OFF_</Content>
+        </IndicatorItem>
+      </Indicator>
+      <Indicator operator="OR" id="14868529-c95f-4576-af9c-23f9d2923107">
+        <IndicatorItem id="7c06afc1-0fa8-4122-ac34-4cf7820384da" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">~a28.tmp</Content>
+        </IndicatorItem>
+        <IndicatorItem id="d1065111-7acd-4cb7-8b01-d23488eff22c" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">~DFL542.tmp</Content>
+        </IndicatorItem>
+        <IndicatorItem id="3839bd10-51c3-4a2d-baf6-ccaf85e4118d" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">~DFL543.tmp</Content>
+        </IndicatorItem>
+        <IndicatorItem id="ffc89c5c-5088-40d7-b8f5-0c50b63439b9" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">~DFL544.tmp</Content>
+        </IndicatorItem>
+        <IndicatorItem id="e469cd3c-eb19-479d-85fb-090eb80b050c" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">~DFL545.tmp</Content>
+        </IndicatorItem>
+        <IndicatorItem id="bcfec5b8-3a28-4618-96c2-bdb0f1fcb126" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">~DFL546.tmp</Content>
+        </IndicatorItem>
+        <IndicatorItem id="024f031b-4d78-4ac5-8f74-f454eaa4e5ab" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">~dra51.tmp</Content>
+        </IndicatorItem>
+        <IndicatorItem id="e0b054bd-0871-4adc-aabb-c1cd8af6bc8b" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">~dra52.tmp</Content>
+        </IndicatorItem>
+        <IndicatorItem id="908879e1-4abf-4793-8328-5a6ed4aad1bc" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">~fghz.tmp</Content>
+        </IndicatorItem>
+        <IndicatorItem id="81030ef6-2758-447b-b820-059b9759fa7f" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">~rei524.tmp</Content>
+        </IndicatorItem>
+        <IndicatorItem id="d8b205d4-fbd3-4fb7-a534-2ea86c66822b" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">~rei525.tmp</Content>
+        </IndicatorItem>
+        <IndicatorItem id="8f650424-b7aa-4985-aaeb-00ccc1466856" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">~TFL848.tmp</Content>
+        </IndicatorItem>
+        <IndicatorItem id="c8503c1b-efca-43a9-a8a8-92e7e4420d97" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">~TFL842.tmp</Content>
+        </IndicatorItem>
+        <IndicatorItem id="e53e11f7-7bab-49ef-a210-46f7c3f0c1d1" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">GRb2M2.bat</Content>
+        </IndicatorItem>
+        <IndicatorItem id="ecf17c0a-10ca-47a3-b2df-9180c2f620d3" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">indsvc32.ocx</Content>
+        </IndicatorItem>
+        <IndicatorItem id="b46ae91f-fb2f-4844-8f7d-a55784cd50d1" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">scaud32.exe</Content>
+        </IndicatorItem>
+        <IndicatorItem id="5d6136a1-7b3d-4bc2-ada7-f417a74f2027" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">scsec32.exe</Content>
+        </IndicatorItem>
+        <IndicatorItem id="3893af5d-a97c-46b8-8486-99917dce2ae3" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">sdclt32.exe</Content>
+        </IndicatorItem>
+        <IndicatorItem id="f1bd96be-ec1a-484d-b6c6-d18d8f37be27" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">sstab.dat</Content>
+        </IndicatorItem>
+        <IndicatorItem id="4a91ca8b-91e2-4c30-844d-2241954d4849" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">sstab15.dat</Content>
+        </IndicatorItem>
+        <IndicatorItem id="de93ed0d-be46-4f00-8283-db4d00e89391" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">winrt32.dll</Content>
+        </IndicatorItem>
+        <IndicatorItem id="e98bdca6-dd05-4faa-a34c-08b2eeff0210" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">winrt32.ocx</Content>
+        </IndicatorItem>
+        <IndicatorItem id="3914d37a-5597-4fdd-a8b1-7d11ea3004c9" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">wpab32.bat</Content>
+        </IndicatorItem>
+        <IndicatorItem id="a3445727-9c62-4002-b173-c19321a0e02c" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">commgr32.dll</Content>
+        </IndicatorItem>
+        <IndicatorItem id="9a61bafc-3255-4d4e-8328-9fed2c827383" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">comspol32.dll</Content>
+        </IndicatorItem>
+        <IndicatorItem id="0a273563-d3e5-45ce-8755-1765444c36ad" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">comspol32.ocx</Content>
+        </IndicatorItem>
+        <IndicatorItem id="c3b839f6-450a-413c-b562-3f8959d4bf3d" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">indsvc32.dll</Content>
+        </IndicatorItem>
+        <IndicatorItem id="c302632a-18ed-4852-a3d7-02140eeeeaea" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">indsvc32.ocx</Content>
+        </IndicatorItem>
+        <IndicatorItem id="4fd412ea-4f54-474d-8985-3e7779cba829" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">modevga.com</Content>
+        </IndicatorItem>
+        <IndicatorItem id="ba7bee2c-aa7b-441b-b867-af22f79fe19f" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">mssui.drv</Content>
+        </IndicatorItem>
+        <IndicatorItem id="b73858ec-a4ff-49a6-8809-efc6a627557c" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">scaud32.exe</Content>
+        </IndicatorItem>
+        <IndicatorItem id="c34ebb78-fd4e-4566-aa03-db5d67eb5a30" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">sdclt32.exe</Content>
+        </IndicatorItem>
+        <IndicatorItem id="853539bc-29a7-4cdf-8f74-86404f4d090a" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">watchxb.sys</Content>
+        </IndicatorItem>
+        <IndicatorItem id="bb5d0e10-544a-4a1d-af81-f11ba257eb14" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">winconf32.ocx</Content>
+        </IndicatorItem>
+        <IndicatorItem id="c327e6ac-c9db-4c2a-afbd-c424c7d680a8" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">mssvc32.ocx</Content>
+        </IndicatorItem>
+        <IndicatorItem id="a82530a3-2351-4625-a578-fecf9979f735" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">rccache.dat</Content>
+        </IndicatorItem>
+        <IndicatorItem id="9f81572d-1914-4c6c-8f8a-b6a2964feb80" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">dstrlog.dat</Content>
+        </IndicatorItem>
+        <IndicatorItem id="85044693-5e84-48d3-b83a-ff1f14ba530f" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">dstrlog.dat</Content>
+        </IndicatorItem>
+        <IndicatorItem id="f90a9b09-d613-4f96-9847-cdc89691a05a" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">dstrlogh.dat</Content>
+        </IndicatorItem>
+        <IndicatorItem id="3ece9dc5-b40f-4d09-a55e-3600f6a3ab50" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">dstrlogh.dat</Content>
+        </IndicatorItem>
+        <IndicatorItem id="9c671dcf-6daa-4c0a-8df2-fa3b9364f51f" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">~8C5FF6C.tmp</Content>
+        </IndicatorItem>
+        <IndicatorItem id="b38ef920-0fa3-4c47-a9ea-3f53f95f6cd2" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">sstab0.dat</Content>
+        </IndicatorItem>
+        <IndicatorItem id="619bfb56-cd3a-417e-8813-33a303051e09" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">sstab1.dat</Content>
+        </IndicatorItem>
+        <IndicatorItem id="2af181e3-5200-43cc-80a4-6b7486fc7be2" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">sstab2.dat</Content>
+        </IndicatorItem>
+        <IndicatorItem id="ab6f2010-80f0-48e4-9617-d3747c5a84db" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">sstab3.dat</Content>
+        </IndicatorItem>
+        <IndicatorItem id="2d97c00c-2630-4de5-9032-b9ca9a998f5a" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">sstab4.dat</Content>
+        </IndicatorItem>
+        <IndicatorItem id="becb78f8-1227-49f1-b8d3-d4738b4a47cc" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">sstab5.dat</Content>
+        </IndicatorItem>
+        <IndicatorItem id="aa842a71-a1fe-49bd-af6e-5e3369bcce1a" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">sstab6.dat</Content>
+        </IndicatorItem>
+        <IndicatorItem id="3a02a4c2-f3d8-4e46-848c-688cf837b445" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">sstab7.dat</Content>
+        </IndicatorItem>
+        <IndicatorItem id="a104a2f0-c836-4434-9738-ca13f201c8fc" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">sstab8.dat</Content>
+        </IndicatorItem>
+        <IndicatorItem id="fb0f2ea1-3d0e-42c2-a31a-50af7151d0aa" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">sstab2.dat</Content>
+        </IndicatorItem>
+        <IndicatorItem id="0793877d-0146-45be-940e-621868d824f5" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">sstab10.dat</Content>
+        </IndicatorItem>
+        <IndicatorItem id="02a8686c-766a-42b5-81ea-457833a22479" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">sstab.dat</Content>
+        </IndicatorItem>
+        <IndicatorItem id="038725ce-68a0-4383-ad48-bc01f60debb5" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">~HLV751.tmp</Content>
+        </IndicatorItem>
+        <IndicatorItem id="299a4df1-24bf-4596-8601-c2594120dc79" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">~KWI288.tmp</Content>
+        </IndicatorItem>
+        <IndicatorItem id="03b59f03-0bec-4e23-9dad-0e7ffcb6da6f" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">~KWI282.tmp</Content>
+        </IndicatorItem>
+        <IndicatorItem id="f7b6f2dc-fad2-412f-985b-2f015dafe648" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">~HLV084.tmp</Content>
+        </IndicatorItem>
+        <IndicatorItem id="6e4dc39c-862f-4356-83c8-a07ae710ba54" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">~HLV224.tmp</Content>
+        </IndicatorItem>
+        <IndicatorItem id="2ee490e2-5c1c-49dd-a15b-899633205573" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">~HLV227.tmp</Content>
+        </IndicatorItem>
+        <IndicatorItem id="ce8fb9c4-273a-46f0-a5e0-a76e250236fa" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">~HLV473.tmp</Content>
+        </IndicatorItem>
+        <IndicatorItem id="84369bba-6e48-4edb-8385-124b31134ef6" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">nteps32.ocx</Content>
+        </IndicatorItem>
+        <IndicatorItem id="1f867e26-f56c-4ee7-bbf0-0332c1a04a45" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">advnetcfg.ocx</Content>
+        </IndicatorItem>
+        <IndicatorItem id="d3d0f437-3dc4-4b43-a447-556ef1badec9" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">ccalc32.sys</Content>
+        </IndicatorItem>
+        <IndicatorItem id="63912e1c-110a-4c17-91a0-aabbafeab60c" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">boot32drv.sys</Content>
+        </IndicatorItem>
+        <IndicatorItem id="26e0b6f5-227b-4ac5-9495-62f11f54e15a" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">rpcnc.dat</Content>
+        </IndicatorItem>
+        <IndicatorItem id="28fe6323-af62-4383-aefb-9809d94e95d5" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">soapr32.ocx</Content>
+        </IndicatorItem>
+        <IndicatorItem id="f257b55a-d0d3-445c-8037-931cac8a82d9" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">ntaps.dat</Content>
+        </IndicatorItem>
+        <IndicatorItem id="be72f325-c9e7-47ad-8e8d-36f374250c6b" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">advpck.dat</Content>
+        </IndicatorItem>
+        <IndicatorItem id="2cc3bde9-16f1-44dd-a8b4-8d1108fadfac" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">~rf288.tmp</Content>
+        </IndicatorItem>
+        <IndicatorItem id="b7734af8-dabc-4ddd-b24e-e8aef8ee2443" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">~dra53.tmp</Content>
+        </IndicatorItem>
+        <IndicatorItem id="8c9d7fd5-8ace-4c15-beac-d7ead9b9f8f2" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">msglu32.ocx</Content>
+        </IndicatorItem>
+        <IndicatorItem id="2fa44ac4-3312-4962-a8f7-48f84c51585e" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">authcfg.dat</Content>
+        </IndicatorItem>
+        <IndicatorItem id="23b12877-5d45-49c1-b925-db0c11ebf84b" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">mixercfg.dat</Content>
+        </IndicatorItem>
+      </Indicator>
+      <Indicator operator="OR" id="14868529-c95f-4576-af9c-23f9d2923107">
+        <IndicatorItem id="36d09075-5834-4ac8-b381-ac881e642283" condition="is">
+          <Context document="Network" search="Network/DNS" type="network" />
+          <Content type="string">autosync.info</Content>
+        </IndicatorItem>
+        <IndicatorItem id="a7d872f8-2404-4c68-ba07-09ac40de52cf" condition="is">
+          <Context document="Network" search="Network/DNS" type="network" />
+          <Content type="string">bannerspot.in</Content>
+        </IndicatorItem>
+        <IndicatorItem id="b653abf5-1c60-41ea-8af8-0f4182f900b6" condition="is">
+          <Context document="Network" search="Network/DNS" type="network" />
+          <Content type="string">bannerzone.in</Content>
+        </IndicatorItem>
+        <IndicatorItem id="8a37e7f6-9184-417c-b2c2-f0d48ff68207" condition="is">
+          <Context document="Network" search="Network/DNS" type="network" />
+          <Content type="string">dnslocation.info</Content>
+        </IndicatorItem>
+        <IndicatorItem id="b62b92cd-4749-4186-ba17-9aab49191f9a" condition="is">
+          <Context document="Network" search="Network/DNS" type="network" />
+          <Content type="string">dnsmask.info</Content>
+        </IndicatorItem>
+        <IndicatorItem id="cbb06c88-607e-4083-b52f-35afeacc5cb1" condition="is">
+          <Context document="Network" search="Network/DNS" type="network" />
+          <Content type="string">dnsportal.info</Content>
+        </IndicatorItem>
+        <IndicatorItem id="1206e138-3f53-41cb-a4ca-f524ade80b55" condition="is">
+          <Context document="Network" search="Network/DNS" type="network" />
+          <Content type="string">dnsupdate.info</Content>
+        </IndicatorItem>
+        <IndicatorItem id="12fee69f-677c-4f27-9077-0daf43718ed9" condition="is">
+          <Context document="Network" search="Network/DNS" type="network" />
+          <Content type="string">flashupdates.info</Content>
+        </IndicatorItem>
+        <IndicatorItem id="5d1d1356-c74c-4880-86c8-c2516187225d" condition="is">
+          <Context document="Network" search="Network/DNS" type="network" />
+          <Content type="string">flushdns.info</Content>
+        </IndicatorItem>
+        <IndicatorItem id="48319edb-ee9a-46a6-85a6-480d33e18314" condition="is">
+          <Context document="Network" search="Network/DNS" type="network" />
+          <Content type="string">localgateway.info</Content>
+        </IndicatorItem>
+        <IndicatorItem id="d60b5774-ea76-4a4a-ba90-810efbd2419b" condition="is">
+          <Context document="Network" search="Network/DNS" type="network" />
+          <Content type="string">micromedia.in</Content>
+        </IndicatorItem>
+        <IndicatorItem id="e3c01e19-9101-4344-99f9-1ab9b36905e0" condition="is">
+          <Context document="Network" search="Network/DNS" type="network" />
+          <Content type="string">mysync.info</Content>
+        </IndicatorItem>
+        <IndicatorItem id="11c517e6-b68c-4038-8ea9-a47428896c6b" condition="is">
+          <Context document="Network" search="Network/DNS" type="network" />
+          <Content type="string">newsync.info</Content>
+        </IndicatorItem>
+        <IndicatorItem id="20aeb4ce-b4cc-45e9-bb11-91da940b3509" condition="is">
+          <Context document="Network" search="Network/DNS" type="network" />
+          <Content type="string">nvidiadrivers.info</Content>
+        </IndicatorItem>
+        <IndicatorItem id="4f15e166-6a46-448b-b027-302d7b20852a" condition="is">
+          <Context document="Network" search="Network/DNS" type="network" />
+          <Content type="string">nvidiasoft.info</Content>
+        </IndicatorItem>
+        <IndicatorItem id="95a7208d-9a1f-436f-bf01-17979dca9563" condition="is">
+          <Context document="Network" search="Network/DNS" type="network" />
+          <Content type="string">nvidiastream.info</Content>
+        </IndicatorItem>
+        <IndicatorItem id="9d477b11-5177-421d-9006-288787fac7bc" condition="is">
+          <Context document="Network" search="Network/DNS" type="network" />
+          <Content type="string">pingserver.info</Content>
+        </IndicatorItem>
+        <IndicatorItem id="dbcfd35d-3dd0-466f-89ee-8a1af6e8105f" condition="is">
+          <Context document="Network" search="Network/DNS" type="network" />
+          <Content type="string">rendercodec.info</Content>
+        </IndicatorItem>
+        <IndicatorItem id="1a8424da-44c3-4803-8365-47b50b275d1d" condition="is">
+          <Context document="Network" search="Network/DNS" type="network" />
+          <Content type="string">serveflash.info</Content>
+        </IndicatorItem>
+        <IndicatorItem id="ee2a8b5b-cf94-42ba-9301-6e80c38b8259" condition="is">
+          <Context document="Network" search="Network/DNS" type="network" />
+          <Content type="string">serverss.info</Content>
+        </IndicatorItem>
+        <IndicatorItem id="8789615f-84a7-4ca4-9b64-504f573b2c1a" condition="is">
+          <Context document="Network" search="Network/DNS" type="network" />
+          <Content type="string">syncdomain.info</Content>
+        </IndicatorItem>
+        <IndicatorItem id="b49195c5-bf97-4663-8e6a-9bdd92e78571" condition="is">
+          <Context document="Network" search="Network/DNS" type="network" />
+          <Content type="string">synclock.info</Content>
+        </IndicatorItem>
+        <IndicatorItem id="26636488-d5c1-4cd8-a7b3-8562d17fb856" condition="is">
+          <Context document="Network" search="Network/DNS" type="network" />
+          <Content type="string">syncprovider.info</Content>
+        </IndicatorItem>
+        <IndicatorItem id="f1647c8d-523f-4d69-9412-64f840dfeb54" condition="is">
+          <Context document="Network" search="Network/DNS" type="network" />
+          <Content type="string">syncsource.info</Content>
+        </IndicatorItem>
+        <IndicatorItem id="27e23a6f-a3ea-4e37-9cc9-dcdb26ae6996" condition="is">
+          <Context document="Network" search="Network/DNS" type="network" />
+          <Content type="string">syncstream.info</Content>
+        </IndicatorItem>
+        <IndicatorItem id="07fac333-91f3-4972-87ac-121268655cc6" condition="is">
+          <Context document="Network" search="Network/DNS" type="network" />
+          <Content type="string">syncupdate.info</Content>
+        </IndicatorItem>
+        <IndicatorItem id="c883c7b0-e490-45f8-a6f8-83d5aaab0741" condition="is">
+          <Context document="Network" search="Network/DNS" type="network" />
+          <Content type="string">ultrasoft.in</Content>
+        </IndicatorItem>
+        <IndicatorItem id="7f6afc91-f46b-46e3-80ea-1a40412d9885" condition="is">
+          <Context document="Network" search="Network/DNS" type="network" />
+          <Content type="string">videosync.info</Content>
+        </IndicatorItem>
+      </Indicator>
+      <Indicator operator="AND" id="2a13ac1d-ee6e-4f8d-ab51-0bf1750f0f4a">
+        <IndicatorItem id="9ee5ed7e-5edb-4a75-bb1b-8b5fb5c332b7" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/Exports/ExportedFunctions/string" type="mir" />
+          <Content type="string">CreateABHList</Content>
+        </IndicatorItem>
+        <IndicatorItem id="360e05e2-6b6e-4a83-aa36-ab2bf07fdf56" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/Exports/ExportedFunctions/string" type="mir" />
+          <Content type="string">CreatePGHDict</Content>
+        </IndicatorItem>
+        <IndicatorItem id="94552999-045f-4f6b-8d6a-9218b0af6311" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/Exports/ExportedFunctions/string" type="mir" />
+          <Content type="string">DisableDLV</Content>
+        </IndicatorItem>
+        <IndicatorItem id="e07f375e-413c-456d-b505-6c4fdc480477" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/Exports/ExportedFunctions/string" type="mir" />
+          <Content type="string">DisableOFR</Content>
+        </IndicatorItem>
+        <IndicatorItem id="7f37932b-95c9-421e-95c4-7cf3a19f77d8" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/Exports/ExportedFunctions/string" type="mir" />
+          <Content type="string">DisableSHR</Content>
+        </IndicatorItem>
+        <IndicatorItem id="4cd99d0f-f68d-4591-b34e-b356eb064527" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/Exports/ExportedFunctions/string" type="mir" />
+          <Content type="string">EnableDLV</Content>
+        </IndicatorItem>
+        <IndicatorItem id="d246dfc5-2dd8-4b44-9496-074b540a0b2b" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/Exports/ExportedFunctions/string" type="mir" />
+          <Content type="string">EnableOFR</Content>
+        </IndicatorItem>
+        <IndicatorItem id="9cc18475-5540-4308-b0de-623a0f8288f0" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/Exports/ExportedFunctions/string" type="mir" />
+          <Content type="string">EnableSHR</Content>
+        </IndicatorItem>
+        <IndicatorItem id="89e49b32-874b-46db-a2ed-0fb2136c64d8" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/Exports/ExportedFunctions/string" type="mir" />
+          <Content type="string">FreeABHData</Content>
+        </IndicatorItem>
+        <IndicatorItem id="72c2a08f-a743-4360-93da-21e4960960e0" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/Exports/ExportedFunctions/string" type="mir" />
+          <Content type="string">GetSML</Content>
+        </IndicatorItem>
+        <IndicatorItem id="31568f3c-dd24-42ff-9887-f40c262b93d7" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/Exports/ExportedFunctions/string" type="mir" />
+          <Content type="string">GetWPF</Content>
+        </IndicatorItem>
+        <IndicatorItem id="624ea04e-5aff-4d13-a5af-1dbe35223dff" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/Exports/ExportedFunctions/string" type="mir" />
+          <Content type="string">ReadVBInfo</Content>
+        </IndicatorItem>
+        <IndicatorItem id="4c237dda-f0e4-4793-bc29-8578993dbc35" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/Exports/ExportedFunctions/string" type="mir" />
+          <Content type="string">RestoreSMLData</Content>
+        </IndicatorItem>
+        <IndicatorItem id="c47dd4d3-6a33-4ed1-8593-b113cf3f4dd5" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/Exports/ExportedFunctions/string" type="mir" />
+          <Content type="string">WriteVBInfo</Content>
+        </IndicatorItem>
+      </Indicator>
+      <Indicator operator="AND" id="c3dbe619-1598-4bb3-94cc-0cc8846069ff">
+        <IndicatorItem id="64544c2e-ebe1-4288-8c8f-8f624232985a" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/Exports/ExportedFunctions/string" type="mir" />
+          <Content type="string">CreateDTIList</Content>
+        </IndicatorItem>
+        <IndicatorItem id="86e696b7-2af0-441c-b02d-a607414f195b" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/Exports/ExportedFunctions/string" type="mir" />
+          <Content type="string">CreateRTAList</Content>
+        </IndicatorItem>
+        <IndicatorItem id="52b86c69-c25c-4510-b15c-dd86e76e1d81" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/Exports/ExportedFunctions/string" type="mir" />
+          <Content type="string">DisableRSG</Content>
+        </IndicatorItem>
+        <IndicatorItem id="3f371c2b-8d41-4855-9804-3d692809931e" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/Exports/ExportedFunctions/string" type="mir" />
+          <Content type="string">DisableRSO</Content>
+        </IndicatorItem>
+        <IndicatorItem id="baf659ec-ace8-4bd9-bfb6-c2100564cad0" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/Exports/ExportedFunctions/string" type="mir" />
+          <Content type="string">DisableRSOEx</Content>
+        </IndicatorItem>
+        <IndicatorItem id="01406b52-adf5-4098-a7de-eebb8921cfa1" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/Exports/ExportedFunctions/string" type="mir" />
+          <Content type="string">DisableRTA</Content>
+        </IndicatorItem>
+        <IndicatorItem id="25411cbb-78f3-4a25-9717-ba9544466566" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/Exports/ExportedFunctions/string" type="mir" />
+          <Content type="string">EnableRSG</Content>
+        </IndicatorItem>
+        <IndicatorItem id="00a9c3e9-9bda-48b4-9c77-ca8a0e564f02" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/Exports/ExportedFunctions/string" type="mir" />
+          <Content type="string">EnableRSO</Content>
+        </IndicatorItem>
+        <IndicatorItem id="6e1addc0-38dd-46f6-b21d-2e3dd8c04020" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/Exports/ExportedFunctions/string" type="mir" />
+          <Content type="string">EnableRSOEx</Content>
+        </IndicatorItem>
+        <IndicatorItem id="8c93764a-50bc-41a2-acc1-72193863da6e" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/Exports/ExportedFunctions/string" type="mir" />
+          <Content type="string">EnableRSOExDefault</Content>
+        </IndicatorItem>
+        <IndicatorItem id="790db3c1-645d-4a31-9d85-d8d7a28c175e" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/Exports/ExportedFunctions/string" type="mir" />
+          <Content type="string">EnableRTA</Content>
+        </IndicatorItem>
+        <IndicatorItem id="5c9bec2f-c917-4045-bc98-879e91d38d21" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/Exports/ExportedFunctions/string" type="mir" />
+          <Content type="string">FreeDTIData</Content>
+        </IndicatorItem>
+        <IndicatorItem id="bda11d90-1911-450f-ad68-ed7efa15d4c5" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/Exports/ExportedFunctions/string" type="mir" />
+          <Content type="string">GetDRI</Content>
+        </IndicatorItem>
+        <IndicatorItem id="e596844d-8117-41f2-8de8-0be16c947257" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/Exports/ExportedFunctions/string" type="mir" />
+          <Content type="string">GetDTI</Content>
+        </IndicatorItem>
+        <IndicatorItem id="f0b3f93b-112f-4ffa-8dac-b967c2df5b2b" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/Exports/ExportedFunctions/string" type="mir" />
+          <Content type="string">ReadDTIData</Content>
+        </IndicatorItem>
+        <IndicatorItem id="3e8a395b-cdba-45ef-a254-3882ff4dfb53" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/Exports/ExportedFunctions/string" type="mir" />
+          <Content type="string">RestoreDTIData</Content>
+        </IndicatorItem>
+        <IndicatorItem id="6343c64d-d30c-436b-a23f-9e3babf7ad77" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/Exports/ExportedFunctions/string" type="mir" />
+          <Content type="string">UpdateDTIList</Content>
+        </IndicatorItem>
+        <IndicatorItem id="6ef6a0c2-b113-4632-ac5c-4e1066afda78" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/Exports/ExportedFunctions/string" type="mir" />
+          <Content type="string">WriteDTIData</Content>
+        </IndicatorItem>
+      </Indicator>
+      <Indicator operator="AND" id="01b4541e-059f-48fc-a437-75844354f15d">
+        <IndicatorItem id="23100fa7-07bc-4efd-a1ab-ac7435c9f241" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/Exports/ExportedFunctions/string" type="mir" />
+          <Content type="string">CreateDSPList</Content>
+        </IndicatorItem>
+        <IndicatorItem id="1ad3144f-8dcc-42ec-b501-aa3224910518" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/Exports/ExportedFunctions/string" type="mir" />
+          <Content type="string">DisableDSP</Content>
+        </IndicatorItem>
+        <IndicatorItem id="600672d0-8b84-44dd-b14a-e96722d7c101" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/Exports/ExportedFunctions/string" type="mir" />
+          <Content type="string">EnableDSP</Content>
+        </IndicatorItem>
+      </Indicator>
+      <Indicator operator="AND" id="8d4614a4-29c6-4798-b060-275b0b24315e">
+        <IndicatorItem id="9d6427f4-8fc2-42f5-b753-560b10050237" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/Exports/ExportedFunctions/string" type="mir" />
+          <Content type="string">QDInit</Content>
+        </IndicatorItem>
+        <IndicatorItem id="ca1a1377-1af0-4f09-bbde-31f8e48fb09e" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/Exports/ExportedFunctions/string" type="mir" />
+          <Content type="string">SetObjectDescriptor</Content>
+        </IndicatorItem>
+      </Indicator>
+    </Indicator>
+  </definition>
+</ioc>
