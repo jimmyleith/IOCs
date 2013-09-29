@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="93b3a82d-230d-49e9-926c-c0e506fda033" last-modified="2012-11-16T15:44:31" xmlns="http://schemas.mandiant.com/2010/ioc">
+  <short_description>WinLogon Shell Persistence</short_description>
+  <description>This IOC detects malware that abuses the WinLogon Shell as persistence mechanism to startup. Normally this value should just be "explorer.exe".
+
+http://home.mcafee.com/virusinfo/virusprofile.aspx?key=1567958#none
+The following registry elements have been changed:
+- HKEY_CURRENT_USER\SOFTWARE\MICROSOFT\WINDOWS NT\CURRENTVERSION\WINLOGON\SHELL = %APPDATA%\07F4HkiN.exe
+- HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\WINDOWS NT\CURRENTVERSION\WINLOGON\SHELL = %APPDATA%\07F4HkiN.exe
+
+http://home.mcafee.com/VirusInfo/VirusProfile.aspx?key=1585881#none
+The following registry elements have been changed:
+- HKEY_CURRENT_USER\SOFTWARE\MICROSOFT\WINDOWS NT\CURRENTVERSION\WINLOGON\SHELL = %APPDATA%\5w4yher54uyhw4.exe
+- HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\WINDOWS NT\CURRENTVERSION\WINLOGON\SHELL = %APPDATA%\5w4yher54uyhw4.exe
+
+http://www.threatexpert.com/report.aspx?md5=0e961bed52b8063945c9d528ad0669ed
+    The newly created Registry Value is:
+        [HKEY_CURRENT_USER\Software\Microsoft\Windows NT\CurrentVersion\Winlogon]
+            Shell = "Explorer.exe "C:\recycled\SVCHOST.exe""
+</description>
+  <authored_by>TomU @c_APT_ure</authored_by>
+  <authored_date>2012-11-16T15:09:06</authored_date>
+  <links>
+    <link rel="report">http://home.mcafee.com/VirusInfo/VirusProfile.aspx?key=1585881</link>
+    <link rel="report">http://home.mcafee.com/virusinfo/virusprofile.aspx?key=1567958</link>
+    <link rel="report">http://www.threatexpert.com/report.aspx?md5=0e961bed52b8063945c9d528ad0669ed</link>
+  </links>
+  <definition>
+    <Indicator operator="OR">
+      <Indicator operator="AND" id="35c63a28-3751-4b46-ae09-1537a45e256f">
+        <IndicatorItem id="b6404e87-48f1-4bf2-80b4-5e80f6e356f8" condition="contains">
+          <Context document="RegistryItem" search="RegistryItem/KeyPath" type="mir" />
+          <Content type="string">SOFTWARE\MICROSOFT\WINDOWS NT\CURRENTVERSION\WINLOGON</Content>
+        </IndicatorItem>
+        <IndicatorItem id="64311c6e-7b99-4eac-8286-afc2973c5ecf" condition="is">
+          <Context document="RegistryItem" search="RegistryItem/ValueName" type="mir" />
+          <Content type="string">SHELL</Content>
+        </IndicatorItem>
+        <Indicator operator="OR" id="102dcf9d-1e87-45c3-b129-866250c8135c">
+          <IndicatorItem id="180a59f4-1a8c-4a71-914c-9784920a344a" condition="contains">
+            <Context document="RegistryItem" search="RegistryItem/Value" type="mir" />
+            <Content type="string">%AppData%</Content>
+          </IndicatorItem>
+          <IndicatorItem id="3ccc2bc5-bd85-47a6-bed7-2cb4914e195f" condition="contains">
+            <Context document="RegistryItem" search="RegistryItem/Value" type="mir" />
+            <Content type="string">%Application Data%</Content>
+          </IndicatorItem>
+          <IndicatorItem id="16eed1c6-8bb4-4aea-905f-afecad14db8a" condition="contains">
+            <Context document="RegistryItem" search="RegistryItem/Value" type="mir" />
+            <Content type="string">%User Profile%</Content>
+          </IndicatorItem>
+          <IndicatorItem id="6d7b3df9-d960-491e-b431-997384eef654" condition="contains">
+            <Context document="RegistryItem" search="RegistryItem/Value" type="mir" />
+            <Content type="string">\Users</Content>
+          </IndicatorItem>
+          <IndicatorItem id="82af7237-2517-4bb7-8d60-eca6cbd041de" condition="contains">
+            <Context document="RegistryItem" search="RegistryItem/Value" type="mir" />
+            <Content type="string">\Documents</Content>
+          </IndicatorItem>
+          <IndicatorItem id="f0a5abaa-41f4-488e-9acf-8c7654a71122" condition="contains">
+            <Context document="RegistryItem" search="RegistryItem/Value" type="mir" />
+            <Content type="string">%Temp%</Content>
+          </IndicatorItem>
+          <IndicatorItem id="20a2b9f6-1e55-47e4-b955-4fc49e69d6ce" condition="contains">
+            <Context document="RegistryItem" search="RegistryItem/Value" type="mir" />
+            <Content type="string">\Recycled</Content>
+          </IndicatorItem>
+          <IndicatorItem id="58933a09-8f48-45a5-b930-475f7d069916" condition="contains">
+            <Context document="RegistryItem" search="RegistryItem/Value" type="mir" />
+            <Content type="string">\Temp</Content>
+          </IndicatorItem>
+        </Indicator>
+      </Indicator>
+    </Indicator>
+  </definition>
+</ioc>
