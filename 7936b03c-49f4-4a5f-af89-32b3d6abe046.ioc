@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="7936b03c-49f4-4a5f-af89-32b3d6abe046" last-modified="2012-06-12T06:52:46" xmlns="http://schemas.mandiant.com/2010/ioc">
+  <short_description>Trojan-Tinba-Zusy</short_description>
+  <description>IOC to detect Tinba/Zusy trojan horse. June 2012.</description>
+  <authored_by>Cedric PERNET</authored_by>
+  <authored_date>2012-06-03T17:43:03</authored_date>
+  <links>
+    <link rel="category">Trojan</link>
+  </links>
+  <definition>
+    <Indicator operator="OR" id="d2780718-8360-41c6-9cf5-db586b8b3f19">
+      <IndicatorItem id="f8c47369-5714-4dcf-80c9-825720031463" condition="contains">
+        <Context document="Network" search="Network/URI" type="network" />
+        <Content type="string">/h/index.php</Content>
+      </IndicatorItem>
+      <IndicatorItem id="d8f2d982-65c0-40a1-934f-c7d3a930617f" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">8cc5050f513ed22780d4e85857a77a1fb2a3083d792cd550089b64e1d2ef58e9</Content>
+      </IndicatorItem>
+      <Indicator operator="AND" id="cec3e4af-06a3-42a6-8e08-9356472a0381">
+        <IndicatorItem id="78322b48-29ab-422a-aab5-6424fcf42e5f" condition="contains">
+          <Context document="FileItem" search="FileItem/FileExtension" type="mir" />
+          <Content type="string">.exe</Content>
+        </IndicatorItem>
+        <IndicatorItem id="fcfc3866-836f-4a0c-8939-fc23dc22d0a4" condition="contains">
+          <Context document="FileItem" search="FileItem/FullPath" type="mir" />
+          <Content type="string">All Users\Application Data\default</Content>
+        </IndicatorItem>
+      </Indicator>
+      <Indicator operator="OR" id="decc356d-17b9-4b69-8b6b-cb0855d3b240">
+        <IndicatorItem id="329aca81-e155-4e8e-941c-92057c5dd68f" condition="contains">
+          <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+          <Content type="string">\bin.exe</Content>
+        </IndicatorItem>
+        <IndicatorItem id="3d91bb31-de62-4013-8ec3-9af5a396265c" condition="contains">
+          <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+          <Content type="string">user_pref("security.warn_submit_insecure",false)</Content>
+        </IndicatorItem>
+        <IndicatorItem id="6f7793cc-6986-4028-9c21-5433d6388c44" condition="contains">
+          <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+          <Content type="string">POST /h/index.php</Content>
+        </IndicatorItem>
+        <IndicatorItem id="968b9b60-dfcd-4c13-aeeb-8fbd1b53df7a" condition="contains">
+          <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+          <Content type="string">data_inject</Content>
+        </IndicatorItem>
+      </Indicator>
+      <Indicator operator="AND" id="56dccd54-f9fc-465d-9fe1-7d2771439d98">
+        <IndicatorItem id="d67eed69-eb29-4b96-88b9-b7216465eaf0" condition="contains">
+          <Context document="FileItem" search="FileItem/StringList/string" type="mir" />
+          <Content type="string">index.php</Content>
+        </IndicatorItem>
+        <IndicatorItem id="408214f9-9df7-43f8-9801-e5d461601b9c" condition="contains">
+          <Context document="FileItem" search="FileItem/StringList/string" type="mir" />
+          <Content type="string">data_inject</Content>
+        </IndicatorItem>
+      </Indicator>
+    </Indicator>
+  </definition>
+</ioc>
