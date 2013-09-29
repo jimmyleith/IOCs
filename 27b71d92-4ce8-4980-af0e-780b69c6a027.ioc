@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="27b71d92-4ce8-4980-af0e-780b69c6a027" last-modified="2012-06-03T17:06:51" xmlns="http://schemas.mandiant.com/2010/ioc">
+  <short_description>RAT-VertexNet</short_description>
+  <description>IOC to detect VertexNet Remote Administration Tool.</description>
+  <authored_by>Cedric PERNET</authored_by>
+  <authored_date>2012-05-14T08:30:01</authored_date>
+  <links>
+    <link rel="category">Remote Administration Tool</link>
+  </links>
+  <definition>
+    <Indicator operator="OR" id="0bcf103e-a6fd-4327-b13e-c408a3bb8bb1">
+      <IndicatorItem id="be39d10b-99e8-4691-99b9-46b1a9062d23" condition="contains">
+        <Context document="Network" search="Network/String" type="network" />
+        <Content type="string">remoteshell::</Content>
+      </IndicatorItem>
+      <IndicatorItem id="4499626a-c361-451e-86dc-2348e246da7e" condition="contains">
+        <Context document="Network" search="Network/DNS" type="network" />
+        <Content type="string">unremote.org</Content>
+      </IndicatorItem>
+      <Indicator operator="AND" id="b473ce52-136e-4eeb-9be6-8ab857373ce3">
+        <IndicatorItem id="c0dc63f8-6822-4dcb-bdc4-b00ab973082d" condition="is">
+          <Context document="Network" search="Network/UserAgent" type="network" />
+          <Content type="string">V32</Content>
+        </IndicatorItem>
+        <Indicator operator="OR" id="a0d91a32-e408-442d-8b14-397161bd2f4f">
+          <IndicatorItem id="4928620c-5801-4d00-9e49-55d34026f1ed" condition="contains">
+            <Context document="Network" search="Network/URI" type="network" />
+            <Content type="string">/tasks.php?uid={</Content>
+          </IndicatorItem>
+          <Indicator operator="AND" id="177b85bd-248c-425b-bee4-65bdc6567788">
+            <IndicatorItem id="34741d9a-ab15-4c34-849b-09dc3ed21c6f" condition="contains">
+              <Context document="Network" search="Network/URI" type="network" />
+              <Content type="string">/adduser.php?uid={</Content>
+            </IndicatorItem>
+            <IndicatorItem id="b4e41793-9e5c-42bd-b6b4-e46410a4a934" condition="contains">
+              <Context document="Network" search="Network/URI" type="network" />
+              <Content type="string">&amp;cmpname=</Content>
+            </IndicatorItem>
+          </Indicator>
+        </Indicator>
+      </Indicator>
+      <Indicator operator="AND" id="eed06c16-5157-483b-a04e-65401657541f">
+        <IndicatorItem id="3b6a1b24-e395-4f82-a96f-4ebae2b38951" condition="contains">
+          <Context document="Network" search="Network/String" type="network" />
+          <Content type="string">typ=1&amp;data=</Content>
+        </IndicatorItem>
+        <IndicatorItem id="2d2cb1f9-5b6f-457a-b521-aa2d72cd0d62" condition="contains">
+          <Context document="Network" search="Network/URI" type="network" />
+          <Content type="string">/poster.php?uid={</Content>
+        </IndicatorItem>
+      </Indicator>
+      <Indicator operator="AND" id="30bc117b-9a33-4e95-937a-6d94cb0c96f3">
+        <IndicatorItem id="c18140ae-9a06-4677-bfba-e776c2b196f4" condition="contains">
+          <Context document="FileItem" search="FileItem/StringList/string" type="mir" />
+          <Content type="string">[ERROR] while starting WSA...</Content>
+        </IndicatorItem>
+        <IndicatorItem id="57b19ebf-7231-44b3-bef5-e2fbb7344492" condition="contains">
+          <Context document="FileItem" search="FileItem/StringList/string" type="mir" />
+          <Content type="string">httpflood::</Content>
+        </IndicatorItem>
+        <IndicatorItem id="28995073-8657-4b84-843e-cfa05a895516" condition="contains">
+          <Context document="FileItem" search="FileItem/StringList/string" type="mir" />
+          <Content type="string">remoteshell::</Content>
+        </IndicatorItem>
+      </Indicator>
+      <Indicator operator="AND" id="10980b38-783f-4bcd-936f-909481175d6f">
+        <IndicatorItem id="2cbfce33-ba80-458e-9edc-a510f6c1bd12" condition="contains">
+          <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+          <Content type="string">remoteshell::</Content>
+        </IndicatorItem>
+        <IndicatorItem id="9f470d0f-3730-44c3-a414-65eac56b37f2" condition="contains">
+          <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+          <Content type="string">/adduser.php?uid={</Content>
+        </IndicatorItem>
+      </Indicator>
+    </Indicator>
+  </definition>
+</ioc>
