@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="8e94f947-b6a7-4e47-98a4-ae2178aae308" last-modified="2012-06-27T22:01:24" xmlns="http://schemas.mandiant.com/2010/ioc">
+  <short_description>c0d0so0 Trojan</short_description>
+  <description>Sample of the c0d0s0 Trojan malware obtained from Malware.lu.  This particular malware is capable of recording key strokes and sending them to a remote command and control server.  This IOC was tested on Windows XP only.</description>
+  <authored_by>raustin</authored_by>
+  <authored_date>2012-06-26T21:38:18</authored_date>
+  <links />
+  <definition>
+    <Indicator operator="OR" id="14c46c65-6e1f-49f6-85ae-12b0a51a03d6">
+      <IndicatorItem id="9c49d239-62d7-47b7-84bb-2e3ccea965e1" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">77EA70B6F7F76EEFE158CD3160023196</Content>
+      </IndicatorItem>
+      <IndicatorItem id="6d8eeccb-69b8-4446-8993-7a28dde71cca" condition="contains">
+        <Context document="Network" search="Network/DNS" type="network" />
+        <Content type="string">woskagz.dyndns.org</Content>
+      </IndicatorItem>
+      <IndicatorItem id="64e8cea6-2c58-4a0b-a78c-cb125b9a90af" condition="contains">
+        <Context document="UrlHistoryItem" search="UrlHistoryItem/URL" type="mir" />
+        <Content type="string">woskagz.dyndns.org</Content>
+      </IndicatorItem>
+      <Indicator operator="OR" id="4ca92aa8-b448-45a3-9011-73ed3ec73cd5">
+        <Indicator operator="AND" id="2c2d25da-4746-4a36-8c19-690e9fc155f0">
+          <IndicatorItem id="cd3e2dce-2ec8-4ab8-bc6c-28cecc2590f1" condition="is">
+            <Context document="FileItem" search="FileItem/PEInfo/PETimeStamp" type="mir" />
+            <Content type="date">2011-04-15T17:07:23Z</Content>
+          </IndicatorItem>
+          <IndicatorItem id="54334621-82c7-4f70-a9a5-c82621137fd8" condition="contains">
+            <Context document="FileItem" search="FileItem/PEInfo/Exports/ExportedFunctions/string" type="mir" />
+            <Content type="string">start</Content>
+          </IndicatorItem>
+          <IndicatorItem id="ed0ad78c-cf39-458c-8f95-0779f785b7b5" condition="is">
+            <Context document="FileItem" search="FileItem/PEInfo/DetectedAnomalies/string" type="mir" />
+            <Content type="string">checksum_is_zero</Content>
+          </IndicatorItem>
+          <IndicatorItem id="af166e17-9895-423c-8976-111445bccfa2" condition="is">
+            <Context document="FileItem" search="FileItem/PEInfo/DigitalSignature/SignatureExists" type="mir" />
+            <Content type="string">false</Content>
+          </IndicatorItem>
+          <IndicatorItem id="5de2c8ac-67f0-44d0-87ea-369f2fb03fae" condition="is">
+            <Context document="FileItem" search="FileItem/PEInfo/Sections/Section/Name" type="mir" />
+            <Content type="string">Shared</Content>
+          </IndicatorItem>
+          <IndicatorItem id="4dd4d5af-363f-46c1-b1cc-536955dab4e3" condition="is">
+            <Context document="FileItem" search="FileItem/SizeInBytes" type="mir" />
+            <Content type="int">28672</Content>
+          </IndicatorItem>
+          <IndicatorItem id="3b0b663b-c28b-4c77-83ef-3233287b54da" condition="contains">
+            <Context document="FileItem" search="FileItem/PEInfo/Type" type="mir" />
+            <Content type="string">Dll</Content>
+          </IndicatorItem>
+          <IndicatorItem id="3ccbcb06-d6ef-40d0-825a-3a43e0c85047" condition="contains">
+            <Context document="FileItem" search="FileItem/PEInfo/Subsystem" type="mir" />
+            <Content type="string">GUI</Content>
+          </IndicatorItem>
+          <IndicatorItem id="759d5092-eaeb-4ea8-8c29-1e0d7246d237" condition="contains">
+            <Context document="FileItem" search="FileItem/FileName" type="mir" />
+            <Content type="string">tpgenlic.dll</Content>
+          </IndicatorItem>
+          <IndicatorItem id="7b945722-919e-4186-bb95-465e9291d9ce" condition="contains">
+            <Context document="FileItem" search="FileItem/PEInfo/DetectedEntryPointSignature/Name" type="mir" />
+            <Content type="string">Microsoft Visual C++ 6.0 DLL</Content>
+          </IndicatorItem>
+        </Indicator>
+        <Indicator operator="AND" id="8882edd7-f557-4f92-887b-499869813fa0">
+          <IndicatorItem id="849e9fa8-46d9-4297-88b3-239a14028fd7" condition="is">
+            <Context document="FileItem" search="FileItem/FileName" type="mir" />
+            <Content type="string">wmplay32.chq</Content>
+          </IndicatorItem>
+          <Indicator operator="OR" id="3a3e28db-4c3b-4160-8108-f593de2bf664">
+            <IndicatorItem id="cc961c6f-6793-495c-8da3-7f9a0b49a165" condition="contains">
+              <Context document="FileItem" search="FileItem/FilePath" type="mir" />
+              <Content type="string">%SystemRoot%\help</Content>
+            </IndicatorItem>
+            <Indicator operator="AND" id="5070f463-1f7a-4ddf-aff2-58ef99986670">
+              <IndicatorItem id="f0d3ad24-a467-47bb-ae48-1244f7aaddc9" condition="contains">
+                <Context document="FileItem" search="FileItem/FilePath" type="mir" />
+                <Content type="string">Documents and Settings</Content>
+              </IndicatorItem>
+              <IndicatorItem id="0cb9c300-71db-4d70-a533-95e63c5046c3" condition="contains">
+                <Context document="FileItem" search="FileItem/FilePath" type="mir" />
+                <Content type="string">Application Data</Content>
+              </IndicatorItem>
+            </Indicator>
+          </Indicator>
+        </Indicator>
+        <Indicator operator="OR" id="ba0bf9de-1100-44b0-af26-a30f804ce10a">
+          <Indicator operator="AND" id="2f02b858-79d7-480d-9db3-4cd366151686">
+            <IndicatorItem id="1b7c566b-6cdf-4f15-ad96-c7891f850353" condition="contains">
+              <Context document="FileItem" search="FileItem/PEInfo/Sections/Section/Name" type="mir" />
+              <Content type="string">.rdata</Content>
+            </IndicatorItem>
+            <IndicatorItem id="7d60e65a-c25f-4742-9988-09d57d8a75d3" condition="contains">
+              <Context document="FileItem" search="FileItem/PEInfo/Type" type="mir" />
+              <Content type="string">Dll</Content>
+            </IndicatorItem>
+            <IndicatorItem id="c20e0280-7981-4e28-8966-9e1b37c18300" condition="contains">
+              <Context document="FileItem" search="FileItem/PEInfo/Subsystem" type="mir" />
+              <Content type="string">GUI</Content>
+            </IndicatorItem>
+            <IndicatorItem id="f61a90fd-9533-4f19-af25-b75f9f9f7edd" condition="contains">
+              <Context document="FileItem" search="FileItem/StringList/string" type="mir" />
+              <Content type="string">c0d0so0</Content>
+            </IndicatorItem>
+            <Indicator operator="OR" id="7747ae58-8ccb-4edc-b44b-329d830a61cb">
+              <IndicatorItem id="f08bbd28-5195-4813-9614-e5c47c11a5e2" condition="contains">
+                <Context document="FileItem" search="FileItem/StringList/string" type="mir" />
+                <Content type="string">DUDE_AM_I_SHARP-3.14159265358979x6.626176</Content>
+              </IndicatorItem>
+              <IndicatorItem id="5fdcf176-7316-4d76-b12f-4fc64352cd2e" condition="contains">
+                <Context document="FileItem" search="FileItem/StringList/string" type="mir" />
+                <Content type="string">WHO_A_R_E_YOU?2.99792458x1.25663706143592</Content>
+              </IndicatorItem>
+              <IndicatorItem id="58c6457b-be7d-451e-a23a-f165912d1395" condition="contains">
+                <Context document="FileItem" search="FileItem/StringList/string" type="mir" />
+                <Content type="string">BASTARD_&amp;&amp;_BITCHES</Content>
+              </IndicatorItem>
+            </Indicator>
+          </Indicator>
+          <Indicator operator="AND" id="b7863ed6-e7b1-4eca-813f-0b47d17f829b">
+            <IndicatorItem id="cb03bf62-26f9-470c-a48a-20ba5d5f578e" condition="is">
+              <Context document="FileItem" search="FileItem/PEInfo/Sections/Section/Name" type="mir" />
+              <Content type="string">.data</Content>
+            </IndicatorItem>
+            <IndicatorItem id="a7955b7e-5c53-43d8-afd4-edd6677bf598" condition="contains">
+              <Context document="FileItem" search="FileItem/PEInfo/Type" type="mir" />
+              <Content type="string">Dll</Content>
+            </IndicatorItem>
+            <IndicatorItem id="f98b9851-e807-480a-8cf3-dd14ae293b4b" condition="contains">
+              <Context document="FileItem" search="FileItem/PEInfo/Subsystem" type="mir" />
+              <Content type="string">GUI</Content>
+            </IndicatorItem>
+            <IndicatorItem id="f5730f7c-bf54-44e8-8d4f-039d069ebd2e" condition="contains">
+              <Context document="FileItem" search="FileItem/StringList/string" type="mir" />
+              <Content type="string">c0d0so0</Content>
+            </IndicatorItem>
+            <Indicator operator="OR" id="80181387-80b4-4267-aa51-b0ce5d29beb6">
+              <IndicatorItem id="e778dd6e-162c-4ccf-b16c-1e0f35c3b385" condition="contains">
+                <Context document="FileItem" search="FileItem/StringList/string" type="mir" />
+                <Content type="string">start</Content>
+              </IndicatorItem>
+              <IndicatorItem id="7932aeb9-9210-49ae-9e5a-08819c4bd9a3" condition="contains">
+                <Context document="FileItem" search="FileItem/StringList/string" type="mir" />
+                <Content type="string">wmplay32.chq</Content>
+              </IndicatorItem>
+              <IndicatorItem id="e73a06da-ea84-4b00-a70d-d3f868ff621a" condition="contains">
+                <Context document="FileItem" search="FileItem/StringList/string" type="mir" />
+                <Content type="string">woskagz.dyndns.org</Content>
+              </IndicatorItem>
+            </Indicator>
+          </Indicator>
+        </Indicator>
+      </Indicator>
+    </Indicator>
+  </definition>
+</ioc>
