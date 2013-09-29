@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="0d0a744b-f7bf-453d-9105-5662bc27086e" last-modified="2012-07-07T14:38:21" xmlns="http://schemas.mandiant.com/2010/ioc">
+  <short_description>ZeroAccess/Siref.P</short_description>
+  <description>This is looking for indicators found from a recent ZeroAccess/Siref variant. Files are located in users profile\local settings\application data\{}\@ or \n and also seen in c:\windows\installer. Registry KeyPath Classes\CLSID\{F3130CDB-AA52-4C3A-AB32-85FFC23AF9C1}\InprocServer32 was also seen based on Sophos blog post http://nakedsecurity.sophos.com/2012/06/06/zeroaccess-rootkit-usermode/</description>
+  <authored_by>DFIR N00B</authored_by>
+  <authored_date>2012-07-05T15:41:17</authored_date>
+  <links>
+    <link rel="category">Trojan</link>
+  </links>
+  <definition>
+    <Indicator operator="OR" id="b2a483f3-961d-4409-8c92-5ced7a8bef95">
+      <Indicator operator="AND" id="ce8304e6-ae9c-4d19-a74a-9aa45fcaa5b5">
+        <Indicator operator="OR" id="7e48f7c0-1bd8-43d0-aae5-7b336bf28687">
+          <IndicatorItem id="f2d7c406-aeac-4a6a-bf3b-56c409bfc890" condition="contains">
+            <Context document="FileItem" search="FileItem/FilePath" type="mir" />
+            <Content type="string">Windows\Installer\{</Content>
+          </IndicatorItem>
+          <IndicatorItem id="701954c1-243a-49b8-9302-97e3919f0cfd" condition="contains">
+            <Context document="FileItem" search="FileItem/FilePath" type="mir" />
+            <Content type="string">Local Settings\Application Data\{</Content>
+          </IndicatorItem>
+        </Indicator>
+        <Indicator operator="OR" id="9a1257ba-5b23-4a49-bf8d-2836dd70300d">
+          <IndicatorItem id="36e5b9af-7cf5-4200-8a1b-5a32f55c53dd" condition="is">
+            <Context document="FileItem" search="FileItem/FileName" type="mir" />
+            <Content type="string">@</Content>
+          </IndicatorItem>
+          <IndicatorItem id="81f9459d-df50-4a08-9623-9b06b5034a90" condition="is">
+            <Context document="FileItem" search="FileItem/FileName" type="mir" />
+            <Content type="string">n</Content>
+          </IndicatorItem>
+          <IndicatorItem id="8ab8083e-8fad-47a1-bf39-5b0cea6b6205" condition="contains">
+            <Context document="FileItem" search="FileItem/Created" type="mir" />
+            <Content type="date">2008-04-14</Content>
+          </IndicatorItem>
+        </Indicator>
+      </Indicator>
+      <Indicator operator="AND" id="7d790811-bc8f-4105-98d0-e6768bf165af">
+        <IndicatorItem id="51b2a8a0-971e-40a9-ad0b-0ad8e5ad7eea" condition="is">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">n</Content>
+        </IndicatorItem>
+        <IndicatorItem id="2072703e-1357-46fa-8da6-9bec5347d108" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/Type" type="mir" />
+          <Content type="string">Dll</Content>
+        </IndicatorItem>
+        <IndicatorItem id="e003aeee-47e2-430e-ad11-394eaeadfa84" condition="contains">
+          <Context document="FileItem" search="FileItem/PEInfo/Exports/ExportedFunctions/string" type="mir" />
+          <Content type="string">?GetWindows</Content>
+        </IndicatorItem>
+      </Indicator>
+      <Indicator operator="AND" id="7c38fbf7-bff9-4ba8-8f0f-37c12c03d506">
+        <Indicator operator="OR" id="a160b20b-d15f-4dd8-a5e8-af750bb6f52e">
+          <IndicatorItem id="697e3811-b326-4058-8bd6-fa5f65378feb" condition="is">
+            <Context document="ProcessItem" search="ProcessItem/name" type="mir" />
+            <Content type="string">svchost.exe</Content>
+          </IndicatorItem>
+          <IndicatorItem id="8c6f22ba-749f-48ac-9883-1543438a4be4" condition="is">
+            <Context document="ProcessItem" search="ProcessItem/name" type="mir" />
+            <Content type="string">Explorer.exe</Content>
+          </IndicatorItem>
+        </Indicator>
+        <Indicator operator="AND" id="b77f09ea-cee9-450f-ab79-b045faf56995">
+          <Indicator operator="OR" id="d2d161b0-6394-45c7-820b-e1526c3cedef">
+            <IndicatorItem id="47fb4497-1d5b-4162-baa6-895d2ed6ad79" condition="contains">
+              <Context document="ProcessItem" search="ProcessItem/SectionList/MemorySection/Name" type="mir" />
+              <Content type="string">}\n</Content>
+            </IndicatorItem>
+            <IndicatorItem id="184836b9-afc6-4a57-8a87-0beb0c62c90f" condition="contains">
+              <Context document="ProcessItem" search="ProcessItem/SectionList/MemorySection/Name" type="mir" />
+              <Content type="string">}\@</Content>
+            </IndicatorItem>
+            <IndicatorItem id="be6e6ffc-2a77-44e3-a4ad-ef6daca8ad0b" condition="contains">
+              <Context document="ProcessItem" search="ProcessItem/HandleList/Handle/Name" type="mir" />
+              <Content type="string">}\U</Content>
+            </IndicatorItem>
+          </Indicator>
+        </Indicator>
+      </Indicator>
+      <Indicator operator="AND" id="33121913-9b21-4b61-939d-608ecb94b3dd">
+        <IndicatorItem id="df4da40c-ce45-40ed-8d33-f53643fa2fd4" condition="contains">
+          <Context document="PortItem" search="PortItem/protocol" type="mir" />
+          <Content type="string">UDP</Content>
+        </IndicatorItem>
+        <Indicator operator="OR" id="07eeca87-de4b-4e4d-a1e5-e004d36b86ce">
+          <IndicatorItem id="096c9554-43f3-4975-8a3d-6ae26449072c" condition="contains">
+            <Context document="PortItem" search="PortItem/localPort" type="mir" />
+            <Content type="string">16464</Content>
+          </IndicatorItem>
+          <IndicatorItem id="0d6dbf85-03f9-414b-9745-6e33e73f1fb1" condition="contains">
+            <Context document="PortItem" search="PortItem/localPort" type="mir" />
+            <Content type="string">16471</Content>
+          </IndicatorItem>
+          <IndicatorItem id="2ce7748d-e3e4-4a96-8ced-6e4245b20975" condition="contains">
+            <Context document="PortItem" search="PortItem/localPort" type="mir" />
+            <Content type="string">16461</Content>
+          </IndicatorItem>
+        </Indicator>
+      </Indicator>
+      <Indicator operator="AND" id="c0adbb52-83b2-400a-acf1-68695d410296">
+        <IndicatorItem id="c5deb74b-f410-43af-bf23-cd50890e3c6c" condition="contains">
+          <Context document="RegistryItem" search="RegistryItem/KeyPath" type="mir" />
+          <Content type="string">Classes\CLSID\{F3130CDB-AA52-4C3A-AB32-85FFC23AF9C1}\InprocServer32</Content>
+        </IndicatorItem>
+        <Indicator operator="AND" id="360e224d-89b2-4f3a-bd4d-ff34873698d5">
+          <IndicatorItem id="ced684e7-251d-41f6-ad00-69cd13381245" condition="contains">
+            <Context document="RegistryItem" search="RegistryItem/Text" type="mir" />
+            <Content type="string">\\.\globalroot\systemroot\Installer\{</Content>
+          </IndicatorItem>
+          <IndicatorItem id="7e64872a-3153-46cf-9c9e-52816a146405" condition="contains">
+            <Context document="RegistryItem" search="RegistryItem/Text" type="mir" />
+            <Content type="string">}\n</Content>
+          </IndicatorItem>
+        </Indicator>
+      </Indicator>
+    </Indicator>
+  </definition>
+</ioc>
