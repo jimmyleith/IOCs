@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="1623644e-7016-46ff-b302-07b7a75bfbe8" last-modified="2012-01-27T15:53:19" xmlns="http://schemas.mandiant.com/2010/ioc">
+  <short_description>SHYLOCK</short_description>
+  <description>Banking Trojan discovered by Trusteer Shylock intercepts network traffic and attempts to add malicious code to it. </description>
+  <authored_by>Christopher Bentley</authored_by>
+  <authored_date>2011-11-10T10:49:23</authored_date>
+  <links>
+    <link rel="report">http://quequero.org/uicwiki/index.php?title=Shylock_via_%20volatility</link>
+  </links>
+  <definition>
+    <Indicator operator="OR" id="d12f0f9c-f072-4806-beb9-b82ddde25953">
+      <IndicatorItem id="09e7d0b3-29a0-4f4b-81f0-4a86d5a7fcb3" condition="contains">
+        <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+        <Content type="string">MASTER_</Content>
+      </IndicatorItem>
+      <IndicatorItem id="509278db-3b47-4eed-966c-d1e018de4dfb" condition="contains">
+        <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+        <Content type="string">_SHUTDOWN</Content>
+      </IndicatorItem>
+      <IndicatorItem id="50e4a56d-dd8a-4998-8acc-c031d334df09" condition="contains">
+        <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+        <Content type="string">EVT_VNC</Content>
+      </IndicatorItem>
+      <IndicatorItem id="548c70a0-1bc9-41ee-b380-8c1ef394d5b7" condition="contains">
+        <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+        <Content type="string">EVT_BACK</Content>
+      </IndicatorItem>
+      <IndicatorItem id="41659dcb-a891-4588-86c6-21fba784ceb1" condition="contains">
+        <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+        <Content type="string">EVT_VNC</Content>
+      </IndicatorItem>
+      <IndicatorItem id="d564b7e1-d49a-409d-b693-7587a8846f0b" condition="is">
+        <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+        <Content type="string">extensadv.cc</Content>
+      </IndicatorItem>
+      <IndicatorItem id="45aaa97f-212a-4f02-938c-de5dc54d4af9" condition="is">
+        <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+        <Content type="string">topbeat.cc</Content>
+      </IndicatorItem>
+      <IndicatorItem id="77bd8b19-901a-4154-a91f-13f471f0f817" condition="is">
+        <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+        <Content type="string">brainsphere.cc</Content>
+      </IndicatorItem>
+      <IndicatorItem id="04e8e72f-ca2e-4125-81b4-f9bbfa783c4b" condition="is">
+        <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+        <Content type="string">commonworldme.cc</Content>
+      </IndicatorItem>
+      <IndicatorItem id="b8e022e9-c0f3-40bb-bb18-10a6e321d82f" condition="is">
+        <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+        <Content type="string">gigacat.cc</Content>
+      </IndicatorItem>
+      <IndicatorItem id="786b4041-7674-44f3-b53f-86cdff5e56eb" condition="is">
+        <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+        <Content type="string">nw-serv.cc</Content>
+      </IndicatorItem>
+      <IndicatorItem id="47daa997-480a-42c3-bcb3-b4270bc088ff" condition="contains">
+        <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+        <Content type="string">IE_Hook::GetRequestInfo</Content>
+      </IndicatorItem>
+      <IndicatorItem id="d779ea58-f074-43f8-8993-b5bc231655e4" condition="contains">
+        <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+        <Content type="string">FF_Hook::getRequestInfo</Content>
+      </IndicatorItem>
+      <IndicatorItem id="ab5c0898-8eab-4df9-80ed-3a280a01df32" condition="contains">
+        <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+        <Content type="string">EX_Hook::CreateProcess</Content>
+      </IndicatorItem>
+      <IndicatorItem id="9283f479-1e28-4d57-a084-9efc18f913df" condition="is">
+        <Context document="PortItem" search="PortItem/remoteIP" type="mir" />
+        <Content type="IP">178.208.75.226</Content>
+      </IndicatorItem>
+      <IndicatorItem id="c5f6206d-ed55-4d81-a7d4-c09c3e6715e6" condition="is">
+        <Context document="PortItem" search="PortItem/remoteIP" type="mir" />
+        <Content type="IP">81.177.170.135</Content>
+      </IndicatorItem>
+      <IndicatorItem id="51d6c0ca-6506-4c34-b259-848dbb8433e0" condition="is">
+        <Context document="PortItem" search="PortItem/remoteIP" type="mir" />
+        <Content type="IP">88.198.50.150</Content>
+      </IndicatorItem>
+      <IndicatorItem id="fc85578c-d5b3-478c-8efb-e9f5d36eb431" condition="is">
+        <Context document="PortItem" search="PortItem/remoteIP" type="mir" />
+        <Content type="IP">65.55.87.173</Content>
+      </IndicatorItem>
+      <IndicatorItem id="0daf3899-36ab-45a1-ac5e-8bde41195983" condition="is">
+        <Context document="PortItem" search="PortItem/remoteIP" type="mir" />
+        <Content type="IP">91.223.180.66</Content>
+      </IndicatorItem>
+      <IndicatorItem id="0a46f9d2-9d62-4dd5-8089-c007b508a35a" condition="is">
+        <Context document="PortItem" search="PortItem/remoteIP" type="mir" />
+        <Content type="IP">92.60.177.233</Content>
+      </IndicatorItem>
+      <IndicatorItem id="403b76e8-828b-4a23-86e9-ff925db7c051" condition="is">
+        <Context document="PortItem" search="PortItem/remoteIP" type="mir" />
+        <Content type="IP">92.60.177.243</Content>
+      </IndicatorItem>
+      <IndicatorItem id="046a26f1-e287-49ec-b472-31f1092fa8be" condition="is">
+        <Context document="PortItem" search="PortItem/remoteIP" type="mir" />
+        <Content type="IP">93.190.45.75</Content>
+      </IndicatorItem>
+      <IndicatorItem id="f1d43a80-3a47-419c-aa79-ec2054e0cce9" condition="is">
+        <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+        <Content type="string">hijackdll.dll</Content>
+      </IndicatorItem>
+      <IndicatorItem id="2e9f09a0-253d-4427-bb45-6c7f474e705e" condition="contains">
+        <Context document="ProcessItem" search="ProcessItem/HandleList/Handle/Name" type="mir" />
+        <Content type="string">MTX_</Content>
+      </IndicatorItem>
+      <IndicatorItem id="9d23dfd2-4353-4489-8755-899f7ff03cf9" condition="is">
+        <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+        <Content type="string">FF::PR_WriteHook entry</Content>
+      </IndicatorItem>
+      <IndicatorItem id="cd608045-9cb3-4c53-9991-b50120186cd8" condition="is">
+        <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+        <Content type="string">FF::PR_WriteHook exit</Content>
+      </IndicatorItem>
+      <IndicatorItem id="b949a19d-57dc-4fb2-bac1-930a72644347" condition="is">
+        <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+        <Content type="string">HijackProcessAttach::*** MASTER *** MASTER *** MASTER *** %s PID=%u</Content>
+      </IndicatorItem>
+      <IndicatorItem id="45fc7188-9e60-4490-a114-a00a65335823" condition="is">
+        <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+        <Content type="string">HijackProcessAttach::entry</Content>
+      </IndicatorItem>
+      <IndicatorItem id="b557f327-ae0f-4cf3-a1c3-d06f1c497a31" condition="contains">
+        <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+        <Content type="string">
+FF::BEFORE INJECT
+</Content>
+      </IndicatorItem>
+      <IndicatorItem id="66a36d8a-d948-4342-8973-a1d610259970" condition="contains">
+        <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+        <Content type="string">
+FF::AFTER INJECT</Content>
+      </IndicatorItem>
+      <IndicatorItem id="7a91b539-2fb1-4209-87cb-e5ca9c058e0a" condition="contains">
+        <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+        <Content type="string">
+IE::AFTER INJECT</Content>
+      </IndicatorItem>
+      <IndicatorItem id="a84c3450-e2df-4f73-ab6b-02c790ccc127" condition="contains">
+        <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+        <Content type="string">
+IE::BEFORE INJECT</Content>
+      </IndicatorItem>
+      <IndicatorItem id="95b2a7f0-152a-4d56-a577-bfcaff29ade1" condition="is">
+        <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+        <Content type="string">*** VNC *** VNC *** VNC *** VNC *** VNC *** VNC *** VNC *** VNC *** VNC *** VNC *** %s</Content>
+      </IndicatorItem>
+      <IndicatorItem id="c09fa70d-94f3-4e6d-9a17-748b0eef707c" condition="is">
+        <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+        <Content type="string">*** LOG INJECTS *** %s</Content>
+      </IndicatorItem>
+      <IndicatorItem id="2d864aa0-0e0c-431b-94fa-a8a759422e99" condition="is">
+        <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+        <Content type="string">*** inject to process %s not allowed</Content>
+      </IndicatorItem>
+      <IndicatorItem id="73b45af1-27fd-477f-a0e8-97df2f60b652" condition="is">
+        <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+        <Content type="string">*** BackSocks *** BackSocks *** BackSocks *** BackSocks *** BackSocks *** BackSocks *** BackSocks *** %s</Content>
+      </IndicatorItem>
+      <IndicatorItem id="072f9371-5c62-4572-a52b-6052b510f6a2" condition="is">
+        <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+        <Content type="string">.?AVFF_Hook@@</Content>
+      </IndicatorItem>
+      <IndicatorItem id="bc9e6a8f-32a5-4138-a514-691941810f1e" condition="is">
+        <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+        <Content type="string">.?AVIE_Hook@@</Content>
+      </IndicatorItem>
+      <IndicatorItem id="dae05de9-5c02-4dd1-be39-ca6ceb8dc88a" condition="contains">
+        <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+        <Content type="string">Inject::InjectDllFromMemory</Content>
+      </IndicatorItem>
+      <IndicatorItem id="0d66a00e-0470-4978-8d22-7239bdc84b5c" condition="contains">
+        <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+        <Content type="string">paragua-analyst.cc</Content>
+      </IndicatorItem>
+      <IndicatorItem id="a44fba7d-fe90-43cf-922c-550321a979a8" condition="contains">
+        <Context document="ProcessItem" search="ProcessItem/StringList/string" type="mir" />
+        <Content type="string">BadSocks.dll</Content>
+      </IndicatorItem>
+    </Indicator>
+  </definition>
+</ioc>
