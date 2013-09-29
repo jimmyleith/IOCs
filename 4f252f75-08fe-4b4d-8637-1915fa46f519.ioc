@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="4f252f75-08fe-4b4d-8637-1915fa46f519" last-modified="2011-12-26T21:36:09" xmlns="http://schemas.mandiant.com/2010/ioc">
+  <short_description>Trojan/PWS - Infostealer</short_description>
+  <description>Initial reporting credited to @diocyde - IOC should detect resident files &amp; fully infected boxes.</description>
+  <authored_by>Keith Gilbert</authored_by>
+  <authored_date>2011-12-22T23:54:36</authored_date>
+  <links>
+    <link rel="category">Trojan</link>
+    <link rel="report">http://md5.virscan.org/92410cc3a4f6e623478a4711fe3fcb7a</link>
+    <link rel="report">http://jsunpack.jeek.org/dec/go?report=0570e7ae0c3616bf52fcae74868c7f1fcf5202c7</link>
+  </links>
+  <definition>
+    <Indicator operator="OR" id="8e37b9d0-bcd1-4937-9d6f-d4a5ec3f60e2">
+      <IndicatorItem id="668a13c7-b4a7-4fe3-bfe4-4932368dcdb6" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">92410cc3a4f6e623478a4711fe3fcb7a</Content>
+      </IndicatorItem>
+      <IndicatorItem id="11ef6236-3d24-4cd3-a7a6-bc699b817365" condition="is">
+        <Context document="FileItem" search="FileItem/FileName" type="mir" />
+        <Content type="string">ATxBtCuy.exe</Content>
+      </IndicatorItem>
+      <IndicatorItem id="b0618669-34e1-4a08-86f2-3256a649723d" condition="contains">
+        <Context document="FileItem" search="FileItem/FullPath" type="mir" />
+        <Content type="string">Temp\HIMYM.dll</Content>
+      </IndicatorItem>
+      <IndicatorItem id="fcc5b533-f5f8-4347-8cdf-e1947bbaa0a8" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">7A607567F727D56F76C45E11790202A9</Content>
+      </IndicatorItem>
+      <Indicator operator="AND" id="b7b51dc6-d894-41b7-be04-7777c54fe5fb">
+        <IndicatorItem id="73c0a03a-1c95-4391-8343-cadf7763bca4" condition="contains">
+          <Context document="RegistryItem" search="RegistryItem/Path" type="mir" />
+          <Content type="string">CURRENTVERSION\Run</Content>
+        </IndicatorItem>
+        <IndicatorItem id="17cb46ef-bbac-402e-ba82-3fb96371a032" condition="is">
+          <Context document="RegistryItem" search="RegistryItem/ValueName" type="mir" />
+          <Content type="string">Disker</Content>
+        </IndicatorItem>
+      </Indicator>
+      <Indicator operator="AND" id="c43ccad1-59e9-4a59-9c75-e38155322e86">
+        <IndicatorItem id="fc8692fb-8989-4d8d-8562-f803a5154f46" condition="is">
+          <Context document="ProcessItem" search="ProcessItem/name" type="mir" />
+          <Content type="string">rundll32.exe</Content>
+        </IndicatorItem>
+        <IndicatorItem id="db9773a3-d587-44e1-8d96-9feb63a64a98" condition="contains">
+          <Context document="ProcessItem" search="ProcessItem/HandleList/Handle/Name" type="mir" />
+          <Content type="string">HIMYM.DLL</Content>
+        </IndicatorItem>
+      </Indicator>
+    </Indicator>
+  </definition>
+</ioc>
