@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="7215e08e-f473-4e5f-9dbf-037df524eba2" last-modified="2013-10-03T00:09:06" xmlns="http://schemas.mandiant.com/2010/ioc">
+  <short_description>LuckyCat</short_description>
+  <authored_date>2013-10-02T23:48:11</authored_date>
+  <links />
+  <definition>
+    <Indicator operator="OR" id="325ac2c4-0e7c-4c02-9005-345c72e65275">
+      <IndicatorItem id="8b1a7a9c-cf10-42e8-a40a-43c1dd0ba205" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">cattree.1x.biz</Content>
+      </IndicatorItem>
+      <IndicatorItem id="27cb48f7-bba0-48fc-9ea5-bf514f14212c" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">charlesbrain.shop.co</Content>
+      </IndicatorItem>
+      <IndicatorItem id="2b2733fd-5a98-4a78-87c2-6027037618ba" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">footballworldcup.website.org</Content>
+      </IndicatorItem>
+      <IndicatorItem id="94009581-0395-4ae9-a016-40c37b289fe7" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">frankwhales.shop.co</Content>
+      </IndicatorItem>
+      <IndicatorItem id="38a33e23-c732-4b10-bc87-434b8d059e7d" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">hi21222325.x.gg</Content>
+      </IndicatorItem>
+      <IndicatorItem id="da931cdd-0ff1-4e57-a54b-ddf1c2b23639" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">kinkeechow.shop.co</Content>
+      </IndicatorItem>
+      <IndicatorItem id="d3a5c73b-3613-4710-8d78-004247889601" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">kittyshop.kilu.org</Content>
+      </IndicatorItem>
+      <IndicatorItem id="6e75807a-61b4-4dab-b5dc-f5f9b5ff7cf7" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">perfect.shop.co</Content>
+      </IndicatorItem>
+      <IndicatorItem id="c6a68b15-27f7-4800-8aa7-a2c3e791f809" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">pumasports.website.org</Content>
+      </IndicatorItem>
+      <IndicatorItem id="7b01d4d9-26bc-49f8-8591-496c6918ba59" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">tomsburs.shop.co</Content>
+      </IndicatorItem>
+      <IndicatorItem id="a98c1604-5733-406e-84a7-c24e2848dfde" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">vpoasport.shopping2000.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="2c27b99d-e173-4d3b-9306-8d1d567d23f1" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">goodwell.all.co.uk</Content>
+      </IndicatorItem>
+      <IndicatorItem id="e983ddbb-bda8-4e93-ac80-83c281259716" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">fireequipment.website.org</Content>
+      </IndicatorItem>
+      <IndicatorItem id="572be3ac-e562-4360-8a29-533fa9efd6f8" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">tennissport.website.org</Content>
+      </IndicatorItem>
+      <IndicatorItem id="a9293d6f-6342-4258-a636-350216944e47" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">waterpool.website.org</Content>
+      </IndicatorItem>
+      <IndicatorItem id="9887f53b-5052-45aa-b0af-afb8e3bffd12" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">tb123.xoomsite.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="603d94f6-d8c7-41b2-9114-af8f236253c4" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">tbda123.gwchost.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="f60ae38a-b5b7-4840-835b-295fb6048d4c" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">toms.0fees.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="b4bc2327-dfef-4501-8b50-20b189091bdb" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">tomygreen.0fees.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="55578b0b-7ca7-48b3-b5de-1c97ec641756" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">killmannets.0fees.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="2a459ef9-3b58-4441-95fa-84cbde141f3b" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">maritimemaster.kilu.org</Content>
+      </IndicatorItem>
+      <IndicatorItem id="0149dcaf-d1d0-458b-8881-949d82866e0d" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">masterchoice.shop.co</Content>
+      </IndicatorItem>
+      <IndicatorItem id="dc224c91-76a9-4e52-9d8a-2aac4a6a35b7" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">jeepvihecle.shop.co</Content>
+      </IndicatorItem>
+      <IndicatorItem id="f5d98e56-9434-48af-be86-0890b3e512ee" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">lucysmith.0fees.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="e4e12a0f-1799-4bf9-bab3-e7d883f6e403" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">fidk.rkntils.dnset.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="77db1065-2498-4893-813c-6210e296e31e" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">rukiyeangel.dyndns.pro</Content>
+      </IndicatorItem>
+      <IndicatorItem id="d10a5990-faba-4832-9175-20953a28305e" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">duojee.info</Content>
+      </IndicatorItem>
+      <IndicatorItem id="27f17a99-f00a-4b17-b7cb-ce3066f349db" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">bailianlan.c.dwyu.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="613db6c8-2504-4574-bbfc-2e18eecde6dc" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">clbest.greenglassint.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="0d204f25-1305-4ce4-86cf-0bd4253f6401" condition="contains">
+        <Context document="PortItem" search="PortItem/remoteIP" type="mir" />
+        <Content type="IP">69.162.71.254</Content>
+      </IndicatorItem>
+      <IndicatorItem id="d583209f-1997-4467-b375-35f1ffc58dd4" condition="contains">
+        <Context document="PortItem" search="PortItem/remoteIP" type="mir" />
+        <Content type="IP">199.192.152.100</Content>
+      </IndicatorItem>
+      <IndicatorItem id="cada2aec-9edd-47d5-9b31-116408f57761" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">24552d599b650ca3ecd467d9d740de33</Content>
+      </IndicatorItem>
+      <IndicatorItem id="24767972-01fd-4d68-b910-9d6604ab7406" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">6815ab1f11ac33d4c1149efc3206d794</Content>
+      </IndicatorItem>
+      <IndicatorItem id="7a92981f-8511-4967-b3d1-530b96869bad" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">6bd4e7d7408e0d8d1592e27fc19650c8</Content>
+      </IndicatorItem>
+      <IndicatorItem id="bbbbfd4e-0322-4866-aacd-8028bb27e362" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">0a927897ab5acff1e6bd45897368253b</Content>
+      </IndicatorItem>
+      <IndicatorItem id="4bcbb1cc-569b-4a4a-9374-1f7c8288e00f" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">b53f71e4dd2ca8826e6191dee439564b</Content>
+      </IndicatorItem>
+      <IndicatorItem id="b73231c1-a2a4-4afa-929b-5700759c3283" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">a2b37776e0bd6594c688a8214371b9ff</Content>
+      </IndicatorItem>
+      <IndicatorItem id="cefba400-dd36-4b6a-a240-26e8786699e5" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">715cbbe21844bbb4f1f60a91ae28def3</Content>
+      </IndicatorItem>
+      <IndicatorItem id="51ec8d01-a08c-4bcd-9049-1f4a6029d23a" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">a9bda3c31fc6acc83a5226226f7ab554</Content>
+      </IndicatorItem>
+      <IndicatorItem id="80f09461-e4c9-4cac-8b29-4763b939226f" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">26891c3e4a2de034e4841db2a579734f</Content>
+      </IndicatorItem>
+      <IndicatorItem id="60e83e33-6624-4e37-87da-b9f0bdde0a40" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">3deb2a5fcb6bf1f80a074fd351e6f620</Content>
+      </IndicatorItem>
+      <IndicatorItem id="68cc68c7-fa1a-484d-a5a6-c81642b9120d" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">be0b2e7a53b1dcacb8c54c180dc4ca27</Content>
+      </IndicatorItem>
+      <IndicatorItem id="6fbecab8-119f-484f-aa67-a4972e1fa98b" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">1dafdc9e507771d0d8887348ce3f1c52</Content>
+      </IndicatorItem>
+      <IndicatorItem id="8ac02a97-5836-470f-b107-9f48174bee4b" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">6a62d4532c7a0656381fee8fb51874d7</Content>
+      </IndicatorItem>
+      <IndicatorItem id="f01b7a09-7fe4-41bc-a969-7c14f1d715ce" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">dab3f591b37f5147ae92570323b5c47d</Content>
+      </IndicatorItem>
+      <IndicatorItem id="158d4381-eca3-4407-b880-2789ab0bbe4d" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">c023544af85edacc66cd577a0d665dec</Content>
+      </IndicatorItem>
+      <IndicatorItem id="2316d7e0-eb18-4ddd-a9fd-cf843725bbdf" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">dcac508495d9800e476aa0c8e11b748d</Content>
+      </IndicatorItem>
+      <IndicatorItem id="73766f30-b5fd-4243-984b-19006f5d0e7d" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">00f07b0e701dcfa49e1c907f9242d028</Content>
+      </IndicatorItem>
+      <IndicatorItem id="7c8df199-f05c-4906-9089-ad0b3ac5a26e" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">00e686e382806c33d9ae77256f33ed93</Content>
+      </IndicatorItem>
+      <IndicatorItem id="64605855-7c9e-49e7-b98d-303005b0aa98" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">411ab5eb2ef3153b61a49964f9ab4e64</Content>
+      </IndicatorItem>
+      <IndicatorItem id="0ba16179-b87e-4aff-8725-aabef9e6be40" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">039a6e012f33495a1308b815ef098459</Content>
+      </IndicatorItem>
+      <IndicatorItem id="1c81dd8b-1a03-405a-bc1d-fa2ab70a5d19" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">cb9ab22f3356a3b054a7e9282a69f71e</Content>
+      </IndicatorItem>
+      <IndicatorItem id="7f042803-d184-412d-857b-a683b30cc7c2" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">1aa1e795a5ba75f2a5862c6d01205b57</Content>
+      </IndicatorItem>
+      <IndicatorItem id="ecb7a4ff-051d-4f33-8ae0-fc355e31be63" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">cff0964ed2df5659b0a563f32b7c3eca</Content>
+      </IndicatorItem>
+      <IndicatorItem id="1ca48be4-bed2-4d50-ade5-52e9decf170d" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">ebea24fe1611a1ab778f5ecceb781fad</Content>
+      </IndicatorItem>
+      <IndicatorItem id="0c3aae71-1cfb-4acc-b4d4-1ec70774cec4" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">d773e3bacc2c8389c2ab51c9cbc68480</Content>
+      </IndicatorItem>
+      <IndicatorItem id="7687aafd-9424-4e0a-b3ae-6878a5219505" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">9860d087892fce98e6f639e3e9dba91e</Content>
+      </IndicatorItem>
+      <IndicatorItem id="8ed2bb23-1ed7-4e7b-8fa9-0361d94e6144" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">e62c115b6874726c309b3038a9391e28</Content>
+      </IndicatorItem>
+      <IndicatorItem id="6d416108-b8c6-4fae-a100-5edf3d645b03" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">567a774cf865b50189e81c14b4ca4b63</Content>
+      </IndicatorItem>
+    </Indicator>
+  </definition>
+</ioc>
