@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="592c059c-88b9-4f7d-9410-a85b1653dad9" last-modified="2013-10-03T01:20:58" xmlns="http://schemas.mandiant.com/2010/ioc">
+  <short_description>zwshell</short_description>
+  <description>indicators for the zwShell backdoor/trojan</description>
+  <authored_by>madvillain (villain@evilthings.org)</authored_by>
+  <authored_date>2013-10-03T01:10:39</authored_date>
+  <links />
+  <definition>
+    <Indicator operator="OR" id="2d5b6ea0-6c31-4395-acf5-b513f4ee976c">
+      <IndicatorItem id="03c164c9-5c31-4568-bd20-9e6c90287d7a" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">1AA038E8AAC50CF1825739389E904B44</Content>
+      </IndicatorItem>
+      <IndicatorItem id="385902f3-cc51-4ffd-84cc-680dc20e2cd2" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">549dff76afc0dd9e536a6d9c4d499065</Content>
+      </IndicatorItem>
+      <IndicatorItem id="487a870b-0dd0-4107-acfa-303584702aa2" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">665E0B1E031460FEA258E674805B6224</Content>
+      </IndicatorItem>
+      <IndicatorItem id="79f338c4-8375-4e2e-b917-f8b8abf25bff" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">79bb3e12cb08240f8d37583b0aebe25d</Content>
+      </IndicatorItem>
+      <IndicatorItem id="41e6d26d-aab3-474b-aae9-2bf99d2cd288" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">8C4153A218BD12DB528F46FAB7B2E405</Content>
+      </IndicatorItem>
+      <IndicatorItem id="6c7847d0-f11e-4faa-973e-dbd58e313443" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">d39eeef1c14a3349b61ff5d45dd749b3</Content>
+      </IndicatorItem>
+      <IndicatorItem id="e3eb5403-ebd1-4714-b818-5784c46681bf" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">525386053AF66358A1B938A2BA4CCF8F</Content>
+      </IndicatorItem>
+      <IndicatorItem id="6221437f-d031-42de-bc16-314dd69248eb" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">0a5d9f5c6ced1f6222416cd13e4b8612</Content>
+      </IndicatorItem>
+      <IndicatorItem id="1880ae77-55e3-419f-be27-3f9d8e3955db" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">378D6016D32430B31042AE4EF783C117</Content>
+      </IndicatorItem>
+      <IndicatorItem id="b07d8e7a-4b46-48a9-be58-8d225e8ce2ef" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">45829795396a5af6db26fcf30d456f3c</Content>
+      </IndicatorItem>
+      <IndicatorItem id="7347d13d-a37e-4a18-9611-f6ad139d02f1" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">60a25fc31c9360a69cc0535555a0fbbf</Content>
+      </IndicatorItem>
+      <IndicatorItem id="71b2e1ef-9086-4649-9943-ba13d5ef875e" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">b8735f55d7e0f3b0aaf8574dcfc2fe1a</Content>
+      </IndicatorItem>
+      <IndicatorItem id="62607902-29e2-45ff-ad4f-6efb2f86381e" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">CFDB09811E6FAB420B474D96BE40F371</Content>
+      </IndicatorItem>
+      <IndicatorItem id="448cc7c1-9f26-4999-a5c6-59b21d807beb" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">d88e930bc3e514519b6c74ea9fa27dcb </Content>
+      </IndicatorItem>
+      <IndicatorItem id="ad672562-5d50-4d16-a831-2d14dc709196" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">E2DB67EACB919D4647E975F9A1BD6C5C</Content>
+      </IndicatorItem>
+      <IndicatorItem id="d8346813-6d40-4ef3-ae15-e18e0347f2ac" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">F41A1EDA474C642E5B080B3EFDD6197C</Content>
+      </IndicatorItem>
+      <IndicatorItem id="476e0a28-fdca-42f5-a660-3260fb1dd2a9" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">f84839503ec237be4e5ccb045a7c30d8</Content>
+      </IndicatorItem>
+      <IndicatorItem id="62e10e2b-8664-4fbe-b26f-ec145ebbb54f" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">6B57D4A315BFE57DAD3DA74FF116363A</Content>
+      </IndicatorItem>
+      <IndicatorItem id="cbfc8e3f-4132-4db9-99a1-f7d527cf6204" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">63f40d2104bbf15accd0a9c36978089c</Content>
+      </IndicatorItem>
+      <IndicatorItem id="df112e9f-fce7-4cfb-a81c-ea27f61dcb4b" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">a331dee4a6554ef70dc90628558a558a</Content>
+      </IndicatorItem>
+      <IndicatorItem id="07b2fcf7-7131-4a9b-a927-f97ef408556d" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">c36a3275ae435e3ff1a387f475a0d579</Content>
+      </IndicatorItem>
+      <IndicatorItem id="6cf1ad29-b0ec-458f-9597-6089144c23a5" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">F46E9C3049F0781779B24C3AB0DDD5BA</Content>
+      </IndicatorItem>
+      <IndicatorItem id="8a396995-f1c5-41fc-be54-58853f1d2674" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">ca915897185e1ee3f811606f364bc995</Content>
+      </IndicatorItem>
+      <IndicatorItem id="5aa288af-6f68-42f4-ad2e-0aa05b0a7492" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">6E31CCA77255F9CDE228A2DB9E2A3855</Content>
+      </IndicatorItem>
+      <IndicatorItem id="35e7501a-4f82-4f74-922a-69a3e22ba190" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">36E6BDAE6E9E5004A7313F1D35A56528</Content>
+      </IndicatorItem>
+      <IndicatorItem id="651f00e6-5a5b-4f5f-94a5-0069bad62c5a" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">e9b395829f985ce50e64374fd6653cab</Content>
+      </IndicatorItem>
+      <IndicatorItem id="d86bfd36-392f-43dd-bda4-1b6921347e08" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">18801e3e7083bc2928a275e212a5590e</Content>
+      </IndicatorItem>
+      <IndicatorItem id="8684944a-08d2-4ada-9a49-f70bbed648fc" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">093640A69C8EAFBC60343BF9CD1D3AD3</Content>
+      </IndicatorItem>
+      <IndicatorItem id="eba83416-880b-4a98-8f5d-bae06e610846" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">30fcb8ca9012a55f8f1a8953abb992f2 </Content>
+      </IndicatorItem>
+      <IndicatorItem id="36d73ed8-a156-4944-a122-db506ca42778" condition="is">
+        <Context document="FileItem" search="FileItem/FileName" type="mir" />
+        <Content type="string">ws_data.dll</Content>
+      </IndicatorItem>
+      <IndicatorItem id="54ceb754-866d-4410-9782-66a7a2a36e85" condition="is">
+        <Context document="FileItem" search="FileItem/FileName" type="mir" />
+        <Content type="string">ws_18.dl</Content>
+      </IndicatorItem>
+      <IndicatorItem id="d39305d9-c6ee-40e4-b301-6616eb16770d" condition="is">
+        <Context document="FileItem" search="FileItem/FileName" type="mir" />
+        <Content type="string">hpcui093.dll</Content>
+      </IndicatorItem>
+      <IndicatorItem id="b0e962d1-eef8-4bb5-b4a3-05dde1d59201" condition="contains">
+        <Context document="FileItem" search="FileItem/FileName" type="mir" />
+        <Content type="string">recyle32.dll</Content>
+      </IndicatorItem>
+      <IndicatorItem id="3104e05d-8860-4a8b-a886-98c70ac768a0" condition="contains">
+        <Context document="FileItem" search="FileItem/FileName" type="mir" />
+        <Content type="string">recyle64.dll</Content>
+      </IndicatorItem>
+      <IndicatorItem id="8e801683-6891-46a9-846c-b840b35fc95b" condition="contains">
+        <Context document="FileItem" search="FileItem/FileName" type="mir" />
+        <Content type="string">shelldc.dll</Content>
+      </IndicatorItem>
+      <IndicatorItem id="a8f75ff1-6bb2-435e-9ebc-9b9e7151341d" condition="contains">
+        <Context document="FileItem" search="FileItem/FileName" type="mir" />
+        <Content type="string">hpmdp093.dll</Content>
+      </IndicatorItem>
+      <IndicatorItem id="1f661bdc-c1d1-4d78-95a8-0f39bd2e60d1" condition="contains">
+        <Context document="FileItem" search="FileItem/FileName" type="mir" />
+        <Content type="string">Server.dll</Content>
+      </IndicatorItem>
+      <IndicatorItem id="9891344d-c901-4cce-81f0-39762d841c6a" condition="contains">
+        <Context document="FileItem" search="FileItem/FileName" type="mir" />
+        <Content type="string">ver.exe</Content>
+      </IndicatorItem>
+      <IndicatorItem id="83b9890f-06dc-4d4c-a09c-6dfcd430b808" condition="contains">
+        <Context document="FileItem" search="FileItem/FileName" type="mir" />
+        <Content type="string">Server.exe</Content>
+      </IndicatorItem>
+      <IndicatorItem id="eaefb6e8-16e5-4598-b2cb-f14040279a36" condition="contains">
+        <Context document="FileItem" search="FileItem/FileName" type="mir" />
+        <Content type="string">connect.dll</Content>
+      </IndicatorItem>
+      <IndicatorItem id="d16e8bc4-f820-4296-ae33-33cd4a88ddff" condition="contains">
+        <Context document="FileItem" search="FileItem/FileName" type="mir" />
+        <Content type="string">zwShellx[1].exe</Content>
+      </IndicatorItem>
+      <IndicatorItem id="4c23a9cb-2fdc-4d4f-b121-88e1dffda691" condition="contains">
+        <Context document="FileItem" search="FileItem/FileName" type="mir" />
+        <Content type="string">ghost.exe</Content>
+      </IndicatorItem>
+      <IndicatorItem id="7463f635-4936-42cc-b4db-8ffe714633cb" condition="contains">
+        <Context document="FileItem" search="FileItem/FileName" type="mir" />
+        <Content type="string">zwShellx.exe</Content>
+      </IndicatorItem>
+      <IndicatorItem id="bcc17ebf-d789-4023-87a9-2bd0ac1d7229" condition="contains">
+        <Context document="FileItem" search="FileItem/FileName" type="mir" />
+        <Content type="string">shell.exe</Content>
+      </IndicatorItem>
+      <IndicatorItem id="e08f5646-6201-4160-8c30-4c5723213c98" condition="contains">
+        <Context document="FileItem" search="FileItem/FileName" type="mir" />
+        <Content type="string">zwShell.ini</Content>
+      </IndicatorItem>
+      <IndicatorItem id="60ed789b-e550-4a36-ab4e-3542afaed261" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">85df6b3e2c1a4c6ce20fc8080e0b53e9</Content>
+      </IndicatorItem>
+      <Indicator operator="AND" id="72945f30-282e-48db-8a70-c0b64222eae6">
+        <IndicatorItem id="6c6845ac-ba69-4a0d-a44f-a99a967cb825" condition="is">
+          <Context document="Network" search="Network/DNS" type="mir" />
+          <Content type="string">shell.is-a-chef.com</Content>
+        </IndicatorItem>
+        <Indicator operator="OR" id="b0586193-1999-4ed2-9e27-d710f8c10a80">
+          <IndicatorItem id="ae3a08bf-306d-4dce-952c-4d8c2b19a160" condition="is">
+            <Context document="PortItem" search="PortItem/remotePort" type="mir" />
+            <Content type="int">3128</Content>
+          </IndicatorItem>
+          <IndicatorItem id="b3bb0da0-fd38-4284-9c7a-b90a9c40c050" condition="is">
+            <Context document="PortItem" search="PortItem/remotePort" type="mir" />
+            <Content type="int">80</Content>
+          </IndicatorItem>
+        </Indicator>
+      </Indicator>
+      <Indicator operator="AND" id="b1cbbe1e-7077-4d3e-80c0-17e5b6b45130">
+        <IndicatorItem id="7e14cb9d-221d-48b9-ae50-7d090e146c2f" condition="is">
+          <Context document="PortItem" search="PortItem/remoteIP" type="mir" />
+          <Content type="IP">134.146.82.25</Content>
+        </IndicatorItem>
+        <IndicatorItem id="fe8e6fbd-a63e-4f6a-a44a-cb38cc282248" condition="is">
+          <Context document="PortItem" search="PortItem/remotePort" type="mir" />
+          <Content type="int">53</Content>
+        </IndicatorItem>
+      </Indicator>
+    </Indicator>
+  </definition>
+</ioc>
