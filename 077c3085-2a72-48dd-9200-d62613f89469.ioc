@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="us-ascii"?>
-<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="077c3085-2a72-48dd-9200-d62613f89469" last-modified="2013-10-02T23:46:47" xmlns="http://schemas.mandiant.com/2010/ioc">
+<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="077c3085-2a72-48dd-9200-d62613f89469" last-modified="2013-10-03T01:09:17" xmlns="http://schemas.mandiant.com/2010/ioc">
   <short_description>Gauss</short_description>
+  <authored_by>madvillain (villain@evilthings.org)</authored_by>
   <authored_date>2013-10-02T23:40:31</authored_date>
   <links />
   <definition>
@@ -49,51 +50,51 @@
         <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
         <Content type="md5">DE2D0D6C340C75EB415F726338835125</Content>
       </IndicatorItem>
-      <IndicatorItem id="8a3fd75c-646f-446d-afaa-592679c535bc" condition="contains">
+      <IndicatorItem id="8a3fd75c-646f-446d-afaa-592679c535bc" condition="is">
         <Context document="Network" search="Network/DNS" type="mir" />
         <Content type="string">gowin7.com</Content>
       </IndicatorItem>
-      <IndicatorItem id="0c07038c-8f0b-407a-99ec-44d4a76ae757" condition="contains">
+      <IndicatorItem id="0c07038c-8f0b-407a-99ec-44d4a76ae757" condition="is">
         <Context document="Network" search="Network/DNS" type="mir" />
         <Content type="string">secuurity.net</Content>
       </IndicatorItem>
-      <IndicatorItem id="e70bbd15-9cf7-46b2-bab9-7b82d547492b" condition="contains">
+      <IndicatorItem id="e70bbd15-9cf7-46b2-bab9-7b82d547492b" condition="is">
         <Context document="Network" search="Network/DNS" type="mir" />
         <Content type="string">datajunction.org</Content>
       </IndicatorItem>
-      <IndicatorItem id="17a82e15-33b6-491e-ad56-8e30dad8259e" condition="contains">
+      <IndicatorItem id="17a82e15-33b6-491e-ad56-8e30dad8259e" condition="is">
         <Context document="Network" search="Network/DNS" type="mir" />
         <Content type="string">bestcomputeradvisor.com</Content>
       </IndicatorItem>
-      <IndicatorItem id="be88a8cf-572a-4e12-b4ec-4baabda9bd9f" condition="contains">
+      <IndicatorItem id="be88a8cf-572a-4e12-b4ec-4baabda9bd9f" condition="is">
         <Context document="Network" search="Network/DNS" type="mir" />
         <Content type="string">dotnetadvisor.info</Content>
       </IndicatorItem>
-      <IndicatorItem id="c7af1dfe-44b4-4c1d-8139-4c5bcb000f69" condition="contains">
+      <IndicatorItem id="c7af1dfe-44b4-4c1d-8139-4c5bcb000f69" condition="is">
         <Context document="Network" search="Network/DNS" type="mir" />
         <Content type="string">dataspotlight.net</Content>
       </IndicatorItem>
-      <IndicatorItem id="dbfdedfc-210f-433e-a9f6-856dc4362c3b" condition="contains">
+      <IndicatorItem id="dbfdedfc-210f-433e-a9f6-856dc4362c3b" condition="is">
         <Context document="Network" search="Network/DNS" type="mir" />
         <Content type="string">guest-access.net</Content>
       </IndicatorItem>
-      <IndicatorItem id="efb0ff60-203c-4af4-a73d-3979204fbb86" condition="contains">
+      <IndicatorItem id="efb0ff60-203c-4af4-a73d-3979204fbb86" condition="is">
         <Context document="PortItem" search="PortItem/remoteIP" type="mir" />
         <Content type="IP">182.18.166.116</Content>
       </IndicatorItem>
-      <IndicatorItem id="64d6bc91-631b-494c-a823-b58ccd1b603b" condition="contains">
+      <IndicatorItem id="64d6bc91-631b-494c-a823-b58ccd1b603b" condition="is">
         <Context document="PortItem" search="PortItem/remoteIP" type="mir" />
         <Content type="IP">109.71.45.115</Content>
       </IndicatorItem>
-      <IndicatorItem id="341805be-2645-4582-ae9c-ccfa3d44b233" condition="contains">
+      <IndicatorItem id="341805be-2645-4582-ae9c-ccfa3d44b233" condition="is">
         <Context document="PortItem" search="PortItem/remoteIP" type="mir" />
         <Content type="IP">173.204.235.204</Content>
       </IndicatorItem>
-      <IndicatorItem id="9f5dc45f-c9ac-43d5-8975-025dc9f6b0a1" condition="contains">
+      <IndicatorItem id="9f5dc45f-c9ac-43d5-8975-025dc9f6b0a1" condition="is">
         <Context document="PortItem" search="PortItem/remoteIP" type="mir" />
         <Content type="IP">173.204.235.196</Content>
       </IndicatorItem>
-      <IndicatorItem id="c0a74e45-0556-46d7-acad-a873e08f52a9" condition="contains">
+      <IndicatorItem id="c0a74e45-0556-46d7-acad-a873e08f52a9" condition="is">
         <Context document="PortItem" search="PortItem/remoteIP" type="mir" />
         <Content type="IP">173.204.235.201 </Content>
       </IndicatorItem>
