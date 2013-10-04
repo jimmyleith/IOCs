@@ -1,0 +1,1616 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="b96e8c69-240b-4a42-84a8-53fd2f324b28" last-modified="2013-10-03T06:02:37" xmlns="http://schemas.mandiant.com/2010/ioc">
+  <short_description>Winnti</short_description>
+  <description>indicators from the Winnti APT group writeup by Kaspersky (http://www.securelist.com/en/downloads/vlpdfs/winnti-more-than-just-a-game-130410.pdf)</description>
+  <authored_by>madvillain (villain@evilthings.org)</authored_by>
+  <authored_date>2013-10-03T01:22:24</authored_date>
+  <links />
+  <definition>
+    <Indicator operator="OR" id="1325b025-2f1b-4e92-a0f7-ce35233e35cf">
+      <IndicatorItem id="4527be47-bcea-4d81-be6c-09bd181d245c" condition="contains">
+        <Context document="Email" search="Email/From" type="mir" />
+        <Content type="string">evilsex@gmail.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="78a2e03e-5d3b-4763-9645-bfaffb36e1f8" condition="contains">
+        <Context document="Email" search="Email/From" type="mir" />
+        <Content type="string">jslee.jcr@gmail.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="8b19734c-24df-4ebb-bc40-4bd57198a2d7" condition="contains">
+        <Context document="Email" search="Email/From" type="mir" />
+        <Content type="string">whoismydns@gmail.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="22c11f65-ff22-4935-a27d-d19806362684" condition="contains">
+        <Context document="Email" search="Email/From" type="mir" />
+        <Content type="string">googl3@live.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="e0774a8f-4760-464b-b821-e690d23f7e0f" condition="contains">
+        <Context document="Email" search="Email/From" type="mir" />
+        <Content type="string">wzcc@cnkker.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="b7850bea-ad2f-4f44-9a2a-ef7ad8a43479" condition="contains">
+        <Context document="Email" search="Email/From" type="mir" />
+        <Content type="string">apanku2009@gmail.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="d1f4256b-78d8-4b65-afc5-fc05b57aba5b" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">006c4561499da562a4e337e2c146cf1a</Content>
+      </IndicatorItem>
+      <IndicatorItem id="3016e4a6-e7e0-4e82-b593-76ad587e8e9b" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">128cb2a5de0d0422d69bab6d23ebb0aa</Content>
+      </IndicatorItem>
+      <IndicatorItem id="888b8f77-53c7-48c6-b20a-72bcabb35afe" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">3ecbc145dd593ec431145dd84e1e50cb</Content>
+      </IndicatorItem>
+      <IndicatorItem id="1283a222-f799-4b59-9875-1fe4c362dcdb" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">296220a85742a8722b1335977dd98251</Content>
+      </IndicatorItem>
+      <IndicatorItem id="ce12f2d6-06ec-4c77-8a94-43bbf2ce805f" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">1ab7360a9438fb816f01ac00c17c9da4</Content>
+      </IndicatorItem>
+      <IndicatorItem id="1b4f8ff6-adcd-40b5-beb6-c550b652b5c4" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">18813863417608b4ad14babebcafcb57</Content>
+      </IndicatorItem>
+      <IndicatorItem id="65ee9c6f-4541-4cd6-87e2-4b0de86c3ae2" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">0f3c15de074f934499f5bbc095d5557f</Content>
+      </IndicatorItem>
+      <IndicatorItem id="4f1200d5-7f19-416d-a5d6-9f66fd9fa0b2" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">095a6a3b6eba996d2786b5ec919b1a7e</Content>
+      </IndicatorItem>
+      <IndicatorItem id="92612569-119f-42e3-8a50-f85891b333de" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">0630a443bd0102647ca1707cdf7f8c35</Content>
+      </IndicatorItem>
+      <IndicatorItem id="f1a59909-54f5-498b-88fa-0200fe032f35" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">0af3761919bffa0019e7899333846b27</Content>
+      </IndicatorItem>
+      <IndicatorItem id="f5f06c2c-7203-4910-8cc0-a3bed1e3c0ca" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">38fb6993c3c94ea6df01235f44be4e77</Content>
+      </IndicatorItem>
+      <IndicatorItem id="23efebb5-d131-4feb-900b-72a75cec8ff2" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">4722c665196fb6c7450980eafde6ac86</Content>
+      </IndicatorItem>
+      <IndicatorItem id="1d981deb-a31b-412f-9e99-20e58dd78376" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">1d688ca3148df378a15796f43242b77c</Content>
+      </IndicatorItem>
+      <IndicatorItem id="d059629a-6b5a-463a-98df-3e72ae7a98ee" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">4e8f1c053dbe449c93f04e11d4afa352</Content>
+      </IndicatorItem>
+      <IndicatorItem id="6a867e28-9d0f-4e23-bdbd-5e98eaca3317" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">41ff77ea7d4960c75d272a6a6fc31e7c</Content>
+      </IndicatorItem>
+      <IndicatorItem id="2169e859-8f58-46d9-8f73-1369ef699a9f" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">5db7ba6e771cef48c623ae48fbb4740b</Content>
+      </IndicatorItem>
+      <IndicatorItem id="7b23158f-8a43-49b3-9908-ae006a9a97bd" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">516fe9d2fe8b047fa8ba993692f44482</Content>
+      </IndicatorItem>
+      <IndicatorItem id="2f2dd2c2-46d5-44c0-a91b-149ea616f76a" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">50635147a579a8c8859a49c609f9d3d2</Content>
+      </IndicatorItem>
+      <IndicatorItem id="4c7d2fa2-bdea-4349-88e3-1186723627d2" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">4402db68df6682bfe3e1e855a2474444</Content>
+      </IndicatorItem>
+      <IndicatorItem id="433e7d13-15b9-4ab5-b741-a77e3ce988d3" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">2128b6c7ec7848b73aeb6f211cef7615</Content>
+      </IndicatorItem>
+      <IndicatorItem id="3b764031-6a07-44ab-8ba9-7b7d35ab6787" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">5171b030750f364a3459d5de22bc875d</Content>
+      </IndicatorItem>
+      <IndicatorItem id="94219185-8c97-4a67-a301-ea210936d321" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">3c722f0bea82e5bb8958f7fab012c911</Content>
+      </IndicatorItem>
+      <IndicatorItem id="fe69525d-fb37-432e-918b-50a8adee84f0" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">17c72e0cde2e4019a6b885f8188ac410</Content>
+      </IndicatorItem>
+      <IndicatorItem id="20262921-ea7a-4bc6-8467-63492b5d840c" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">0751ca6f8b652cae6f2b650f0cf9036a</Content>
+      </IndicatorItem>
+      <IndicatorItem id="34b1c1d5-af17-4cb2-a378-d1872415df3b" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">024CC9872D9F413292D0F952920547CA</Content>
+      </IndicatorItem>
+      <IndicatorItem id="8e632961-cf04-4d78-84cb-096aece486af" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">0613d67070679fb97ddefc5973c4d604</Content>
+      </IndicatorItem>
+      <IndicatorItem id="b15f36b6-82c6-42f9-9bd8-3f0f2cfc9318" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">11ed89f0ab17cf3973e2bf970879661a</Content>
+      </IndicatorItem>
+      <IndicatorItem id="74c91418-d033-4361-b2f7-2020f9e6c0d4" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">1a5da850993681e685893547d1aa2eaf</Content>
+      </IndicatorItem>
+      <IndicatorItem id="c2b67497-4c76-480d-acf0-aba3a143fad9" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">379251974ebcd5c397f92ca45bb9620d</Content>
+      </IndicatorItem>
+      <IndicatorItem id="8e1aa6a1-51ef-489a-bc0c-24fb869ff1f6" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">4038fb208d4b50e1f5f765811fdac174</Content>
+      </IndicatorItem>
+      <IndicatorItem id="c5d72a54-dba6-42ee-8fcd-9879142ece3f" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">5156bc9f1dd8ef1c1055933bb9c89c91</Content>
+      </IndicatorItem>
+      <IndicatorItem id="0e5a5eba-9d4c-4bd8-b6d8-63d0a03a0d04" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">4f213f9f187a65ce437157a3e7d253c0</Content>
+      </IndicatorItem>
+      <IndicatorItem id="b3608f58-2bf9-4128-acb4-4f04ad40accb" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">50678adefc49735a4f236e06e83c089d</Content>
+      </IndicatorItem>
+      <IndicatorItem id="011f05b9-70ed-4f3d-a745-eaebc6d12621" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">814001293e4a50d12cf55563e0b95ffe</Content>
+      </IndicatorItem>
+      <IndicatorItem id="1a9dd3cf-21e7-42e6-ae6f-855cbeffa85b" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">7529e41a101170eadb83bcb77bf29e65</Content>
+      </IndicatorItem>
+      <IndicatorItem id="061a3a5e-fa9d-453c-bb52-9a3595d1d9b9" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">5a93c03ddfe3edeb2573b72d12ebe0e5</Content>
+      </IndicatorItem>
+      <IndicatorItem id="5aa7f845-d40b-4b66-af54-0a3e3950903d" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">64d225a757686db6263e5df919e9dfd6</Content>
+      </IndicatorItem>
+      <IndicatorItem id="bc332956-bc02-4df8-854c-e331fc952a13" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">629c0a9d3d0f471005c87d06aed45113</Content>
+      </IndicatorItem>
+      <IndicatorItem id="c8a528b3-3d16-4383-be70-e05700529b65" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">7460f35e3b24db9b92bc4cccb6c3f3ac</Content>
+      </IndicatorItem>
+      <IndicatorItem id="d27fdc6f-d3d6-4775-8a57-9aaefbf57108" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">6db0e662dad6407f666aa0ea4b995e7f</Content>
+      </IndicatorItem>
+      <IndicatorItem id="e2be301f-5fae-4bb2-b076-df52fbd26a17" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">9251ff253c38c437bad4926378981ad0</Content>
+      </IndicatorItem>
+      <IndicatorItem id="abdfcca2-5426-425b-866f-2eb05eaaa2d2" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">81b27822a6619a7c78eebbd6dc4b889d</Content>
+      </IndicatorItem>
+      <IndicatorItem id="29ea5e12-25a0-4ff8-b69c-318a1067c5c8" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">9a575f37ffa684d56d1f5ffebc24b8f3</Content>
+      </IndicatorItem>
+      <IndicatorItem id="ba70c726-5331-41bf-9e40-be98c1380186" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">9f5b4f39699fda67ffa65f98086f7451</Content>
+      </IndicatorItem>
+      <IndicatorItem id="97a04c32-75fd-4bb0-bf4c-bf26ae8bfc25" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">c050c1ca31e8509f7b12824824ba2ddd</Content>
+      </IndicatorItem>
+      <IndicatorItem id="7967ff08-b0eb-465f-aa9c-6c8d725bd4e0" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">e2e314cbdcf493bcd14cea9cdd887786</Content>
+      </IndicatorItem>
+      <IndicatorItem id="43ea84fa-f685-4e6d-ad2b-1c6510a77d7f" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">d8e289fba6a22cb853d737676ab1545d</Content>
+      </IndicatorItem>
+      <IndicatorItem id="9a32fbc3-990e-4ced-82cd-e26728e46955" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">b28a68036b34e5d74672b289591aefa4</Content>
+      </IndicatorItem>
+      <IndicatorItem id="7b368369-8aaa-4547-ab25-9b4feae85225" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">f39fda34f2e332ddb1363f5e0e541c26</Content>
+      </IndicatorItem>
+      <IndicatorItem id="6d7b5791-83cf-46dc-8856-68d6cbc9c23b" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">bc3ffe2761d210fa05dde9ced4ed4869</Content>
+      </IndicatorItem>
+      <IndicatorItem id="c7aa4c83-f299-4b5d-b470-21888386ef9f" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">c2ac3d2f0299633e2c588d2fa43d0d63</Content>
+      </IndicatorItem>
+      <IndicatorItem id="2fa751db-37b6-42ae-ad8a-2980a1085bf9" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">c248c15622cfb0985fb421c29771d6ae</Content>
+      </IndicatorItem>
+      <IndicatorItem id="02d3230f-e554-4f48-8042-bd5aa6ae8c52" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">4a02ce3d6c6696ddda2a673298870e16</Content>
+      </IndicatorItem>
+      <IndicatorItem id="aed1fb53-2fb4-48b3-bc1b-26fea2e5aafa" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">4b8fd1ee47f17164e61194f6b2dbfa40</Content>
+      </IndicatorItem>
+      <IndicatorItem id="e349e2d4-b2d5-4377-af60-8163b7335af5" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">f06ec81a1f416812ffcc47fd5f709b50</Content>
+      </IndicatorItem>
+      <IndicatorItem id="3ff71df7-b5b7-4666-bc98-cb4abfda93d5" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">be594ee2a7e4b11878de020cf724205f</Content>
+      </IndicatorItem>
+      <IndicatorItem id="605642f3-7627-4064-8c60-fde5720f88a8" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">5c865404f27f5e5b83b6fcfd94068118</Content>
+      </IndicatorItem>
+      <IndicatorItem id="45b39b0a-0ae1-4a70-a61b-307ef0a91142" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">099116c83c9b95ea71e75e1760fced28</Content>
+      </IndicatorItem>
+      <IndicatorItem id="e681807e-50be-4abb-9498-6c04ae9b4275" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">d07f8aa768f7886400bb725c23fd2421</Content>
+      </IndicatorItem>
+      <IndicatorItem id="5e259fae-a63e-4c7a-9bd8-0f3efc4f3a39" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">ada3fb277229d6a12df364fd856f00c3</Content>
+      </IndicatorItem>
+      <IndicatorItem id="638b281e-b781-49e5-bb90-0af974218cd1" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">f975d016b83880c898b334714c1291b0</Content>
+      </IndicatorItem>
+      <IndicatorItem id="ced9c40e-6703-4306-9b08-dc3ba5e5791f" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">c35180bd2138fd81469805d8eb3480bf</Content>
+      </IndicatorItem>
+      <IndicatorItem id="27e49194-5625-41cc-8dfa-094acce2b3c8" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">e58c7b9b2576c63ac60743a99310664b</Content>
+      </IndicatorItem>
+      <IndicatorItem id="3bfcb2a5-d11a-4881-8cac-88361d336b82" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">91ae694e565f4a2f52d5f792d8353fcd</Content>
+      </IndicatorItem>
+      <IndicatorItem id="506c88f6-5066-4749-8a77-3fbfe0576904" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">a62afe6d59ae1ac32e8afbb88345ba03</Content>
+      </IndicatorItem>
+      <IndicatorItem id="b2ce8887-6502-4427-81b3-2af7527caab5" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">ca69ffc76e74e9d17f26f5f5b20a1db7</Content>
+      </IndicatorItem>
+      <IndicatorItem id="a04850b0-b364-4243-9c58-05dcfcbe580e" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">2ad67673a4facf2b493ca5989839d8e3</Content>
+      </IndicatorItem>
+      <IndicatorItem id="bc7951ce-46fa-432f-a0d0-784a6740c678" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">d9792b5f7bf497a3584d0c0d388f6b16</Content>
+      </IndicatorItem>
+      <IndicatorItem id="cd107657-0638-46d5-a114-92f1b07fc11f" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">fc293476226d1471c8de65ab65af7b2f</Content>
+      </IndicatorItem>
+      <IndicatorItem id="30c5ba12-0959-49cd-a091-6328ae4dc5eb" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">24c846e935d1efdd090469a69e01da65</Content>
+      </IndicatorItem>
+      <IndicatorItem id="593b00b9-ed7a-43b5-be11-93b23e769f71" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">efdda5d0a14810ff86e60a70c5baa6b0</Content>
+      </IndicatorItem>
+      <IndicatorItem id="4c894541-d661-46b7-a181-c92207e160c9" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">babd625bb2284d58a9c1884a80f07bdd</Content>
+      </IndicatorItem>
+      <IndicatorItem id="26913f82-b995-4cbf-bb14-6b0cf1c8a35f" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">bb79348412e72e77a8254fc289244829</Content>
+      </IndicatorItem>
+      <IndicatorItem id="1fa2477e-eace-4ab8-ad3b-8a2c654b34a6" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">faa77eacaa7de27b0f04c3139066d73c</Content>
+      </IndicatorItem>
+      <IndicatorItem id="bc2c15c2-07c5-46f0-affe-2a0a4b707896" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">2ec43703cc80323ae32fed751bedfff1</Content>
+      </IndicatorItem>
+      <IndicatorItem id="50c2598b-f7e9-4364-a105-01ec6ec8774e" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">a2c3fa86d43eca498c2b6ee8b5ecafb1</Content>
+      </IndicatorItem>
+      <IndicatorItem id="9efb1476-212b-4e61-bf13-f1366491a1e6" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">b01145e9d0c0f9d2822a250df95d888e</Content>
+      </IndicatorItem>
+      <IndicatorItem id="489e5388-cca3-469a-bdb7-751818122ff6" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">a91f69fc4b353d4228990464ca791705</Content>
+      </IndicatorItem>
+      <IndicatorItem id="1cf5595c-2e9b-4029-8b5f-f73a2afcdef7" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">d202ca2b2e04b2b730c43e5a13927096</Content>
+      </IndicatorItem>
+      <IndicatorItem id="8fd563a5-e037-46e3-88d7-b077adc7c183" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">e464e0d0893add9d71bb951502ae738a</Content>
+      </IndicatorItem>
+      <IndicatorItem id="54575095-85d8-4c6f-86b8-49e63c4ae3de" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">8a0a00b1676c3b65b3c56dab7f8feb99</Content>
+      </IndicatorItem>
+      <IndicatorItem id="eb6fd553-f30f-4a8e-b37a-e5198fc69b02" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">ce3f94fea7f57ce5a9a5a26e51b617fb</Content>
+      </IndicatorItem>
+      <IndicatorItem id="c171db60-f6f2-4af3-be34-d0c3b1627113" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">01f1204f54c645a13368e1ba54179779</Content>
+      </IndicatorItem>
+      <IndicatorItem id="7d883754-680e-4b42-81b0-674d178e33d6" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">95DF76F2ABDB9B133003D4DB637DC67B</Content>
+      </IndicatorItem>
+      <IndicatorItem id="2ad36c73-6059-4763-bb24-85007616e162" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">508f0af84d83e093bf6910dbab45421f</Content>
+      </IndicatorItem>
+      <IndicatorItem id="ea076a4d-7ad3-4ed1-97d8-a24f6bedcc09" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">be8b2bf704a1165d5b8b4e26fff4180c</Content>
+      </IndicatorItem>
+      <IndicatorItem id="358ae9ee-4b53-4ec3-9f72-66926345af2d" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">c181065a366ea6f8c6791fd87fcb86d6</Content>
+      </IndicatorItem>
+      <IndicatorItem id="0fd12aae-1f09-43ad-9f02-f83b8c11d538" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">c2c2eb5f0762db8068bd4031bd6b59bc</Content>
+      </IndicatorItem>
+      <IndicatorItem id="25743df9-af1a-4b99-b014-dd032e10cc72" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">e0df537f91f3bc3713a5ec5cf41f9e2d</Content>
+      </IndicatorItem>
+      <IndicatorItem id="ad5eee38-6adc-467b-b537-17ea81f92f37" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">eda0eb9e5c08729f12ddb64f6ec7ae2f</Content>
+      </IndicatorItem>
+      <IndicatorItem id="f6f1af28-5889-492a-922e-25a0765a4296" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">7024ea8285cee098829ac8f2b1de4455</Content>
+      </IndicatorItem>
+      <IndicatorItem id="02cbe1f0-8564-45f2-a797-b7797ee1b42e" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">5778178a1b259c3127b678a49cd23e53</Content>
+      </IndicatorItem>
+      <IndicatorItem id="d4c6ab71-c368-4dd5-803b-440eac2d85a0" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">d23237edbdcc4118b538454b45c00021</Content>
+      </IndicatorItem>
+      <IndicatorItem id="a071ce7c-3eec-42e4-95c0-346fd5f68537" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">7d51ea0230d4692eeedc2d5a4cd66d2d</Content>
+      </IndicatorItem>
+      <IndicatorItem id="c115cdfd-2b01-4493-8def-00e0ff7a97b4" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">3358c54a22d186ec9de0f15bc4bb2698</Content>
+      </IndicatorItem>
+      <IndicatorItem id="6466edeb-3be0-42ce-a57f-4aa80c8a7d1c" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">afe4ec9a88f84fbf9c1eb0f3ff47a12b</Content>
+      </IndicatorItem>
+      <IndicatorItem id="9f18cff6-f31b-47ae-a768-2d6918d03863" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">6dfcdc4c8edc77642f15592143f34569</Content>
+      </IndicatorItem>
+      <IndicatorItem id="8606603e-44a8-4d9f-9ef0-db4eab17e406" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">f4c9bc4f045b90c496df4b75398dfa5c</Content>
+      </IndicatorItem>
+      <IndicatorItem id="747c83aa-2134-410b-82aa-320591cd52b4" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">e7e5c5c991e6d66fca16c988c891e10f</Content>
+      </IndicatorItem>
+      <IndicatorItem id="b7b628d5-1084-43fc-89e3-6d18340651ad" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">dc22d742a15f8d6d8edf49d1c8cc8be9</Content>
+      </IndicatorItem>
+      <IndicatorItem id="9a6c48ec-d4dc-45db-954a-7a474019b1d8" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">07e40089cdf338e8d1423b3d97332a4d</Content>
+      </IndicatorItem>
+      <IndicatorItem id="cf917d1f-b808-4cd1-89cc-767c822bb136" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">0b105cd6ecdfe5724c7db52135aa47ef</Content>
+      </IndicatorItem>
+      <IndicatorItem id="5683b5b4-da25-4037-a79e-2052982ca4a6" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">04f3fbaaaf5026df29e0d7d317194043</Content>
+      </IndicatorItem>
+      <IndicatorItem id="918ff0cf-04e9-46b5-8388-130da3b4e798" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">d4a2060a5086c56f7ff65eaa65de81ff</Content>
+      </IndicatorItem>
+      <IndicatorItem id="1ec5534c-4e13-4f52-ab0d-8d824d6b0a23" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">bbbb9bb5c7a59b98f18b06344ac8980f</Content>
+      </IndicatorItem>
+      <IndicatorItem id="3fd55861-a72f-42a0-9348-7229131243b2" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">B0BD6C215A7C20B23FD23D77FA26F3BA</Content>
+      </IndicatorItem>
+      <IndicatorItem id="6c860c87-77b3-465a-bb70-39625222297a" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">0cd07490fc02e2a602781bb939d0bc3d</Content>
+      </IndicatorItem>
+      <IndicatorItem id="0c2f3558-d0ca-4951-9e53-03494df117b9" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">35bdc5a2acf35bdf9fb9169e1a47d3e7</Content>
+      </IndicatorItem>
+      <IndicatorItem id="86d5cc89-e32e-4fbf-bf75-7906a517245f" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">9a83cd3f8e619c8b1b38b0b5ceeea357</Content>
+      </IndicatorItem>
+      <IndicatorItem id="b1d5ed56-513f-44ae-ac04-543fcd8f2f4c" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">2d0950f69e206486c5272f2b0fc3aa22</Content>
+      </IndicatorItem>
+      <IndicatorItem id="1846f5cf-1944-4b76-b3a5-38a163685609" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">06d8b1468f09d10aa5c4b115544ccc6e</Content>
+      </IndicatorItem>
+      <IndicatorItem id="8b721168-c80c-40a2-b338-c12fa843051b" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">c206992f7c6836ec6a227a6e29ae7609</Content>
+      </IndicatorItem>
+      <IndicatorItem id="bdc9e272-4aaf-46fb-a9c3-9bf79b3fbe8b" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">961954bbc411d4eafd72efad94a6e160</Content>
+      </IndicatorItem>
+      <IndicatorItem id="e5d566fd-30e8-40bf-81c9-9c4c1241f8b6" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">5618bc41af50c790c8e8680ba30030ed</Content>
+      </IndicatorItem>
+      <IndicatorItem id="dae4424c-4aea-46a4-87ab-77d397552deb" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">15d6249e0e7e03b3e00cc3917431cf64</Content>
+      </IndicatorItem>
+      <IndicatorItem id="d8340dcf-97a8-4db7-bda5-6bc314e4b6b5" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">4fbb502ba8c7e8d81ec98a5974b9001a</Content>
+      </IndicatorItem>
+      <IndicatorItem id="b8a43a55-2250-4699-bd7d-36f9e648d222" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">60bd5a9ab78f6c614b824ddcb47dfd7c</Content>
+      </IndicatorItem>
+      <IndicatorItem id="f5193b4e-aeb7-4099-935c-4c98f4a77238" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">8f54cf08ee45a8d5eb31d05dbab4b561</Content>
+      </IndicatorItem>
+      <IndicatorItem id="52853bab-1009-446f-8f32-ea72c3de0e25" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">bfcd3417b513a6c3fed4b5466055d939</Content>
+      </IndicatorItem>
+      <IndicatorItem id="f354e90e-98fb-48a3-ac30-102f65473c00" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">ada515709be09e495bc9c1206069e796</Content>
+      </IndicatorItem>
+      <IndicatorItem id="8e64defc-be33-4e91-b8c0-9a5da174882b" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">a0629962c34ed9594b18493f459560a7</Content>
+      </IndicatorItem>
+      <IndicatorItem id="c529d56a-9d0a-412f-af77-d828f7d05c96" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">8a1d1965b2d8501e692394bb801f58ca</Content>
+      </IndicatorItem>
+      <IndicatorItem id="8ee50e91-70e9-4e6b-b0e2-cc5645a251db" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">ce3eecc1cc27e753b3eeae50074c3edd</Content>
+      </IndicatorItem>
+      <IndicatorItem id="2c6079b8-fcf8-41b6-8135-57af139a88c9" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">ca04aa367e6f090903018131245296ce</Content>
+      </IndicatorItem>
+      <IndicatorItem id="130174fa-b416-49cc-8443-c58eb7432c84" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">e867dba9d96acae55552777a8729a45a</Content>
+      </IndicatorItem>
+      <IndicatorItem id="7ffa410d-d86a-4cc5-bb2c-21aa790806bd" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">a0a96138b57ee24eed31b652ddf60d4e</Content>
+      </IndicatorItem>
+      <IndicatorItem id="8029c19c-ae4e-4934-b3a5-5094b875cb45" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">2d0950f69e206486c5272f2b0fc3aa22</Content>
+      </IndicatorItem>
+      <IndicatorItem id="98ff058e-38d0-4b8c-9a51-1fdde97312f0" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">5ce790274b7507740e9983d2efe69c17</Content>
+      </IndicatorItem>
+      <IndicatorItem id="d30948d5-f7ff-41cc-b646-cb115bfa59c5" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">de1ea8d6c20d8ecdd1c29219e30d4984</Content>
+      </IndicatorItem>
+      <IndicatorItem id="c65cefb9-443f-4ef0-92c7-41171c742d63" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">8505e92a2c3812ec298acd6bb20437a2</Content>
+      </IndicatorItem>
+      <IndicatorItem id="7a7a20c6-016e-4132-a5c8-dfe27ffedc29" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">efb16a33a0c9da12a71ef44e7d688233</Content>
+      </IndicatorItem>
+      <IndicatorItem id="b0f5ea11-b9d8-4beb-80f2-48fa1a0bb978" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">66de2aaad67446aabbe5adeb873b4b24</Content>
+      </IndicatorItem>
+      <IndicatorItem id="7ab779e6-b34f-4680-bb36-1608a4863f26" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">582f84b21978cab7d190aef663a268ea</Content>
+      </IndicatorItem>
+      <IndicatorItem id="a1211ace-805f-4202-ad0f-c57cca4fadcb" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">6b4ab6ca6808e955a6fd11ae5ffea1f6</Content>
+      </IndicatorItem>
+      <IndicatorItem id="98ff813c-721c-4d96-98df-d944671b2560" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">07a18ad4d859c67f208ccb76a7e6a184</Content>
+      </IndicatorItem>
+      <IndicatorItem id="39ec70c5-2703-4638-aee6-9becf86db1b4" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">679ba94211a4e027c2b56b959e62c8e3</Content>
+      </IndicatorItem>
+      <IndicatorItem id="92ac08dd-1465-47d5-bfda-2f0c52e73c71" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">b062063cf2d5b7fcc4abd8390e4f0090</Content>
+      </IndicatorItem>
+      <IndicatorItem id="1207ef59-f6b8-48df-81ce-e113fa85d123" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">7ea57ad96cee3db9baf5a36b43ba9abc</Content>
+      </IndicatorItem>
+      <IndicatorItem id="24714cd4-8f33-4cc6-8009-3493b2f991a1" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">0393eebedbde6e5ee868f81ac024b401</Content>
+      </IndicatorItem>
+      <IndicatorItem id="c47fd7ed-dd10-4009-9b60-a51cc1e2cd23" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">509c562db69f8332b9fc3298236e8ffa</Content>
+      </IndicatorItem>
+      <IndicatorItem id="3fee9e84-c88f-4c70-af63-121f335fbb87" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">130a799edeb0753164cdb76ccf8fd64c</Content>
+      </IndicatorItem>
+      <IndicatorItem id="06988764-62e2-4c7d-96eb-26ff490c425a" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">8acb42de94427141f7caffed74f9fc43</Content>
+      </IndicatorItem>
+      <IndicatorItem id="89839e76-f4a8-41cf-8e19-727d26905258" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">43da75e7f8e7e1893dce276bd5b2e680</Content>
+      </IndicatorItem>
+      <IndicatorItem id="eb874fe6-0ce8-4d2e-b748-8872915e509a" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">0996b71f1364acde317881810c5912f0</Content>
+      </IndicatorItem>
+      <IndicatorItem id="00a1d851-4d6e-4457-a58c-b8a243fead67" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">f809eea8170afacd2dfe2c45ba86861e</Content>
+      </IndicatorItem>
+      <IndicatorItem id="f0cc5ab6-04c4-43fa-bd6a-81a93aafb3a1" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">a374be9091ed1791424fc236144e9d81</Content>
+      </IndicatorItem>
+      <IndicatorItem id="5d88a5e4-7b50-4cf3-bb7f-a7233f655e00" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">1014374a0b4972adec93a015df6e4558</Content>
+      </IndicatorItem>
+      <IndicatorItem id="753eb29f-3fb8-42c0-9342-39cb656f2584" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">011815cb37f49a1d14d3db895a5e705f</Content>
+      </IndicatorItem>
+      <IndicatorItem id="775b4c4a-6756-4234-b351-067983d71efb" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">18677c3a2af1476aa8cbc73cfb74d8c1</Content>
+      </IndicatorItem>
+      <IndicatorItem id="ac83539b-a523-4103-b9b9-320322652794" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">115dc2627483aba7119ad4ceab1e042a</Content>
+      </IndicatorItem>
+      <IndicatorItem id="a068411c-09a2-4d1a-8846-d6116cf25d31" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">d350ae5dc15bcc18fde382b84f4bb3d0</Content>
+      </IndicatorItem>
+      <IndicatorItem id="eb696110-a7a6-4460-9744-34d5d8acd3df" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">f454ba447eef28f96dafe3398df82a7e</Content>
+      </IndicatorItem>
+      <IndicatorItem id="ee3c1976-d399-4ecc-83e2-21b810751e0c" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">29525be71ba4846739e553a0835ab460</Content>
+      </IndicatorItem>
+      <IndicatorItem id="ffcc7f6a-d39e-4cf6-ac9a-abcc1d38e932" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">1b0753f717d7a33defc389e399b20d57</Content>
+      </IndicatorItem>
+      <IndicatorItem id="1e402981-4801-4814-83db-093174fcbe22" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">2989b78ac3a752bf6792ac9ac606fdf0</Content>
+      </IndicatorItem>
+      <IndicatorItem id="5fba2cac-ef5a-477c-8af9-f7fcdd935de5" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">535ede2d69a7e07a097ef6648b12e417</Content>
+      </IndicatorItem>
+      <IndicatorItem id="f055e687-3f04-420b-a6ba-177b2353b05f" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">e252d9ec48bca3d261f5acdd33bfd1cb</Content>
+      </IndicatorItem>
+      <IndicatorItem id="0148b685-6b27-4d37-92fc-92fbba3adfde" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">4591d01a291b700efbc5b263c67a266c</Content>
+      </IndicatorItem>
+      <IndicatorItem id="6c1e9884-b234-4629-8305-4a5fcaf8fe68" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">6f5a10edc2c7319b8d7abc0a606e5ce6</Content>
+      </IndicatorItem>
+      <IndicatorItem id="73bc9790-be82-4d7f-88be-4d1a8d246e1f" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">e8e1f133ef1a303e2e901e59329af1dd</Content>
+      </IndicatorItem>
+      <IndicatorItem id="ac11e1c9-c59a-4d8c-aa51-01c399202348" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">B8F03B556AE4255BA8D828B6D9909B08</Content>
+      </IndicatorItem>
+      <IndicatorItem id="300d68c9-f1a6-4adb-bab3-35019e60abc0" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">97f64270b59b0f6b83ec93efc41543fd</Content>
+      </IndicatorItem>
+      <IndicatorItem id="b6abf1ed-5a2c-43b0-a474-0c4db8f8f9e8" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">36711896cfeb67f599305b590f195aec</Content>
+      </IndicatorItem>
+      <IndicatorItem id="e9fd0c05-39c5-4548-9f8a-c94ef82529b3" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">5654424ea88de69d5c6031f7009f0428</Content>
+      </IndicatorItem>
+      <IndicatorItem id="ac76405e-9871-4cc8-8507-fb6ae4025dc0" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">c9e9b8103077d9a9bb21e563f14ef738</Content>
+      </IndicatorItem>
+      <IndicatorItem id="e14bf632-f64f-40d1-acdd-7745cb45c12a" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">ec6d53e1a030e166acbc6f357362c195</Content>
+      </IndicatorItem>
+      <IndicatorItem id="42b84a94-9870-4449-b8e0-3d2cb4d2e1e9" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">e5338b89c4721482df24f9aa5a3c6389</Content>
+      </IndicatorItem>
+      <IndicatorItem id="08fac70d-ed4c-4a9c-b007-8a0fc592ea9c" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">d194316fc5a7f7b433d26ed9da09b249</Content>
+      </IndicatorItem>
+      <IndicatorItem id="d6c81514-cf28-4ce6-a8c3-f84caeb751e7" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">c9e55d71b7d8f05324c3ad041a943103</Content>
+      </IndicatorItem>
+      <IndicatorItem id="185bd5dc-b3d6-456f-a032-82c96dc4c031" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">6e83c0e6739a2782ce385632f5e982c3</Content>
+      </IndicatorItem>
+      <IndicatorItem id="aa2d8fcd-e957-4b04-8ed8-8de231473eb0" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">a00c66d502453524a7fe411ce7bbfea4</Content>
+      </IndicatorItem>
+      <IndicatorItem id="98085c8b-b879-46d4-a726-3dadc6940350" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">92fd35efabf8d774cf5bb4c2be8b733c</Content>
+      </IndicatorItem>
+      <IndicatorItem id="fc584ce0-d50b-4f56-99bc-c4ff4836b5e0" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">9642c7ee5819f5f8f3f8354da0845190</Content>
+      </IndicatorItem>
+      <IndicatorItem id="89b72a58-c9ac-4d68-8667-ceff88e23056" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">6e927175a6224add534a6072bc6a6170</Content>
+      </IndicatorItem>
+      <IndicatorItem id="fc15a1e8-d335-4f27-becf-d655703dc654" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">677c3236b3acac70f528de8b4cf62539</Content>
+      </IndicatorItem>
+      <IndicatorItem id="66892902-004d-4643-9444-6aee974da137" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">604c8b4f2f82e016cff74ebc4a359e34</Content>
+      </IndicatorItem>
+      <IndicatorItem id="0650a80b-267f-466a-8f59-44e998c2cb59" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">624db864fe644bc08c16cdbdb8f4bdfb</Content>
+      </IndicatorItem>
+      <IndicatorItem id="dab85f66-4b46-4c82-80cb-946c03e419b0" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">3d107d5bdf554c6ae8d05c886080a18d</Content>
+      </IndicatorItem>
+      <IndicatorItem id="a9ce03ac-39b6-40d0-9080-100b2ec9efc9" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">4d028c7a47c1b0d00e894ad351a61996</Content>
+      </IndicatorItem>
+      <IndicatorItem id="550b0fbe-74af-4d15-9a24-c63c73f84aaf" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">453021b8cc10f9077fa80d60d09c631d</Content>
+      </IndicatorItem>
+      <IndicatorItem id="2e972efa-602a-4b91-94a2-f2d65a50e9d4" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">6e9b47f2ae1f9e7260b8793f35fbbd3a</Content>
+      </IndicatorItem>
+      <IndicatorItem id="ceba9101-0041-4c47-aaf2-fa2e5eaf3ebe" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">4732d2056060c66f46caded82954836e</Content>
+      </IndicatorItem>
+      <IndicatorItem id="b3f85fa9-1d24-45b6-b840-f6f65a02a831" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">4197499923ab6125e2ee5e950b21ec91</Content>
+      </IndicatorItem>
+      <IndicatorItem id="7971512c-7f67-4c47-8506-d0b9350af423" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">3047ed57acac30c2327e74070b3864b7</Content>
+      </IndicatorItem>
+      <IndicatorItem id="4708d870-f056-4296-9e34-1ae69d76a489" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">2ffc739a927b62d4b7096e636951b77d</Content>
+      </IndicatorItem>
+      <IndicatorItem id="16a62637-2372-4fac-9e55-a6f71f430f1a" condition="is">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">my.gasoft.us</Content>
+      </IndicatorItem>
+      <IndicatorItem id="3e4515d5-5ccf-486c-9595-1d81fadf54c0" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">docs.nhnclass.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="46d51413-fd9b-4261-8fff-87d859027dbd" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">jp.jcrsoft.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="8b6fbe6c-7479-41ae-977a-28f5edc416d1" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">wi.gcgame.info</Content>
+      </IndicatorItem>
+      <IndicatorItem id="3b493427-be60-4ed2-820d-8b7f74e84f32" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">eya.jcrsoft.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="afce4dbc-1fb6-44fa-b5d2-62944539c9eb" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">ftpd.9966.org</Content>
+      </IndicatorItem>
+      <IndicatorItem id="844a1740-082a-4abe-b011-e7233ea4627f" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">lp.apanku.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="798799a4-c045-49dd-b073-8f49ea1c9eff" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">ca.zzsoft.info</Content>
+      </IndicatorItem>
+      <IndicatorItem id="ecf62db4-5ceb-424a-98f1-b2a9f71f57b3" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">rss.6600.org</Content>
+      </IndicatorItem>
+      <IndicatorItem id="9f67e0b5-dd79-427f-b2e8-1f4499d3da49" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">lp.gasoft.us</Content>
+      </IndicatorItem>
+      <IndicatorItem id="b69d3cb8-676c-442e-81a3-5c3591eb486e" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">ftpd.6600.org</Content>
+      </IndicatorItem>
+      <IndicatorItem id="df4179d6-6477-4acd-b486-43591811b57a" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">lp.zzsoft.info</Content>
+      </IndicatorItem>
+      <IndicatorItem id="707148b5-7c91-4645-a8a8-4e719ba568cf" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">tcpiah.googleclick.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="a27365fe-2e10-4a89-b853-30f969762d3b" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">sn.jcrsoft.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="64394173-1083-4e12-a8ce-5802873f5093" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">ka.jcrsoft.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="2997f29b-b389-423f-8ee7-e4ed8b05a876" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">ap.nhntech.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="a7549d35-ae3e-4ce2-8009-8fd47e66536d" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">kr.jcrsoft.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="98b1fb3a-0c0a-4228-8cb1-d9e613db9154" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">ru.gcgame.info</Content>
+      </IndicatorItem>
+      <IndicatorItem id="a69fa5aa-5cf9-435f-b312-fdeec1854976" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">my.zzsoft.info</Content>
+      </IndicatorItem>
+      <IndicatorItem id="f313cb33-2557-47d8-bf2a-02a4ba0d3921" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">wm.ibm-support.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="6733b739-520f-492e-a630-20b5291403e7" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">vn.gcgame.info</Content>
+      </IndicatorItem>
+      <IndicatorItem id="58923673-315a-4a9b-bb9a-e73f0fd625c5" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">su.cjinternet.us</Content>
+      </IndicatorItem>
+      <IndicatorItem id="c5100452-39b9-41c9-85da-27585b92a416" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">kr.xxoo.co</Content>
+      </IndicatorItem>
+      <IndicatorItem id="d3ec2d9f-c3aa-4ad2-99ae-b0e242121344" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">wm.nhntech.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="3f60a08b-e822-4531-a92a-ee330fb7cbb8" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">wm.myxxoo.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="e2bfca16-619d-4825-b7bc-f689582c190a" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">ka.zzsoft.info</Content>
+      </IndicatorItem>
+      <IndicatorItem id="acce8ba0-2fd1-4154-aed5-f14f12178ff9" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">ad.jcrsoft.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="8a5b1bfc-b2a3-48ba-bfdb-8cf9722b958b" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">fs.nhntech.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="d675aa0e-30d9-47d8-88f6-b1b1c6d5e569" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">rh.jcrsoft.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="59a37ff1-14cf-43bd-9b43-708e158aa9b6" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">tcp.nhntech.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="5a266258-3a98-4d60-9a89-993c30c2c62c" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">sshd.8866.org</Content>
+      </IndicatorItem>
+      <IndicatorItem id="fdcb8a7a-fa84-42d0-8209-92c10cff7c7c" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">udp.ibm-support.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="4d9cc09e-821c-4f9f-a116-675ff62c4f04" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">ka.zzsoft.info</Content>
+      </IndicatorItem>
+      <IndicatorItem id="f6b5cef4-bd78-4f59-b60c-781f39808e8f" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">shoes.sellClassics.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="7445b7b0-5eb4-40e2-b480-d52fc9b6d123" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">ar.apanku.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="3d6d829a-946f-4a16-aa3c-b8dee9fd7a83" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">js.nexoncorp.us</Content>
+      </IndicatorItem>
+      <IndicatorItem id="a0736219-ed67-4b74-9e7c-2c9ed935289a" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">ed.xxoo.co</Content>
+      </IndicatorItem>
+      <IndicatorItem id="42c6b32e-f355-4aa6-915a-b13959f950da" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">imc.zzsoft.info</Content>
+      </IndicatorItem>
+      <IndicatorItem id="486996a1-c42f-442c-9edc-116f690f4105" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">nhnclub.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="790508f6-c70d-4f66-8cd2-54528da7f7e2" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">support.interdriver.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="6a3067f4-d5c1-4c0a-8a0f-11d29f8cc527" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">ssh.joymax.in</Content>
+      </IndicatorItem>
+      <IndicatorItem id="3a777991-6805-434c-b811-6252ad0af7cd" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">www.cjinternet.us</Content>
+      </IndicatorItem>
+      <IndicatorItem id="86214e36-50c9-477b-b589-7057fa475494" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">nt.nexoncorp.us</Content>
+      </IndicatorItem>
+      <IndicatorItem id="26682ce4-dc13-451d-a2a7-c64dbba5909f" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">tvads01.dyndns.tv</Content>
+      </IndicatorItem>
+      <IndicatorItem id="d775d133-545d-402f-bdc1-e4b4253fdfcb" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">wapqq.3322.org</Content>
+      </IndicatorItem>
+      <IndicatorItem id="1bef202e-a744-45a5-b054-1e65eee02d2e" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">aion.reegame.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="766fd955-9690-4caf-8828-02c48c719b5d" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">eudb.nexongame.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="2c7961bd-8a74-46d6-a269-773d03b39cab" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">mini.reegame.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="5199474a-032f-4d8a-9486-b218fcdf7f2c" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">nexongame.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="b35aff6c-c1ef-4c0a-b289-2e39d04258bc" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">est.gcgame.info</Content>
+      </IndicatorItem>
+      <IndicatorItem id="71deb9cd-e3e4-41b6-bb3c-7e539746bb56" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">nx3.intercpu.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="edf2254a-1c13-4859-a98a-4c216db36510" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">zz.xxoo.co</Content>
+      </IndicatorItem>
+      <IndicatorItem id="e7a60915-f964-4d14-9447-f729f739fec6" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">lftv.mynetav.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="0672a2d3-c9f9-460d-b42c-c7c0dfdb9cc5" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">ga.nhntech.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="09ff7e25-f7ac-49e7-8396-5a85d41bcef0" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">e.zzsoft.info</Content>
+      </IndicatorItem>
+      <IndicatorItem id="b4825423-b670-4498-aa48-8ec7515bbe5b" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">ftp.jcrsoft.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="84c14a63-8ce9-421a-83d6-ae66c214ad6d" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">fm.hja63.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="a164dc2b-9b39-4e68-b012-7b8430be02dc" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">nx.cjinternet.us</Content>
+      </IndicatorItem>
+      <IndicatorItem id="8a94adad-47f5-4f44-b6a9-8272f01ace76" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">mx.hja63.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="f38a5bf1-2c2b-4e00-a825-4db4c2f7c443" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">update.ddns.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="ff8ae546-b22f-4da6-83e8-6fa715b0c6ef" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">newpic.dyndns.tv</Content>
+      </IndicatorItem>
+      <IndicatorItem id="a45bbb9e-c054-4dc9-bd2b-d69b936a899c" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">ru.cjinternet.us</Content>
+      </IndicatorItem>
+      <IndicatorItem id="28e111b2-3f11-4df7-90a6-0157e5f15cb6" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">smtp.zzsoft.info</Content>
+      </IndicatorItem>
+      <IndicatorItem id="7de1b793-ce82-46b7-b9ab-c5e79369324b" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">pda.gcgame.info</Content>
+      </IndicatorItem>
+      <IndicatorItem id="f46f2300-75f0-4553-9373-ef0eaa763a3d" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">also.msftncsl.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="838b6319-ac79-497f-9e3a-50f59a7a19bf" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">th.xxoo.co</Content>
+      </IndicatorItem>
+      <IndicatorItem id="e5a37867-bc07-4511-8859-c0945d4cd804" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">kr.reegame.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="6c078002-d62b-4a4a-9ad6-dc6d1bc2ab0c" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">jjevil.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="87f51dce-442e-4013-8fc9-79ad5b089dd2" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">sellsads.sells-it.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="a1c97ac2-a6b1-4b82-82e0-329b7379c104" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">wh.jcrsoft.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="90ef63d8-aa10-4a6d-930a-87894db22f44" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">nd.jcrsoft.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="b0dfbd76-d87d-43bf-877d-b3501ebc68ef" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">tcp.nhntech.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="dd2e9d26-a7e6-461d-867d-28540c83f581" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">www.hja63.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="d97a7fa7-01ee-4bdb-b7c0-26d28f756e68" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">su.cjinternet.us</Content>
+      </IndicatorItem>
+      <IndicatorItem id="c2b6deb2-2009-4904-ad6c-b472c387211a" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">get.java-ssl.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="fba47558-18b3-4369-b6e5-185a681e86cc" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">nsqc.xxoo.co</Content>
+      </IndicatorItem>
+      <IndicatorItem id="ff9d3fc9-55cd-4860-8e8c-37fb724bb718" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">nx3.joymax.in</Content>
+      </IndicatorItem>
+      <IndicatorItem id="1af62b63-78fe-4660-8e9d-4763dd6fa4cc" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">a1.nexongame.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="b9ab01c0-c004-4b32-9531-bc6a245ba199" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">wi.zzsoft.info</Content>
+      </IndicatorItem>
+      <IndicatorItem id="e8b9e38b-7344-4db3-af8c-cfd6c1163b9b" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">qs.nexongame.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="438f072e-8331-4d0a-ad3e-1652df79a253" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">www.zzsoft.info</Content>
+      </IndicatorItem>
+      <IndicatorItem id="32af2ce9-0eef-44bc-9a46-82cbdf54606e" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">updata-microsoft.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="fe293b0f-963b-4c0b-9a42-56abb4a86e9b" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">myav.mynetav.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="192e3f74-5ff5-4824-bb25-7aaa36c048a4" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">tt.conimes.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="ce47f664-14a5-40ea-b3fd-9f528359f8a3" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">w53.myxxoo.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="4cbe5b6a-1f1f-49a3-aaaf-97868e26cb41" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">gasoft.us</Content>
+      </IndicatorItem>
+      <IndicatorItem id="24966851-eb2c-4429-9004-7feb3a96f63f" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">hansoft.does-it.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="5f56e46d-cba4-4c1b-8d8f-d05d96c64c57" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">ftpd.9966.org</Content>
+      </IndicatorItem>
+      <IndicatorItem id="74bb2f99-20a6-444b-830d-93ac47d170eb" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">ns2.nhnclass.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="9e996131-3c20-4fbd-9b2b-73251d8724aa" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">mail.msftncsl.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="ff194920-9bf0-44e2-aab9-becef4a08cf1" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">isatap.dyndns.org</Content>
+      </IndicatorItem>
+      <IndicatorItem id="35118439-9e35-4176-83aa-0b3f3fca3c3a" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">tank.hja63.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="befc24c7-c51e-4c5d-8aef-82df0cf1001c" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">w53.xxoo.co</Content>
+      </IndicatorItem>
+      <IndicatorItem id="da5ef75f-fdba-49d4-b052-6e859ddc5374" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">reegame.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="41a02403-f330-4eaf-ba7e-1ab4de3fb3f5" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">wm.xxoo.co</Content>
+      </IndicatorItem>
+      <IndicatorItem id="a43b0fc7-a46c-4809-b54b-5154123b1368" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">wyqc.xxoo.co</Content>
+      </IndicatorItem>
+      <IndicatorItem id="4c5dbd6e-e19a-4072-b521-99fb90deb14b" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">new.myxxoo.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="139b2383-9650-4c85-b68f-02b9b2ef8208" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">nd.xxoo.co</Content>
+      </IndicatorItem>
+      <IndicatorItem id="73f252f2-1f8d-4cb9-8794-36a1bb94058c" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">pass1.joymax.in</Content>
+      </IndicatorItem>
+      <IndicatorItem id="aec07422-8205-481a-a1d0-4a2ebda76c14" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">ro.xxoo.co</Content>
+      </IndicatorItem>
+      <IndicatorItem id="ba6c4489-60a4-4a42-aded-a394fb24e720" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">gcgame.info</Content>
+      </IndicatorItem>
+      <IndicatorItem id="4c2082bd-5049-49e4-9c22-4cc1cc4f506c" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">egi.mynetav.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="b9a322d3-e501-4074-b29f-6a07a026038a" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">masternow.webhop.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="7a59af95-d408-42e9-a8ee-32bdcc3a7be7" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">mg.jcrsoft.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="07f6a00a-87e4-4660-bd55-172366923cc2" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">nx3.interdriver.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="bd0d1d34-d118-4c64-9d45-fc419e2c2ba7" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">xnews.myPicture.info</Content>
+      </IndicatorItem>
+      <IndicatorItem id="cb599e84-aff1-4f76-b4dd-b3db400a9a59" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">ro.hja63.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="d0ff2a48-eb49-4a7f-8530-04f5fc91ec50" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">xl.apanku.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="e18eced1-ca4b-4870-bf49-9998acebe141" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">openhost.webhop.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="e12318d0-dd67-450f-97e0-c5fce831c038" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">www.nexongame.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="037fad4f-9284-4a57-ae19-066e37891048" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">pass1.reegame.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="20b8ccfd-935d-4431-92b7-04fc26af6ff4" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">tw.hja63.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="2a8d974a-5d33-4207-b335-6091a2e6de89" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">docs.nhnclass.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="97dc083c-9d00-4def-9918-c800c80879d6" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">game.nexongame.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="4fce43d8-9291-478e-85c7-5adae6e20c2a" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">mir2.nexongame.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="00be35b0-c7b6-4b31-a3b7-bb8c2655ca83" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">pop.gasoft.us</Content>
+      </IndicatorItem>
+      <IndicatorItem id="f9bf609b-4a30-4ffa-9c38-b1f945a90945" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">imap.jcrsoft.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="3da11c29-995e-412e-a69d-d5f2100b1337" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">w80.xxoo.co</Content>
+      </IndicatorItem>
+      <IndicatorItem id="33b2658b-ad41-4da7-9d07-7da281dcebe3" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">dbo.jcrsoft.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="c89bd491-d351-4b73-a616-25e3d40c7230" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">ns2.msftncsl.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="1619ab9e-4952-4dbb-901f-5355031c1898" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">ynk.xxoo.co</Content>
+      </IndicatorItem>
+      <IndicatorItem id="de9ae5ed-fd58-4e30-b71b-d5ba9b7b5aa7" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">www2.mynetav.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="383e3f04-f6c1-488a-8a66-f57271b76770" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">my.zzsoft.info</Content>
+      </IndicatorItem>
+      <IndicatorItem id="0c28e912-d3c6-40f9-a567-7f9b2b105fcc" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">roap.myxxoo.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="eb846828-9425-44cd-b3d8-66689bd55e86" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">bar.zzsoft.info</Content>
+      </IndicatorItem>
+      <IndicatorItem id="5a75b919-eb29-45dd-8336-1a36f5b5ff40" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">ahn.gasoft.us</Content>
+      </IndicatorItem>
+      <IndicatorItem id="9f79cf29-304a-4451-833c-eeb2ace079e1" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">fs.nhntech.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="6dd66026-7785-48a7-9ba5-5dcb5b687842" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">t3.nhntech.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="2809972a-c322-43f9-91b6-1cad4bf55842" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">new.nexoncorp.us</Content>
+      </IndicatorItem>
+      <IndicatorItem id="95db43d0-eead-4741-a573-45fe676336b3" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">lp.gcgame.info</Content>
+      </IndicatorItem>
+      <IndicatorItem id="c15410ee-1050-4747-a484-db19e4f06b98" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">w.zzsoft.info</Content>
+      </IndicatorItem>
+      <IndicatorItem id="5d24adf4-be4a-4fe9-ad3c-e2ccacf469a9" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">dbo.zzsoft.info</Content>
+      </IndicatorItem>
+      <IndicatorItem id="fddf8a79-5620-4556-910a-b8ba2493bf6a" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">a1.googletrait.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="3488022e-0b34-4feb-b68a-09ebee007e1b" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">lyto.zzsoft.info</Content>
+      </IndicatorItem>
+      <IndicatorItem id="76e8fa28-fd05-48c3-9daf-ec01a7aebe88" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">els.jcrsoft.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="26291b2b-4023-4250-97a9-c181a96535a0" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">nexon.nexongame.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="09d82717-56ce-4707-9a39-a8f41e64ed98" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">pic.4pu.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="d40b5487-acd6-4cea-8a6a-08185f2974c7" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">q.gcgame.info</Content>
+      </IndicatorItem>
+      <IndicatorItem id="ddc94649-e5f4-4aba-b672-b558d8828c64" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">id.naverpulic.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="312b2c91-4761-4413-9336-8ec0271b4e11" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">osk.zzsoft.info</Content>
+      </IndicatorItem>
+      <IndicatorItem id="59a76f38-27a2-4429-b9d8-2791a8204690" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">googletrait.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="9d704083-8693-45ba-983a-c6f6b02cce23" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">ball.reegame.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="4e5d2730-78ec-4877-ae6d-27cb3a605554" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">rw.nhntech.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="ad3fea70-9dba-4115-9bf4-7f11db97d61e" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">pop.jcrsoft.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="07b6b439-6920-49a1-9b92-f52bb812fc6e" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">scvhosts.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="f7bfbd31-2874-4c40-a6d3-9cb81709ed96" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">pass2.hangame.co.uk</Content>
+      </IndicatorItem>
+      <IndicatorItem id="46488e75-5bfd-4161-9bd7-17a06aa7ba99" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">iss.conimes.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="f216936a-fbca-4f7f-a833-d7960d2f6dcd" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">udp.jjevil.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="75b145ec-0285-45e8-b6b6-d73bced982e9" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">webadmin.dnsdojo.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="584a4fd7-61a5-4f72-ba71-6554747a23dd" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">nx2.intercpu.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="ad29c0fe-7bef-4b54-bada-6ee9fcf64315" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">gs.xxoo.co</Content>
+      </IndicatorItem>
+      <IndicatorItem id="1d7d6eb9-c6b1-4930-b132-8b4a10ff55ce" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">ree.reegame.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="a776ea71-daae-4f81-8b5f-827ff5a2208c" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">xx.hja63.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="4a04cf72-05c9-4218-9542-a53916d23bee" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">cg.apanku.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="fc531ce7-03e4-43eb-8e84-2b326fb973c1" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">ns1.naverpulic.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="b43dc67d-7ed3-423d-b5db-09879c03a7f7" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">interdriver.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="5a7f1e08-6970-421b-ad90-7d88c355e880" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">ap.myxxoo.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="a34039e0-8989-4a3d-9554-f199a5b37150" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">hangame.co.uk</Content>
+      </IndicatorItem>
+      <IndicatorItem id="27c74bd9-862b-43b1-b655-5885cb21cd08" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">dns.msftncsl.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="c9b46e68-cd1f-4f1f-a398-98310898988b" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">www.mynetav.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="e68eabdc-b145-40ea-89e6-3bb336856dc8" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">www.googletrait.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="d0021013-c5dc-4236-8d76-e59ca86d98c8" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">gm.gcgame.info</Content>
+      </IndicatorItem>
+      <IndicatorItem id="34d605d7-3624-4fec-93ea-0039ea367cd3" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">tt.xxoo.co</Content>
+      </IndicatorItem>
+      <IndicatorItem id="ce5695fa-8894-42e1-acc3-4728fa654f03" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">oa.nexoncorp.us</Content>
+      </IndicatorItem>
+      <IndicatorItem id="86cf5346-0099-4c51-a449-648e1fab1646" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">iyy.conimes.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="6b84cf84-e62a-4caa-beb6-3019c3db9a3e" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">sm.gcgame.info</Content>
+      </IndicatorItem>
+      <IndicatorItem id="76addeb2-4ccf-4895-88ab-246c7e4cabc0" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">ad.gasoft.us</Content>
+      </IndicatorItem>
+      <IndicatorItem id="a516a62e-4483-4029-b828-63b44b7e129f" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">ns5.msftncsl.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="5509fb5a-c9a8-413f-b7f7-90692a2d7942" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">pass1.hangame.co.uk</Content>
+      </IndicatorItem>
+      <IndicatorItem id="e9bc1d83-d253-4740-af3c-5d1d7beec9bf" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">update.ddns.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="5eea71c5-97a2-442c-bae9-82633d1fefa9" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">ns4.msftncsl.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="63bb4c4d-b7d8-471f-80a8-c9533c39088b" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">cc.nexoncorp.us</Content>
+      </IndicatorItem>
+      <IndicatorItem id="953ed913-36f7-4459-a17f-a44fa0755aa7" condition="is">
+        <Context document="PortItem" search="PortItem/remoteIP" type="mir" />
+        <Content type="IP">98.126.36.202</Content>
+      </IndicatorItem>
+      <IndicatorItem id="f66e9242-a6fa-456c-9ade-d150b778c1a3" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">gamenow.8800.org</Content>
+      </IndicatorItem>
+      <IndicatorItem id="0cf387d7-2bbe-403e-a8b3-1b98ffc47c40" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">e.jcrsoft.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="e6352f5d-83a2-49e7-9235-5b66751ec5dc" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">nd.jcrsoft.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="0a908f8d-d8fc-4b0e-ab2b-c503d3093bfd" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">as.cjinternet.us</Content>
+      </IndicatorItem>
+      <IndicatorItem id="5e2163ab-bf46-4bde-b42c-05459e31d050" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">kr.zzsoft.info</Content>
+      </IndicatorItem>
+      <IndicatorItem id="37325b9f-ddb2-415b-ae6c-df00376667ff" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">googlefiles.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="4f3857b9-1b17-497e-8be4-ea3838e05d1b" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">cjinternet.us</Content>
+      </IndicatorItem>
+      <IndicatorItem id="9800e977-cc61-493f-82fe-91120e3f80d8" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">winlogon.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="f8d10ea6-6aa8-49ca-b016-c1de40398813" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">ftp.zzsoft.info</Content>
+      </IndicatorItem>
+      <IndicatorItem id="b81d659f-1218-47dc-815d-762362687b68" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">hk.hja63.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="c936ba18-013f-498b-a87b-80429ada5b3e" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">tv3.mynetav.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="11a5eeef-b165-4551-afd7-b026c0364e1e" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">vtc.gasoft.us</Content>
+      </IndicatorItem>
+      <IndicatorItem id="b6d9f552-556c-42df-a95e-1b40e0520f75" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">ru.gcgame.info</Content>
+      </IndicatorItem>
+      <IndicatorItem id="ab748e75-db49-4b60-8ca1-148865dfbe7c" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">eudb.reegame.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="a9018e30-8b98-49d9-b867-0176407e2690" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">lp.xxoo.co</Content>
+      </IndicatorItem>
+      <IndicatorItem id="ba94a793-773a-456c-a1fb-886caf58ca75" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">hansoft.sunsb.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="48205541-ca65-4f41-a6a4-dd44979b0a51" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">service.googlefiles.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="7ecc3bd5-5bd7-4341-99cd-82e40583ae48" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">roqc.xxoo.co</Content>
+      </IndicatorItem>
+      <IndicatorItem id="d7cd9939-aeef-40d0-ba31-e2817fd80a91" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">tah.xxoo.co</Content>
+      </IndicatorItem>
+      <IndicatorItem id="f544666b-c269-4b68-a32b-ddb570100bf0" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">ftp.gcgame.info</Content>
+      </IndicatorItem>
+      <IndicatorItem id="8577ddfb-c084-46ff-8a9e-e37361a1a85f" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">gf.jcrsoft.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="b8296166-6715-4e26-9ef6-1f3297be5dfb" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">ssl.msftncsl.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="0834df8a-0b36-4f90-b1cd-87b024863579" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">ns6.msftncsl.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="1ba6d400-650d-4fa1-baa2-33385d59ebcb" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">pop.zzsoft.info</Content>
+      </IndicatorItem>
+      <IndicatorItem id="c030db86-0010-4bf8-832a-55384c51e38d" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">ava.zzsoft.info</Content>
+      </IndicatorItem>
+      <IndicatorItem id="c61d450c-cad4-44c1-b174-6f4b3580242d" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">xss.gongyi.co</Content>
+      </IndicatorItem>
+      <IndicatorItem id="110c640b-d814-4a5d-926d-e828f7e7ebfe" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">docs.naverpulic.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="3ceca1f9-07ce-44d9-8b12-eb0b0eb04422" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">hsb.mynetav.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="01845a22-b2da-4bdd-b062-5450dda44b0d" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">help.googleclick.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="692ca171-2ca9-4627-89b7-0037b15fff5b" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">sl.myxxoo.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="48818ec8-494b-471f-9047-3032b4610d8e" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">qc.xxoo.co</Content>
+      </IndicatorItem>
+      <IndicatorItem id="2493a024-ddf4-4d5c-9650-87bd3e2f4533" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">ip.xxoo.co</Content>
+      </IndicatorItem>
+      <IndicatorItem id="376b6f5b-5b66-4961-b467-7c86019b4847" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">mail.jcrsoft.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="c18eaffb-6734-440c-a413-607300f09356" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">google.x3322.org</Content>
+      </IndicatorItem>
+      <IndicatorItem id="1162b3dd-b640-4b05-8dee-b57c228c3f5f" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">guys.mynetav.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="0cacb873-083c-4bc6-9627-21e360922438" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">fax.nexoncorp.us</Content>
+      </IndicatorItem>
+      <IndicatorItem id="eddab465-2cc5-4482-ae81-9e1c90877721" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">smtp.nexoncorp.us</Content>
+      </IndicatorItem>
+    </Indicator>
+  </definition>
+</ioc>
