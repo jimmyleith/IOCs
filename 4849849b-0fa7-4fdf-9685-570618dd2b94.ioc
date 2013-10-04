@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="4849849b-0fa7-4fdf-9685-570618dd2b94" last-modified="2013-10-03T01:08:20" xmlns="http://schemas.mandiant.com/2010/ioc">
+  <short_description>Kimsucky</short_description>
+  <authored_by>madvillain (villain@evilthings.org)</authored_by>
+  <authored_date>2013-10-03T00:28:49</authored_date>
+  <links />
+  <definition>
+    <Indicator operator="OR" id="91b06374-96bc-46de-8455-7827af131c68">
+      <IndicatorItem id="296655dd-c32d-44f4-9178-cf153c2bd205" condition="is">
+        <Context document="Email" search="Email/From" type="mir" />
+        <Content type="string">ennemyman@mail.bg</Content>
+      </IndicatorItem>
+      <IndicatorItem id="1e001e40-1a85-46a4-aa08-e4c82606bfe6" condition="is">
+        <Context document="Email" search="Email/From" type="mir" />
+        <Content type="string">beautifl@mail.bg</Content>
+      </IndicatorItem>
+      <IndicatorItem id="16d4de4d-7146-4446-9a4a-1b67026cd52e" condition="is">
+        <Context document="Email" search="Email/From" type="mir" />
+        <Content type="string">fasionman@mail.bg</Content>
+      </IndicatorItem>
+      <IndicatorItem id="2778768f-96d7-44db-ac9d-03591ad8b852" condition="is">
+        <Context document="Email" search="Email/From" type="mir" />
+        <Content type="string">happylove@mail.bg</Content>
+      </IndicatorItem>
+      <IndicatorItem id="bbfeb79f-e62f-47a8-bab9-ce2272c177b2" condition="is">
+        <Context document="Email" search="Email/From" type="mir" />
+        <Content type="string">lovest000@mail.bg</Content>
+      </IndicatorItem>
+      <IndicatorItem id="a528ec10-8380-4444-94ae-31f7a7c3b438" condition="is">
+        <Context document="Email" search="Email/From" type="mir" />
+        <Content type="string">monneyman@mail.bg</Content>
+      </IndicatorItem>
+      <IndicatorItem id="008bfc12-499f-4d6b-8fa7-a174a4cfda38" condition="is">
+        <Context document="Email" search="Email/From" type="mir" />
+        <Content type="string">sportsman@mail.bg</Content>
+      </IndicatorItem>
+      <IndicatorItem id="0d6ea335-b267-49e7-9c45-5b92018fa053" condition="is">
+        <Context document="Email" search="Email/From" type="mir" />
+        <Content type="string">veryhappy@mail.bg</Content>
+      </IndicatorItem>
+      <IndicatorItem id="a7ce3e18-58a5-48da-973b-4151c46556ab" condition="is">
+        <Context document="Email" search="Email/From" type="mir" />
+        <Content type="string">iop110112@hotmail.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="ae3d6475-1e3c-4b8d-a16c-bf02bf8dc939" condition="is">
+        <Context document="Email" search="Email/From" type="mir" />
+        <Content type="string">rsh1213@hotmail.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="69566911-560d-4942-bd27-0f9b7e353790" condition="contains">
+        <Context document="Email" search="Email/To" type="mir" />
+        <Content type="string">rsh1213@hotmail.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="640925b4-77ac-4a05-829d-43cb0b3ab375" condition="contains">
+        <Context document="Email" search="Email/To" type="mir" />
+        <Content type="string">op110112@hotmail.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="6eb46692-d817-4717-ac13-61434a12f756" condition="is">
+        <Context document="FileItem" search="FileItem/FilePath" type="mir" />
+        <Content type="string">C:\Program Files\Common Files\System\Ole DB\</Content>
+      </IndicatorItem>
+      <IndicatorItem id="769bc478-4a34-42aa-a5d0-20944958b135" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">3baaf1a873304d2d607dbedf47d3e2b4</Content>
+      </IndicatorItem>
+      <IndicatorItem id="c34e34d3-4f54-458e-8a3c-ffa28a10c4ae" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">3195202066f026de3abfe2f966c9b304</Content>
+      </IndicatorItem>
+      <IndicatorItem id="ef6dad43-5351-4a21-9115-c0bab74104b3" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">f7faf77b1a2918ddf6b1ef344ae199d</Content>
+      </IndicatorItem>
+      <IndicatorItem id="b5a8d8b3-cddd-43be-ab94-127ca3127f7c" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">f68fa3d8886ef77e623e5d94e7db7e6c</Content>
+      </IndicatorItem>
+      <IndicatorItem id="54ac023e-28db-46cb-ab18-db394729b58a" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">96280f3f9fd8bdbe60a23fa621b85ab6</Content>
+      </IndicatorItem>
+      <IndicatorItem id="41859ab2-1440-48dc-b4d4-56342c67c40a" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">ffad0446f46d985660ce1337c9d5eaa2</Content>
+      </IndicatorItem>
+      <IndicatorItem id="d892537e-0bbb-4e1f-b66d-72b3d195ae52" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">69930320259ea525844d910a58285e15</Content>
+      </IndicatorItem>
+      <IndicatorItem id="919e590b-95e7-4bcd-a306-77e63f772faf" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">2173bbaea113e0c01722ff8bc2950b28</Content>
+      </IndicatorItem>
+      <IndicatorItem id="ee87ddd2-c649-4721-a92f-3bd3e3a3079d" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">3ae894917b1d8e4833688571a0573de4</Content>
+      </IndicatorItem>
+      <IndicatorItem id="73d0753d-066b-4b5a-98d6-91600c67bdcc" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">dbedadc1663abff34ea4bdc3a4e03f70</Content>
+      </IndicatorItem>
+      <IndicatorItem id="0a100dee-bf1e-4e14-8080-9c92d2198c21" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">ab73b1395938c48d62b7eeb5c9f3409d</Content>
+      </IndicatorItem>
+      <IndicatorItem id="52c02ffd-d27f-49a1-93c1-732d93848e73" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">81b484d3c5c347dc94e611bae3a636a3</Content>
+      </IndicatorItem>
+      <IndicatorItem id="95bf0d12-1a81-415b-9c65-c964b179ce03" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">637e0c6d18b4238ca3f85bcaec191291</Content>
+      </IndicatorItem>
+      <IndicatorItem id="a79a72ad-2786-499f-a5f1-7a3e19e289da" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">2a0b18fa0887bb014a344dc336ccdc8c</Content>
+      </IndicatorItem>
+      <IndicatorItem id="f33a7165-847d-45fa-9fb7-705965f4c881" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">122c523a383034a5baef2362cad53d57</Content>
+      </IndicatorItem>
+      <IndicatorItem id="058385ae-73a1-47f0-9990-fd0ab4412b19" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">8a85bd84c4d779bf62ff257d1d5ab88b</Content>
+      </IndicatorItem>
+      <IndicatorItem id="3757b31a-473d-4fb9-9ead-c94095a80620" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">f25c6f40340fcde742018012ea9451e0</Content>
+      </IndicatorItem>
+      <IndicatorItem id="dfa21a5e-257d-460a-ace2-60cdca29c747" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">d94f7a8e6b5d7fc239690a7e65ec1778</Content>
+      </IndicatorItem>
+      <IndicatorItem id="a9a81970-3239-4f70-b7f7-571dfa40e666" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">f1389f2151dc35f05901aba4e5e473c7</Content>
+      </IndicatorItem>
+      <IndicatorItem id="ffdfb905-cafe-4201-b846-651e6e0c91bc" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">b3caca978b75badffd965a88e08246b0</Content>
+      </IndicatorItem>
+      <IndicatorItem id="b808d22c-6272-426a-b8ee-0ba322698b52" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">4ea3958f941de606a1ffc527eec6963f</Content>
+      </IndicatorItem>
+      <IndicatorItem id="fa244343-5787-46b0-9702-fcd09e5140d6" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">4a1ac739cd2ca21ad656eaade01a3182</Content>
+      </IndicatorItem>
+      <IndicatorItem id="4c0b3d06-3f71-4a11-b77c-6223e31755aa" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">45448a53ec3db51818f57396be41f34f</Content>
+      </IndicatorItem>
+      <IndicatorItem id="09d95b29-e672-48f6-9be2-90477e89e452" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">80cba157c1cd8ea205007ce7b64e0c2a</Content>
+      </IndicatorItem>
+      <IndicatorItem id="386ea056-c7a9-4d21-9b69-b83bab14670d" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">d0af6b8bdc4766d1393722d2e67a657b</Content>
+      </IndicatorItem>
+      <IndicatorItem id="0b6afffd-06b2-445d-8ab0-f16fde7f4e99" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">5eef25dc875cfcb441b993f7de8c9805</Content>
+      </IndicatorItem>
+      <IndicatorItem id="8faef9ec-ed53-466f-9aa5-dee7ebb02e93" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">face9e96058d8fe9750d26dd1dd35876</Content>
+      </IndicatorItem>
+      <IndicatorItem id="2fc12a78-6bd4-4755-b1cf-ea520cbc3461" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">b20c5db37bda0db8eb1af8fc6e51e703</Content>
+      </IndicatorItem>
+      <IndicatorItem id="e1771355-947e-4fab-bd0f-84c0b7468e3f" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">173c1528dc6364c44e887a6c9bd3e07c</Content>
+      </IndicatorItem>
+      <IndicatorItem id="0aacadf5-3c25-435b-92b8-0f1281072549" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">4839370628678f0afe3e6875af010839</Content>
+      </IndicatorItem>
+      <IndicatorItem id="6189c917-b361-4197-a7a4-05c3ccbcb500" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir" />
+        <Content type="md5">191d2da5da0e37a3bb3cbca830a405ff</Content>
+      </IndicatorItem>
+      <IndicatorItem id="db342fea-3e63-4013-913e-cc09ae8bdb8f" condition="is">
+        <Context document="ServiceItem" search="ServiceItem/name" type="mir" />
+        <Content type="string">DriverManage</Content>
+      </IndicatorItem>
+      <IndicatorItem id="e04781ca-424b-48fe-adc2-c6d455a316c8" condition="is">
+        <Context document="ServiceItem" search="ServiceItem/name" type="mir" />
+        <Content type="string">WebService</Content>
+      </IndicatorItem>
+      <IndicatorItem id="6355df12-6402-46b3-8869-e1bf1647c1ae" condition="is">
+        <Context document="ServiceItem" search="ServiceItem/name" type="mir" />
+        <Content type="string">WebClientManager</Content>
+      </IndicatorItem>
+      <IndicatorItem id="cfe7c550-2192-45fd-9a65-a279c25bfd93" condition="is">
+        <Context document="ServiceItem" search="ServiceItem/name" type="mir" />
+        <Content type="string">Remote Access Service</Content>
+      </IndicatorItem>
+      <Indicator operator="AND" id="7449ce8c-3af4-4c60-8af9-8bcc744f7488">
+        <IndicatorItem id="89aff76a-e76f-47c9-bdb2-4cc61571ca7f" condition="contains">
+          <Context document="FileItem" search="FileItem/FilePath" type="mir" />
+          <Content type="string">system32</Content>
+        </IndicatorItem>
+        <Indicator operator="OR" id="7fa8bb70-0376-487f-b7dd-500d94d6aeb8">
+          <IndicatorItem id="d2ccb484-e529-43a0-85e4-9f36ff38ac1a" condition="is">
+            <Context document="FileItem" search="FileItem/FileName" type="mir" />
+            <Content type="string">kbdlv2.dll</Content>
+          </IndicatorItem>
+          <IndicatorItem id="02d9dc16-3cef-4e44-b66f-3bed1b0356e1" condition="is">
+            <Context document="FileItem" search="FileItem/FileName" type="mir" />
+            <Content type="string">auto.dll</Content>
+          </IndicatorItem>
+          <IndicatorItem id="fdc61e1a-3001-400b-bdbd-2a43c8dc3568" condition="is">
+            <Context document="FileItem" search="FileItem/FileName" type="mir" />
+            <Content type="string">netsvcs.exe</Content>
+          </IndicatorItem>
+          <IndicatorItem id="4c32fba8-ec34-4673-a501-f643a215ae03" condition="is">
+            <Context document="FileItem" search="FileItem/FileName" type="mir" />
+            <Content type="string">netsvcs_ko.dll</Content>
+          </IndicatorItem>
+          <IndicatorItem id="a5f2708e-847d-4e01-9f1e-88378e33c8cc" condition="is">
+            <Context document="FileItem" search="FileItem/FileName" type="mir" />
+            <Content type="string">vcmon.exe</Content>
+          </IndicatorItem>
+          <IndicatorItem id="4f8aa478-8bab-497a-9b4e-3ae57932e8f2" condition="is">
+            <Context document="FileItem" search="FileItem/FileName" type="mir" />
+            <Content type="string">svcsmon.exe</Content>
+          </IndicatorItem>
+          <IndicatorItem id="e5399a78-b701-4e83-a749-5ad345decf96" condition="is">
+            <Context document="FileItem" search="FileItem/FileName" type="mir" />
+            <Content type="string">svcsmon_ko.dll</Content>
+          </IndicatorItem>
+          <IndicatorItem id="c5cd6681-9148-421e-b806-43e8cc875b81" condition="is">
+            <Context document="FileItem" search="FileItem/FileName" type="mir" />
+            <Content type="string">wsmss.exe</Content>
+          </IndicatorItem>
+        </Indicator>
+      </Indicator>
+      <Indicator operator="AND" id="c33c7b61-b52d-4925-814c-30b2d7f3279b">
+        <Indicator operator="OR" id="bff105a2-1d6b-440f-8990-9b4bbd6ba27d">
+          <IndicatorItem id="eb8564b3-8da3-4671-b128-e525f07e332e" condition="contains">
+            <Context document="FileItem" search="FileItem/FilePath" type="mir" />
+            <Content type="string">winnt</Content>
+          </IndicatorItem>
+          <IndicatorItem id="92570477-6063-4b3c-8546-0963d5720484" condition="contains">
+            <Context document="FileItem" search="FileItem/FilePath" type="mir" />
+            <Content type="string">windows</Content>
+          </IndicatorItem>
+        </Indicator>
+        <Indicator operator="OR" id="3e16e035-5521-4011-a692-febd245377ed">
+          <IndicatorItem id="83a4123f-b640-4913-939b-803ec1cb459a" condition="is">
+            <Context document="FileItem" search="FileItem/FileName" type="mir" />
+            <Content type="string">taskmgr.exe</Content>
+          </IndicatorItem>
+          <IndicatorItem id="4d4c2b79-020c-4194-bca7-b8559ce8a9ba" condition="is">
+            <Context document="FileItem" search="FileItem/FileName" type="mir" />
+            <Content type="string">setup.log</Content>
+          </IndicatorItem>
+          <IndicatorItem id="2565149d-8c8b-4465-91bc-6117dc50e302" condition="is">
+            <Context document="FileItem" search="FileItem/FileName" type="mir" />
+            <Content type="string">winlog.txt</Content>
+          </IndicatorItem>
+          <IndicatorItem id="afb15e1a-38a0-4e59-9c30-e1e98f61430d" condition="is">
+            <Context document="FileItem" search="FileItem/FileName" type="mir" />
+            <Content type="string">update.log</Content>
+          </IndicatorItem>
+          <IndicatorItem id="7a595325-19d4-4fc1-9ac5-242d853b5522" condition="is">
+            <Context document="FileItem" search="FileItem/FileName" type="mir" />
+            <Content type="string">wmdns.log</Content>
+          </IndicatorItem>
+          <IndicatorItem id="983350c4-49e8-4883-975f-65586d05be46" condition="is">
+            <Context document="FileItem" search="FileItem/FileName" type="mir" />
+            <Content type="string">oledvbs.inc</Content>
+          </IndicatorItem>
+          <IndicatorItem id="beb6cd5f-1786-425e-ae89-5189df119c20" condition="is">
+            <Context document="FileItem" search="FileItem/FileName" type="mir" />
+            <Content type="string">weoig.log</Content>
+          </IndicatorItem>
+          <IndicatorItem id="67a6d4a1-f10a-4870-9c1a-4a14a0c41019" condition="is">
+            <Context document="FileItem" search="FileItem/FileName" type="mir" />
+            <Content type="string">data.dat</Content>
+          </IndicatorItem>
+          <IndicatorItem id="aceda7ab-e581-411a-8600-0354e7d142d2" condition="is">
+            <Context document="FileItem" search="FileItem/FileName" type="mir" />
+            <Content type="string">sys.log</Content>
+          </IndicatorItem>
+          <IndicatorItem id="7ba48c88-0944-42d2-9ba6-f254d9a7c9b4" condition="is">
+            <Context document="FileItem" search="FileItem/FileName" type="mir" />
+            <Content type="string">PcMon.exe</Content>
+          </IndicatorItem>
+          <IndicatorItem id="e06f5450-164f-46a9-9c28-01c2b060df23" condition="is">
+            <Context document="FileItem" search="FileItem/FileName" type="mir" />
+            <Content type="string">Google Update.exe</Content>
+          </IndicatorItem>
+          <IndicatorItem id="e73d580a-11ec-4ece-aae9-468b3535af71" condition="is">
+            <Context document="FileItem" search="FileItem/FileName" type="mir" />
+            <Content type="string">ReadMe.log</Content>
+          </IndicatorItem>
+          <IndicatorItem id="d658bb1c-6a6b-45da-ae77-500a3b28524a" condition="is">
+            <Context document="FileItem" search="FileItem/FileName" type="mir" />
+            <Content type="string">msdatt.bat</Content>
+          </IndicatorItem>
+          <IndicatorItem id="b192839b-7a36-4e2e-b06b-84f43e8edd21" condition="is">
+            <Context document="FileItem" search="FileItem/FileName" type="mir" />
+            <Content type="string">msdatl3.inc</Content>
+          </IndicatorItem>
+        </Indicator>
+      </Indicator>
+    </Indicator>
+  </definition>
+</ioc>
