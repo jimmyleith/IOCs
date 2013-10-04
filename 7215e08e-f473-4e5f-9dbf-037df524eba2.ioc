@@ -1,131 +1,132 @@
 <?xml version="1.0" encoding="us-ascii"?>
-<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="7215e08e-f473-4e5f-9dbf-037df524eba2" last-modified="2013-10-03T00:09:06" xmlns="http://schemas.mandiant.com/2010/ioc">
+<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="7215e08e-f473-4e5f-9dbf-037df524eba2" last-modified="2013-10-03T01:08:27" xmlns="http://schemas.mandiant.com/2010/ioc">
   <short_description>LuckyCat</short_description>
+  <authored_by>madvillain (villain@evilthings.org)</authored_by>
   <authored_date>2013-10-02T23:48:11</authored_date>
   <links />
   <definition>
     <Indicator operator="OR" id="325ac2c4-0e7c-4c02-9005-345c72e65275">
-      <IndicatorItem id="8b1a7a9c-cf10-42e8-a40a-43c1dd0ba205" condition="contains">
+      <IndicatorItem id="8b1a7a9c-cf10-42e8-a40a-43c1dd0ba205" condition="is">
         <Context document="Network" search="Network/DNS" type="mir" />
         <Content type="string">cattree.1x.biz</Content>
       </IndicatorItem>
-      <IndicatorItem id="27cb48f7-bba0-48fc-9ea5-bf514f14212c" condition="contains">
+      <IndicatorItem id="27cb48f7-bba0-48fc-9ea5-bf514f14212c" condition="is">
         <Context document="Network" search="Network/DNS" type="mir" />
         <Content type="string">charlesbrain.shop.co</Content>
       </IndicatorItem>
-      <IndicatorItem id="2b2733fd-5a98-4a78-87c2-6027037618ba" condition="contains">
+      <IndicatorItem id="2b2733fd-5a98-4a78-87c2-6027037618ba" condition="is">
         <Context document="Network" search="Network/DNS" type="mir" />
         <Content type="string">footballworldcup.website.org</Content>
       </IndicatorItem>
-      <IndicatorItem id="94009581-0395-4ae9-a016-40c37b289fe7" condition="contains">
+      <IndicatorItem id="94009581-0395-4ae9-a016-40c37b289fe7" condition="is">
         <Context document="Network" search="Network/DNS" type="mir" />
         <Content type="string">frankwhales.shop.co</Content>
       </IndicatorItem>
-      <IndicatorItem id="38a33e23-c732-4b10-bc87-434b8d059e7d" condition="contains">
+      <IndicatorItem id="38a33e23-c732-4b10-bc87-434b8d059e7d" condition="is">
         <Context document="Network" search="Network/DNS" type="mir" />
         <Content type="string">hi21222325.x.gg</Content>
       </IndicatorItem>
-      <IndicatorItem id="da931cdd-0ff1-4e57-a54b-ddf1c2b23639" condition="contains">
+      <IndicatorItem id="da931cdd-0ff1-4e57-a54b-ddf1c2b23639" condition="is">
         <Context document="Network" search="Network/DNS" type="mir" />
         <Content type="string">kinkeechow.shop.co</Content>
       </IndicatorItem>
-      <IndicatorItem id="d3a5c73b-3613-4710-8d78-004247889601" condition="contains">
+      <IndicatorItem id="d3a5c73b-3613-4710-8d78-004247889601" condition="is">
         <Context document="Network" search="Network/DNS" type="mir" />
         <Content type="string">kittyshop.kilu.org</Content>
       </IndicatorItem>
-      <IndicatorItem id="6e75807a-61b4-4dab-b5dc-f5f9b5ff7cf7" condition="contains">
+      <IndicatorItem id="6e75807a-61b4-4dab-b5dc-f5f9b5ff7cf7" condition="is">
         <Context document="Network" search="Network/DNS" type="mir" />
         <Content type="string">perfect.shop.co</Content>
       </IndicatorItem>
-      <IndicatorItem id="c6a68b15-27f7-4800-8aa7-a2c3e791f809" condition="contains">
+      <IndicatorItem id="c6a68b15-27f7-4800-8aa7-a2c3e791f809" condition="is">
         <Context document="Network" search="Network/DNS" type="mir" />
         <Content type="string">pumasports.website.org</Content>
       </IndicatorItem>
-      <IndicatorItem id="7b01d4d9-26bc-49f8-8591-496c6918ba59" condition="contains">
+      <IndicatorItem id="7b01d4d9-26bc-49f8-8591-496c6918ba59" condition="is">
         <Context document="Network" search="Network/DNS" type="mir" />
         <Content type="string">tomsburs.shop.co</Content>
       </IndicatorItem>
-      <IndicatorItem id="a98c1604-5733-406e-84a7-c24e2848dfde" condition="contains">
+      <IndicatorItem id="a98c1604-5733-406e-84a7-c24e2848dfde" condition="is">
         <Context document="Network" search="Network/DNS" type="mir" />
         <Content type="string">vpoasport.shopping2000.com</Content>
       </IndicatorItem>
-      <IndicatorItem id="2c27b99d-e173-4d3b-9306-8d1d567d23f1" condition="contains">
+      <IndicatorItem id="2c27b99d-e173-4d3b-9306-8d1d567d23f1" condition="is">
         <Context document="Network" search="Network/DNS" type="mir" />
         <Content type="string">goodwell.all.co.uk</Content>
       </IndicatorItem>
-      <IndicatorItem id="e983ddbb-bda8-4e93-ac80-83c281259716" condition="contains">
+      <IndicatorItem id="e983ddbb-bda8-4e93-ac80-83c281259716" condition="is">
         <Context document="Network" search="Network/DNS" type="mir" />
         <Content type="string">fireequipment.website.org</Content>
       </IndicatorItem>
-      <IndicatorItem id="572be3ac-e562-4360-8a29-533fa9efd6f8" condition="contains">
+      <IndicatorItem id="572be3ac-e562-4360-8a29-533fa9efd6f8" condition="is">
         <Context document="Network" search="Network/DNS" type="mir" />
         <Content type="string">tennissport.website.org</Content>
       </IndicatorItem>
-      <IndicatorItem id="a9293d6f-6342-4258-a636-350216944e47" condition="contains">
+      <IndicatorItem id="a9293d6f-6342-4258-a636-350216944e47" condition="is">
         <Context document="Network" search="Network/DNS" type="mir" />
         <Content type="string">waterpool.website.org</Content>
       </IndicatorItem>
-      <IndicatorItem id="9887f53b-5052-45aa-b0af-afb8e3bffd12" condition="contains">
+      <IndicatorItem id="9887f53b-5052-45aa-b0af-afb8e3bffd12" condition="is">
         <Context document="Network" search="Network/DNS" type="mir" />
         <Content type="string">tb123.xoomsite.com</Content>
       </IndicatorItem>
-      <IndicatorItem id="603d94f6-d8c7-41b2-9114-af8f236253c4" condition="contains">
+      <IndicatorItem id="603d94f6-d8c7-41b2-9114-af8f236253c4" condition="is">
         <Context document="Network" search="Network/DNS" type="mir" />
         <Content type="string">tbda123.gwchost.com</Content>
       </IndicatorItem>
-      <IndicatorItem id="f60ae38a-b5b7-4840-835b-295fb6048d4c" condition="contains">
+      <IndicatorItem id="f60ae38a-b5b7-4840-835b-295fb6048d4c" condition="is">
         <Context document="Network" search="Network/DNS" type="mir" />
         <Content type="string">toms.0fees.net</Content>
       </IndicatorItem>
-      <IndicatorItem id="b4bc2327-dfef-4501-8b50-20b189091bdb" condition="contains">
+      <IndicatorItem id="b4bc2327-dfef-4501-8b50-20b189091bdb" condition="is">
         <Context document="Network" search="Network/DNS" type="mir" />
         <Content type="string">tomygreen.0fees.net</Content>
       </IndicatorItem>
-      <IndicatorItem id="55578b0b-7ca7-48b3-b5de-1c97ec641756" condition="contains">
+      <IndicatorItem id="55578b0b-7ca7-48b3-b5de-1c97ec641756" condition="is">
         <Context document="Network" search="Network/DNS" type="mir" />
         <Content type="string">killmannets.0fees.net</Content>
       </IndicatorItem>
-      <IndicatorItem id="2a459ef9-3b58-4441-95fa-84cbde141f3b" condition="contains">
+      <IndicatorItem id="2a459ef9-3b58-4441-95fa-84cbde141f3b" condition="is">
         <Context document="Network" search="Network/DNS" type="mir" />
         <Content type="string">maritimemaster.kilu.org</Content>
       </IndicatorItem>
-      <IndicatorItem id="0149dcaf-d1d0-458b-8881-949d82866e0d" condition="contains">
+      <IndicatorItem id="0149dcaf-d1d0-458b-8881-949d82866e0d" condition="is">
         <Context document="Network" search="Network/DNS" type="mir" />
         <Content type="string">masterchoice.shop.co</Content>
       </IndicatorItem>
-      <IndicatorItem id="dc224c91-76a9-4e52-9d8a-2aac4a6a35b7" condition="contains">
+      <IndicatorItem id="dc224c91-76a9-4e52-9d8a-2aac4a6a35b7" condition="is">
         <Context document="Network" search="Network/DNS" type="mir" />
         <Content type="string">jeepvihecle.shop.co</Content>
       </IndicatorItem>
-      <IndicatorItem id="f5d98e56-9434-48af-be86-0890b3e512ee" condition="contains">
+      <IndicatorItem id="f5d98e56-9434-48af-be86-0890b3e512ee" condition="is">
         <Context document="Network" search="Network/DNS" type="mir" />
         <Content type="string">lucysmith.0fees.net</Content>
       </IndicatorItem>
-      <IndicatorItem id="e4e12a0f-1799-4bf9-bab3-e7d883f6e403" condition="contains">
+      <IndicatorItem id="e4e12a0f-1799-4bf9-bab3-e7d883f6e403" condition="is">
         <Context document="Network" search="Network/DNS" type="mir" />
         <Content type="string">fidk.rkntils.dnset.com</Content>
       </IndicatorItem>
-      <IndicatorItem id="77db1065-2498-4893-813c-6210e296e31e" condition="contains">
+      <IndicatorItem id="77db1065-2498-4893-813c-6210e296e31e" condition="is">
         <Context document="Network" search="Network/DNS" type="mir" />
         <Content type="string">rukiyeangel.dyndns.pro</Content>
       </IndicatorItem>
-      <IndicatorItem id="d10a5990-faba-4832-9175-20953a28305e" condition="contains">
+      <IndicatorItem id="d10a5990-faba-4832-9175-20953a28305e" condition="is">
         <Context document="Network" search="Network/DNS" type="mir" />
         <Content type="string">duojee.info</Content>
       </IndicatorItem>
-      <IndicatorItem id="27f17a99-f00a-4b17-b7cb-ce3066f349db" condition="contains">
+      <IndicatorItem id="27f17a99-f00a-4b17-b7cb-ce3066f349db" condition="is">
         <Context document="Network" search="Network/DNS" type="mir" />
         <Content type="string">bailianlan.c.dwyu.com</Content>
       </IndicatorItem>
-      <IndicatorItem id="613db6c8-2504-4574-bbfc-2e18eecde6dc" condition="contains">
+      <IndicatorItem id="613db6c8-2504-4574-bbfc-2e18eecde6dc" condition="is">
         <Context document="Network" search="Network/DNS" type="mir" />
         <Content type="string">clbest.greenglassint.net</Content>
       </IndicatorItem>
-      <IndicatorItem id="0d204f25-1305-4ce4-86cf-0bd4253f6401" condition="contains">
+      <IndicatorItem id="0d204f25-1305-4ce4-86cf-0bd4253f6401" condition="is">
         <Context document="PortItem" search="PortItem/remoteIP" type="mir" />
         <Content type="IP">69.162.71.254</Content>
       </IndicatorItem>
-      <IndicatorItem id="d583209f-1997-4467-b375-35f1ffc58dd4" condition="contains">
+      <IndicatorItem id="d583209f-1997-4467-b375-35f1ffc58dd4" condition="is">
         <Context document="PortItem" search="PortItem/remoteIP" type="mir" />
         <Content type="IP">199.192.152.100</Content>
       </IndicatorItem>
