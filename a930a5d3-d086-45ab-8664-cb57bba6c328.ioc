@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="a930a5d3-d086-45ab-8664-cb57bba6c328" last-modified="2013-10-03T01:08:13" xmlns="http://schemas.mandiant.com/2010/ioc">
+  <short_description>US-CERT RSA Indicators</short_description>
+  <authored_by>madvillain (villain@evilthings.org)</authored_by>
+  <authored_date>2013-10-03T01:05:06</authored_date>
+  <links />
+  <definition>
+    <Indicator operator="OR" id="eb7a462c-a1d5-44f0-bea4-da1ab7f6cc66">
+      <IndicatorItem id="4120b0cc-f885-4742-8334-5e67b9764b91" condition="is">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">good.mincesur.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="2f308ba2-eb59-43b4-abd8-c9736ff16be4" condition="is">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">football.dynamiclink.ddns.us</Content>
+      </IndicatorItem>
+      <IndicatorItem id="83064e9c-e72a-429f-acf3-5a57dae53215" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">alvinton.jetos.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="b1f83edd-6734-4acb-a9e1-52d7bc09b72a" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">superaround.ns02.biz</Content>
+      </IndicatorItem>
+      <IndicatorItem id="a3ac70f8-d508-4542-81df-5e75c7d123da" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">prc.dynamiclink.ddns.us</Content>
+      </IndicatorItem>
+      <IndicatorItem id="1ddee181-2213-475c-a183-ef7a051e924e" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">smtp.dynamiclink.ddns.us</Content>
+      </IndicatorItem>
+      <IndicatorItem id="48b92a40-548e-4a01-8bb8-81f00e394a46" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">www.cz88.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="d920cba2-54d4-4d50-8be5-e36243b10dd9" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">www.alvinton.jetos.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="8fe8f5f9-d462-4773-bce1-3330c4dd7f85" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">obama.servehttp.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="2bce7376-5a59-42be-9581-10655f3546bc" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">domikstart.hopto.org</Content>
+      </IndicatorItem>
+      <IndicatorItem id="0298ecff-28f3-4d02-8950-6a884eb7c53d" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">Buffet80.itsaol.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="2940aba7-a640-4915-95da-536c358b1ab7" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">www.cometoway.org</Content>
+      </IndicatorItem>
+      <IndicatorItem id="3d696556-a555-4468-95e8-960791f11002" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">buffet.bbsindex.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="de9c2c87-ab9c-4388-981f-3862fd99065b" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">safecheck.organiccrap.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="9fe72aaa-506c-4aee-8f72-7a63e44023a5" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">free2.77169.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="7568ad8f-a21d-4056-83cd-5b33d3c22259" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">Billgates.itsAOL.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="0bce3296-5f52-4916-bc86-fd1e3ccff3fc" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">agoogle.in</Content>
+      </IndicatorItem>
+      <IndicatorItem id="bdaed70e-295a-4c00-a955-df6cfab74841" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">albertstein.ddns.us</Content>
+      </IndicatorItem>
+      <IndicatorItem id="82d4d877-b471-4ef7-996f-b0bba56deef8" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">Blizzcon.sexxxy.biz</Content>
+      </IndicatorItem>
+      <IndicatorItem id="d42eb539-3959-498d-998c-f5fc05674dd0" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">Blizzcon.sexidude.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="99ea82ad-c9db-4431-b741-ec54f4b87ac2" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">ftp.xmahome.ocry.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="08864817-4fef-405a-a90e-6de5b0908713" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">up82673.hopto.org</Content>
+      </IndicatorItem>
+      <IndicatorItem id="b454299e-f163-498e-88c9-e0cbbd351171" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">www.usgoodluck.com </Content>
+      </IndicatorItem>
+    </Indicator>
+  </definition>
+</ioc>
