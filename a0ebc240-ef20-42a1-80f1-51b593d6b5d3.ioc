@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="a0ebc240-ef20-42a1-80f1-51b593d6b5d3" last-modified="2013-10-03T06:11:52" xmlns="http://schemas.mandiant.com/2010/ioc">
+  <short_description>FAKEM RAT</short_description>
+  <description>related to the FAKEM RAT campaign (http://www.trendmicro.com/cloud-content/us/pdfs/security-intelligence/white-papers/wp-fakem-rat.pdf)</description>
+  <authored_by>madvillain (villain@evilthings.org)</authored_by>
+  <authored_date>2013-10-03T06:04:43</authored_date>
+  <links />
+  <definition>
+    <Indicator operator="OR" id="4f310e73-0600-4b7c-addc-76c528b369dd">
+      <IndicatorItem id="b440a2e8-8d7d-4bd4-bb27-1d18eee4a231" condition="is">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">freeavg.sytes.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="40791d1e-60ca-44d5-bbb3-e9b586060e66" condition="is">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">vcvcvcvc.dyndns.org</Content>
+      </IndicatorItem>
+      <IndicatorItem id="c46e5790-cd06-4921-ae43-a4c8a6ee4db8" condition="is">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">zjhao.dtdns.net</Content>
+      </IndicatorItem>
+      <IndicatorItem id="4530bd65-b648-4973-bf57-1229d74d713d" condition="is">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">avira.suroot.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="b855f0bc-36df-4d01-a50b-34b78211462c" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">.googmail.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="d70abe80-0aef-4971-82ea-185aac8fbc2d" condition="is">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">apple12.crabdance.com</Content>
+      </IndicatorItem>
+      <IndicatorItem id="208a11db-727e-47d4-b413-3022ce38cf01" condition="is">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">apple12.co.cc</Content>
+      </IndicatorItem>
+      <IndicatorItem id="e84a494f-9849-45cf-9838-9e770a986877" condition="contains">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">.yourturbe.org</Content>
+      </IndicatorItem>
+      <IndicatorItem id="1da66aa3-48e9-48be-aa86-7d6c1d33dd70" condition="is">
+        <Context document="Network" search="Network/DNS" type="mir" />
+        <Content type="string">endless.zapto.org</Content>
+      </IndicatorItem>
+      <Indicator operator="AND" id="afbc5cb2-af27-476c-bffa-1065676935b6">
+        <IndicatorItem id="ab541a5a-040a-4b3c-b7c0-e124b3f20802" condition="contains">
+          <Context document="FileItem" search="FileItem/FilePath" type="mir" />
+          <Content type="string">system32</Content>
+        </IndicatorItem>
+        <IndicatorItem id="2210d306-c88d-4dc4-93e0-0594b05e7a09" condition="contains">
+          <Context document="FileItem" search="FileItem/FileName" type="mir" />
+          <Content type="string">tpframe.exe</Content>
+        </IndicatorItem>
+      </Indicator>
+      <Indicator operator="AND" id="1105f49a-3629-4599-90d1-abc55134b91a">
+        <IndicatorItem id="575d28e5-54c8-45e2-a8f0-338366f6ce47" condition="contains">
+          <Context document="RegistryItem" search="RegistryItem/Path" type="mir" />
+          <Content type="string">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\Explorer\run</Content>
+        </IndicatorItem>
+        <IndicatorItem id="547de266-5c39-4f4a-9465-a1e69fce8bae" condition="contains">
+          <Context document="RegistryItem" search="RegistryItem/Value" type="mir" />
+          <Content type="string">tpbar</Content>
+        </IndicatorItem>
+      </Indicator>
+    </Indicator>
+  </definition>
+</ioc>
